@@ -1,4 +1,13 @@
 <x-guest-layout>
+@if ($errors->any())
+        <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
                 <div class="container">
@@ -9,7 +18,7 @@
                                     <h3 class="text-center font-weight-light my-4">{{ __('Create Account') }}</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" action="{{ route('register') }}">
                                         @csrf
                                         <div class="row mb-3">
                                             <div class="col-md-6">
@@ -34,7 +43,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputCity" type="text" name="company"  placeholder/>
+                                                    <input class="form-control" id="inputCity" type="text" name="city"  placeholder/>
                                                     <label for="inputCity">{{ __('City') }}</label>
                                                 </div>
                                             </div>
