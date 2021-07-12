@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\StatisticUsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,7 @@ require __DIR__ . '/auth.php';
 Route::get('/dashboard', [ClientController::class, 'index'])
 	->middleware('auth:client')
 	->name('dashboard');
+
+Route::get('/statistic/users', [StatisticUsersController::class, 'index'])
+	->middleware('auth:client')
+	->name('statistic.users');
