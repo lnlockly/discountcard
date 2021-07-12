@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
  */
 require __DIR__ . '/auth.php';
 
-Route::get('/dashboard', function () {
-	return view('client.dashboard');
-})->middleware(['auth:client'])->name('dashboard');
+Route::get('/dashboard', [ClientController::class, 'index'])
+	->middleware('auth:client')
+	->name('dashboard');

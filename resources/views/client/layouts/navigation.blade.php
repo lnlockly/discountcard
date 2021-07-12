@@ -27,7 +27,7 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <a class="nav-link mt-2" href="{{ route('dashboard') }}">
+                    <a class="nav-link mt-3" href="{{ route('dashboard') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         {{ __('Dashboard') }}
                     </a>
