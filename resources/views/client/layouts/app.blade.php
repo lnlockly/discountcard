@@ -22,7 +22,7 @@
     </head>
     <body class="sb-nav-fixed">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            @include('client.layouts.navigation')
 
             <!-- Page Content -->
             <main>
