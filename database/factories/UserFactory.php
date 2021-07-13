@@ -25,7 +25,6 @@ class UserFactory extends Factory {
 			'last_name' => $this->faker->lastName(),
 			'nof_stamps' => rand(1, 10),
 			'nof_gifts' => rand(1, 10),
-			'nof_stamps_all' => rand(10, 20),
 			'webpush' => true,
 			'email' => $this->faker->unique()->safeEmail(),
 			'email_verified_at' => now(),
