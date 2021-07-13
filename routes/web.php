@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\ManagerController;
 use App\Http\Controllers\Client\StatisticUsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,11 @@ Route::middleware('auth:client')->group(function () {
 
 	Route::get('/users/{id}', [StatisticUsersController::class, 'show'])
 		->name('statistic.users.show');
+
+	Route::get('/managers', [ManagerController::class, 'index'])
+		->name('managers');
+
+	Route::post('/managers/store', [ManagerController::class, 'store'])
+		->name('managers.store');
 
 });

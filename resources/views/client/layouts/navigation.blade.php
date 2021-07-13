@@ -47,7 +47,7 @@
                         {{ __('Statistic') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ route('managers') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                         {{ __('Managers') }}
                     </a>

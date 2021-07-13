@@ -27,6 +27,10 @@ class Client extends Authenticatable {
 	public function card() {
 		return $this->hasOne(Card::class);
 	}
+
+	public function managers() {
+		return $this->hasMany(Manager::class);
+	}
 	protected $guard = 'clients';
 	/**
 	 * The attributes that should be hidden for arrays.

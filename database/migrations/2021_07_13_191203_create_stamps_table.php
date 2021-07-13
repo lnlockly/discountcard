@@ -15,6 +15,8 @@ class CreateStampsTable extends Migration {
 			$table->id();
 			$table->integer('manager_id')->unsigned()->nullable();;
 			$table->foreign('manager_id')->references('id')->on('managers')->onDelete('set null');
+			$table->integer('card_id')->unsigned()->nullable();
+			$table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
