@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
  */
 require __DIR__ . '/auth.php';
 
-Route::get('/dashboard', [ClientController::class, 'index'])
-	->middleware('auth:client')
-	->name('dashboard');
+Route::middleware('auth:client')->group(function () {
+	Route::get('/dashboard', [ClientController::class, 'index'])
+		->name('dashboard');
 
-Route::get('/statistic/users', [StatisticUsersController::class, 'index'])
-	->middleware('auth:client')
-	->name('statistic.users');
+	Route::get('/users', [StatisticUsersController::class, 'index'])
+		->name('statistic.users');
+
+	Route::get('/users/{id}', [StatisticUsersController::class, 'show'])
+		->name('statistic.users.show');
+
+});

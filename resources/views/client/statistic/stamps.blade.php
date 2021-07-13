@@ -2,7 +2,7 @@
 	<div id="layoutSidenav">
 	<div id="layoutSidenav_content">
 	  <div class="container-fluid px-4">
-                        <h1 class="mt-4">{{ __('Users') }}</h1>
+                        <h1 class="mt-4">{{ $user->first_name $user->last_name }}</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
                             <li class="breadcrumb-item active">{{ __('Users') }}</li>
@@ -10,32 +10,23 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                {{ __('Users') }}
+                                {{ __('Stamps history') }}
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple" data-page-length='1'>
                                     <thead>
                                         <tr>
-                                            <th>{{ __('First name') }}</th>
-                                            <th>{{ __('Last name') }}</th>
-                                            <th>{{ __('Email') }}</th>
-                                            <th>{{ __('Registration date') }}</th>
-                                            <th>{{ __('Stamps') }}</th>
-                                            <th>{{ __('Gifts') }}</th>
-                                            <th>{{ __('Web push') }}</th>
+                                            <th>{{ __('Received at') }}</th>
+                                            <th>{{ __('Manager') }}</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                    	@foreach ($users as $user)
+                                    	@foreach ($stamps as $stamp)
                                         <tr>
-                                            <td>{{ $user->first_name }}</td>
-                                            <td>{{ $user->last_name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                            <td><a class="btn btn-primary btn-sm" href="{{ route('statistic.users.show', [$user->id] ) }}">{{ $user->nof_stamps_all }} </a></td>
-                                            <td>{{ $user->nof_gifts }}</td>
-                                            <td>{{ $user->webpush }}</td>
+                                            <td>{{ $stamp->created_at }}</td>
+                                            <td>{{ $stamp->manager->name }}</td>
+
                                         </tr>
                                         @endforeach
 

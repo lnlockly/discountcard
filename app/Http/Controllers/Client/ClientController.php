@@ -15,7 +15,7 @@ class ClientController extends Controller {
 		}
 		$users = $card->users;
 		$users_count = $users->count();
-		$stamps_sum = $users->sum('nof_stamps_all');
+		$stamps_sum = $users->stamps->count();
 		$gifts_sum = $users->sum('nof_gifts');
 
 		return view('client.dashboard', [

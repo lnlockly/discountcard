@@ -37,17 +37,15 @@
                         {{ __('Card') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseStats" aria-expanded="false" aria-controls="collapseStats">
+                    <a class="nav-link" href="{{ route('statistic.users') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        {{ __('Users') }}
+                    </a>
+                    <div class="sb-sidenav-menu-heading"></div>
+                    <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         {{ __('Statistic') }}
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="collapseStats" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">{{ __('Card') }}</a>
-                            <a class="nav-link" href="{{ route('statistic.users') }}">{{ __('Users') }}</a>
-                        </nav>
-                    </div>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
