@@ -13,6 +13,8 @@ class CreateStampsTable extends Migration {
 	public function up() {
 		Schema::create('stamps', function (Blueprint $table) {
 			$table->id();
+			$table->integer('user_id')->unsigned()->nullable();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->integer('manager_id')->unsigned()->nullable();;
 			$table->foreign('manager_id')->references('id')->on('managers')->onDelete('set null');
 			$table->integer('card_id')->unsigned()->nullable();

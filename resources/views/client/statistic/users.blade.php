@@ -33,7 +33,10 @@
                                             <td>{{ $user->last_name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at }}</td>
-                                            <td><a class="btn btn-primary btn-sm" href="{{ route('statistic.users.show', [$user->id] ) }}">{{ $user->nof_stamps_all }} </a></td>
+                                            <td><a class="btn btn-primary btn-sm" href="{{ route('statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
+                                            @else 0
+                                            @endif
+                                             </a></td>
                                             <td>{{ $user->nof_gifts }}</td>
                                             <td>{{ $user->webpush }}</td>
                                         </tr>
