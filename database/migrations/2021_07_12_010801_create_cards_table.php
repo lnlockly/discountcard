@@ -19,6 +19,7 @@ class CreateCardsTable extends Migration {
 			$table->string('body_header');
 			$table->integer('stamps');
 			$table->string('stamp_icon');
+			$table->integer('gift_price');
 			$table->string('condition');
 			$table->string('description');
 			$table->string('card_use');

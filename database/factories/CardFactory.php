@@ -27,6 +27,7 @@ class CardFactory extends Factory {
 			'body_header' => $this->faker->name(),
 			'stamps' => rand(1, 10),
 			'stamp_icon' => $this->faker->name(),
+			'gift_price' => 100,
 			'condition' => Str::random(10),
 			'description' => Str::random(10),
 			'card_use' => Str::random(10),

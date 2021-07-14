@@ -41,7 +41,7 @@
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">3400</h5>
+                                    <h5 class="card-title">{{ $gifts_amount ?? 0 }} </h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <div class="small text-white">{{ __('Gifts price') }}</div>

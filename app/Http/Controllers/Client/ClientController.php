@@ -17,12 +17,14 @@ class ClientController extends Controller {
 		$users_count = $users->count();
 		$stamps_sum = $card->stamps()->count();
 		$gifts_sum = $users->sum('nof_gifts');
+		$gifts_amount = $card->gift_price * $gifts_sum;
 
 		return view('client.dashboard', [
 			'client' => $client,
 			'users_count' => $users_count,
 			'stamps_sum' => $stamps_sum,
 			'gifts_sum' => $gifts_sum,
+			'gifts_amount' => $gifts_amount,
 		]);
 	}
 }
