@@ -42,7 +42,7 @@
                         {{ __('Users') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ route('statistic.card') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         {{ __('Statistic') }}
                     </a>

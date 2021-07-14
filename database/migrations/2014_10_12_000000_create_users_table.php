@@ -19,10 +19,11 @@ class CreateUsersTable extends Migration {
 			$table->integer('nof_gifts');
 			$table->boolean('webpush');
 			$table->string('email')->unique();
+			$table->timestamp('cardact_at')->nullable();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
 			$table->rememberToken();
-			$table->integer('card_id')->unsigned();
+			$table->integer('card_id')->unsigned()->nullable();
 			$table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
 
 			$table->timestamps();

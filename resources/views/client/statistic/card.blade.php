@@ -2,40 +2,31 @@
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <div class="container-fluid px-4">
-                <h1 class="mt-4">{{ __('Managers') }}</h1>
+                <h1 class="mt-4">{{ __('Gifts') }}</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
-                    <li class="breadcrumb-item active">{{ __('Managers') }}</li>
+                    <li class="breadcrumb-item active">{{ __('Gifts') }}</li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        {{ __('Managers') }}
+                        {{ __('Gifts history') }}
                     </div>
-                    <form method="post" action="{{ route('managers.store') }}">
-                        @csrf
-                        <div class="input-group mb-3 mt-2">
-                            <input type="text" class="form-control" placeholder="{{ __('Manager name') }}" aria-describedby="add-manager" name="name">
-                            <button class="btn btn-outline-secondary" id="add-manager" type="submit">Add manager</button>
-                        </div>
-                    </form>
                     <div class="card-body">
                         <table id="datatablesSimple" data-page-length='1'>
                             <thead>
                                 <tr>
-                                    <th>{{ __('Name') }}</th>
-                                    <th>{{ __('Key') }}</th>
-                                    <th>{{ __('Created at') }}</th>
-                                    <th>{{ __('Stamps') }}</th>
+                                    <th>{{ __('Number') }}</th>
+                                    <th>{{ __('Received at') }}</th>
+                                    <th>{{ __('User') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($managers as $manager)
+                                @foreach ($gifts ?? [] as $gift)
                                 <tr>
-                                    <td>{{ $manager->name }}</td>
-                                    <td>{{ $manager->key }}</td>
-                                    <td>{{ $manager->created_at }}</td>
-                                    <td>{{ $manager->stamps->count() }}</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $gift->created_at }}</td>
+                                    <td><a href="{{ route('statistic.users.show', [$gift->user->id] ) }}">{{ $gift->user->first_name }} {{ $gift->user->last_name }}</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -53,7 +44,7 @@
         const datatablesSimple = document.getElementById('datatablesSimple');
         if (datatablesSimple) {
             new simpleDatatables.DataTable(datatablesSimple, {
-                paging: false,
+                paging: false
             });
         }
     });
@@ -63,6 +54,5 @@
     .dataTable-search {
         display: none;
     }
-
     </style>
 </x-app-layout>

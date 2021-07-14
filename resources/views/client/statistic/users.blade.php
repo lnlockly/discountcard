@@ -20,6 +20,7 @@
                                             <th>{{ __('Last name') }}</th>
                                             <th>{{ __('Email') }}</th>
                                             <th>{{ __('Registration date') }}</th>
+                                            <th>{{ __('Card activation date') }}</th>
                                             <th>{{ __('Stamps') }}</th>
                                             <th>{{ __('Gifts') }}</th>
                                             <th>{{ __('Web push') }}</th>
@@ -27,12 +28,13 @@
                                     </thead>
 
                                     <tbody>
-                                    	@foreach ($users as $user)
+                                    	@foreach ($users ?? [] as $user)
                                         <tr>
                                             <td>{{ $user->first_name }}</td>
                                             <td>{{ $user->last_name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at }}</td>
+                                            <td>{{ $user->cardact_at }}</td>
                                             <td><a class="btn btn-primary btn-sm" href="{{ route('statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
                                             @else 0
                                             @endif

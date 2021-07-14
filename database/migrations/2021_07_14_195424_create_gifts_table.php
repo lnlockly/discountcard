@@ -4,20 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStampsTable extends Migration {
+class CreateGiftsTable extends Migration {
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('stamps', function (Blueprint $table) {
+		Schema::create('gifts', function (Blueprint $table) {
 			$table->id();
 			$table->integer('user_id')->unsigned()->nullable();
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-			$table->integer('manager_id')->unsigned()->nullable();
-			$table->foreign('manager_id')->references('id')->on('managers')->onDelete('set null');
-			$table->integer('card_id')->unsigned()->nullable();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+			$table->integer('card_id')->unsigned();
 			$table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
 			$table->timestamps();
 		});
@@ -29,6 +27,6 @@ class CreateStampsTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('stamps');
+		Schema::dropIfExists('gifts');
 	}
 }

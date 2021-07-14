@@ -17,8 +17,10 @@ class StatisticUsersController extends Controller {
 
 	public function show($id) {
 		$user = User::find($id);
+		$stamps = $user->stamps;
 		return view('client.statistic.stamps', [
 			'user' => $user,
+			'stamps' => $stamps,
 		]);
 	}
 }

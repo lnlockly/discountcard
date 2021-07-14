@@ -42,4 +42,7 @@ class User extends Authenticatable {
 	public function stamps() {
 		return $this->hasMany(Stamp::class);
 	}
+	public function gifts() {
+		return $this->hasMany(Gift::class);
+	}
 }

@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Card;
+use App\Models\Gift;
+use App\Models\Stamp;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -11,7 +15,10 @@ class DatabaseSeeder extends Seeder {
 	 * @return void
 	 */
 	public function run() {
-		\App\Models\Card::factory(1)->hasUsers(5)
+		Card::factory(1)
+			->has(User::factory(10))
+			->has(Stamp::factory(100))
+			->has(Gift::factory(rand(10, 15)))
 			->create();
 	}
 }

@@ -15,4 +15,9 @@ class Card extends Model {
 	public function stamps() {
 		return $this->hasMany(Stamp::class);
 	}
+
+	public function gifts() {
+		return $this->hasMany(Gift::class);
+	}
+
 }
