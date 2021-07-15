@@ -4,7 +4,7 @@
 	  <div class="container-fluid px-4">
                         <h1 class="mt-4">{{ __('Users') }}</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('Dashboard') }}</a></li>
                             <li class="breadcrumb-item active">{{ __('Users') }}</li>
                         </ol>
                         <div class="card mb-4">
@@ -35,7 +35,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at }}</td>
                                             <td>{{ $user->cardact_at }}</td>
-                                            <td><a class="btn btn-primary btn-sm" href="{{ route('statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
+                                            <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
                                             @else 0
                                             @endif
                                              </a></td>

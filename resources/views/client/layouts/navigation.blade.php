@@ -1,16 +1,11 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{ route('dashboard') }}">Discountcard manage</a>
+    <a class="navbar-brand ps-3" href="{{ route('client.dashboard') }}">Discountcard manage</a>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                <li>
-                    <hr class="dropdown-divider" />
-                </li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li><button onclick="event.preventDefault();
@@ -27,7 +22,7 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <a class="nav-link mt-3" href="{{ route('dashboard') }}">
+                    <a class="nav-link mt-3" href="{{ route('client.dashboard') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         {{ __('Dashboard') }}
                     </a>
@@ -37,17 +32,17 @@
                         {{ __('Card') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="{{ route('statistic.users') }}">
+                    <a class="nav-link" href="{{ route('client.statistic.users') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         {{ __('Users') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="{{ route('statistic.card') }}">
+                    <a class="nav-link" href="{{ route('client.statistic.card') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         {{ __('Statistic') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="{{ route('managers') }}">
+                    <a class="nav-link" href="{{ route('client.managers') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                         {{ __('Managers') }}
                     </a>

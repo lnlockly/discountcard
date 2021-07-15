@@ -4,7 +4,7 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">{{ __('Managers') }}</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('Dashboard') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('Managers') }}</li>
                 </ol>
                 <div class="card mb-4">
@@ -12,7 +12,7 @@
                         <i class="fas fa-table me-1"></i>
                         {{ __('Managers') }}
                     </div>
-                    <form method="post" action="{{ route('managers.store') }}">
+                    <form method="post" action="{{ route('client.managers.store') }}">
                         @csrf
                         <div class="input-group mb-3 mt-2">
                             <input type="text" class="form-control" placeholder="{{ __('Manager name') }}" aria-describedby="add-manager" name="name">

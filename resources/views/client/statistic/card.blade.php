@@ -4,7 +4,7 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">{{ __('Gifts') }}</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('Dashboard') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('Gifts') }}</li>
                 </ol>
                 <div class="card mb-4">
@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $gift->created_at }}</td>
-                                    <td><a href="{{ route('statistic.users.show', [$gift->user->id] ) }}">{{ $gift->user->first_name }} {{ $gift->user->last_name }}</a></td>
+                                    <td><a href="{{ route('client.statistic.users.show', [$gift->user->id] ) }}">{{ $gift->user->first_name }} {{ $gift->user->last_name }}</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

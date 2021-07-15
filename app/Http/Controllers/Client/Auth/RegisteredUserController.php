@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Client\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,6 +57,6 @@ class RegisteredUserController extends Controller {
 		Auth::guard('client')
 			->attempt($request->only(['email', 'password']));
 
-		return redirect(RouteServiceProvider::HOME);
+		return redirect()->route('client.dashboard');
 	}
 }

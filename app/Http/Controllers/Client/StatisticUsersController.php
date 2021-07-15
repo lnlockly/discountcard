@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class StatisticUsersController extends Controller {
 	public function index() {
 		$client = Auth::user();
+
 		$users = $client->card->users;
 		return view('client.statistic.users', [
 			'users' => $users,

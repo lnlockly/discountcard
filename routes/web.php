@@ -18,23 +18,24 @@ use Illuminate\Support\Facades\Route;
  */
 require __DIR__ . '/auth.php';
 
-Route::middleware('auth:client')->group(function () {
-	Route::get('/dashboard', [ClientController::class, 'index'])
-		->name('dashboard');
+Route::group(['middleware' => 'auth:client', 'prefix' => 'client', 'as' => 'client.'],
+	function () {
+		Route::get('/dashboard', [ClientController::class, 'index'])
+			->name('dashboard');
 
-	Route::get('/users', [StatisticUsersController::class, 'index'])
-		->name('statistic.users');
+		Route::get('/users', [StatisticUsersController::class, 'index'])
+			->name('statistic.users');
 
-	Route::get('/users/{id}', [StatisticUsersController::class, 'show'])
-		->name('statistic.users.show');
+		Route::get('/users/{id}', [StatisticUsersController::class, 'show'])
+			->name('statistic.users.show');
 
-	Route::get('/statistic', [StatisticGiftsController::class, 'index'])
-		->name('statistic.card');
+		Route::get('/statistic', [StatisticGiftsController::class, 'index'])
+			->name('statistic.card');
 
-	Route::get('/managers', [ManagerController::class, 'index'])
-		->name('managers');
+		Route::get('/managers', [ManagerController::class, 'index'])
+			->name('managers');
 
-	Route::post('/managers/store', [ManagerController::class, 'store'])
-		->name('managers.store');
+		Route::post('/managers/store', [ManagerController::class, 'store'])
+			->name('managers.store');
 
-});
+	});

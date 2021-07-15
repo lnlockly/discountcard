@@ -4,7 +4,7 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">{{ $user->first_name }} {{ $user->last_name }}</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('Dashboard') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('Users') }}</li>
                 </ol>
                 <div class="card mb-4">
