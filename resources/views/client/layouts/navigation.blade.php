@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li><button onclick="event.preventDefault();
-                                                this.closest('form').submit();" class="dropdown-item">Logout</button></li>
+                                                this.closest('form').submit();" class="dropdown-item">{{ __('Logout') }}</button></li>
                 </form>
             </ul>
         </li>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
+                <div class="small">{{ __('Logged in as') }}:</div>
                 {{ Auth::user()-> first_name }} {{ Auth::user()-> last_name }}
             </div>
         </nav>
