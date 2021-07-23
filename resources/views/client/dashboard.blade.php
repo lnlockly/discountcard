@@ -41,6 +41,7 @@
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
                                 <div class="card-body">
+                                      {!! QrCode::size(100)->generate(url("/{$gifts_amount}")); !!}
                                     <h5 class="card-title">{{ $gifts_amount ?? 0 }} </h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">

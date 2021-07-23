@@ -24,7 +24,7 @@ class CardFactory extends Factory {
 			'name' => $this->faker->name(),
 			'logo' => $this->faker->name(),
 			'color_header' => $this->faker->name(),
-			'body_header' => $this->faker->name(),
+			'color_body' => $this->faker->name(),
 			'stamps' => rand(1, 10),
 			'stamp_icon' => $this->faker->name(),
 			'gift_price' => 100,
