@@ -16,7 +16,7 @@ class CreateCardsTable extends Migration {
 			$table->string('name');
 			$table->string('logo');
 			$table->string('color_header');
-			$table->string('body_header');
+			$table->string('color_body');
 			$table->integer('stamps');
 			$table->string('stamp_icon');
 			$table->integer('gift_price');

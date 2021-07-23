@@ -16,7 +16,7 @@
                         @csrf
                         <div class="input-group mb-3 mt-2">
                             <input type="text" class="form-control" placeholder="{{ __('Manager name') }}" aria-describedby="add-manager" name="name">
-                            <button class="btn btn-outline-secondary" id="add-manager" type="submit">Add manager</button>
+                            <button class="btn btn-outline-secondary" id="add-manager" type="submit"> {{ __('Add manager') }}</button>
                         </div>
                     </form>
                     <div class="card-body">
