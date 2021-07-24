@@ -41,7 +41,6 @@
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
                                 <div class="card-body">
-                                      {!! QrCode::size(100)->generate(url("/{$gifts_amount}")); !!}
                                     <h5 class="card-title">{{ $gifts_amount ?? 0 }} </h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
@@ -50,32 +49,32 @@
                             </div>
                         </div>
                     </div>
-                  <!--   <div class="row">
+                    <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-area me-1"></i>
-                                    Area Chart Example
+                                    <i class="fas fa-qrcode"></i>
+                                    {{ __('QR-Code') }}
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body">
+                                    <div class="text-center">{!! QrCode::size(200)->generate(url("/{$gifts_amount}")); !!}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Bar Chart Example
+                                    <i class="fas fa-link"></i>
+                                    {{ __('Card link') }}
                                 </div>
-                              </div>
+                                <div class="card-body">
+                                    <a href="{{ url('/{$gifts_amount}') }}">{{ url("/{$gifts_amount}") }}</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            DataTable Example
-                        </div>
-                    </div>
-                </div> -->
+                </div>
             </main>
         </div>
     </div>
