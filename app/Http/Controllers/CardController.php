@@ -24,7 +24,21 @@ class CardController extends Controller {
 			'contact' => 'required|string|max:500',
 		]);
 
-		Card::create($request->all());
+
+		
+		Card::create([
+			'name' => $request->name,
+			'logo' => ,
+			'color_header' => $request->color_header,
+			'color_body' => $request->color_body,
+			'stamps' => $request->stamps,
+			'stamp_icon' => $request->stamp_icon,
+			'gift_price' => $request->gift_price,
+			'condition' => $request->condition,
+			'desctiption' => $request->desctiption,
+			'card_use' => $request->card_use,
+			'contact' => $request->contact
+		]); 
 
 		return route('client.dashboard');
 	}
