@@ -24,8 +24,11 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "@inertiajs/inertia": "^0.10.0",
+        "@inertiajs/inertia-vue": "^0.7.1",
         "@popperjs/core": "^2.9.2",
         "bootstrap5": "^1.1.9",
-        "startbootstrap-sb-admin": "^7.0.2"
+        "startbootstrap-sb-admin": "^7.0.2",
+        "vue": "^2.6.0"
     }
 }

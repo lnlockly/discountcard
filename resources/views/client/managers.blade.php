@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $manager->name }}</td>
                                     <td>{{ $manager->key }}</td>
-                                    <td>{{ $manager->created_at }}</td>
+                                    <td>{{ $manager->created_at->format('Y-m-d') }}</td>
                                     <td>{{ $manager->stamps->count() }}</td>
                                 </tr>
                                 @endforeach

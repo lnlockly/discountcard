@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ManagerController;
 use App\Http\Controllers\Client\StatisticGiftsController;
@@ -37,5 +38,8 @@ Route::group(['middleware' => 'auth:client', 'prefix' => 'client', 'as' => 'clie
 
 		Route::post('/managers/store', [ManagerController::class, 'store'])
 			->name('managers.store');
+
+		Route::get('/card', [CardController::class, 'create'])
+			->name('card.create');
 
 	});

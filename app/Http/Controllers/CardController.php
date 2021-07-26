@@ -24,11 +24,9 @@ class CardController extends Controller {
 			'contact' => 'required|string|max:500',
 		]);
 
-
-		
 		Card::create([
 			'name' => $request->name,
-			'logo' => ,
+			'logo' => '',
 			'color_header' => $request->color_header,
 			'color_body' => $request->color_body,
 			'stamps' => $request->stamps,
@@ -37,8 +35,8 @@ class CardController extends Controller {
 			'condition' => $request->condition,
 			'desctiption' => $request->desctiption,
 			'card_use' => $request->card_use,
-			'contact' => $request->contact
-		]); 
+			'contact' => $request->contact,
+		]);
 
 		return route('client.dashboard');
 	}

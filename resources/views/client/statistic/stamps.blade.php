@@ -25,7 +25,7 @@
                                 @foreach ($stamps ?? [] as $stamp)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $stamp->created_at }}</td>
+                                    <td>{{ $stamp->created_at->format('Y-m-d') }}</td>
                                     <td>{{ $stamp->manager->name }}</td>
                                 </tr>
                                 @endforeach

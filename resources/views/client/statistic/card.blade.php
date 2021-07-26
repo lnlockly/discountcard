@@ -25,7 +25,7 @@
                                 @foreach ($gifts ?? [] as $gift)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $gift->created_at }}</td>
+                                    <td>{{ $gift->created_at->format('Y-m-d') }}</td>
                                     <td><a href="{{ route('client.statistic.users.show', [$gift->user->id] ) }}">{{ $gift->user->first_name }} {{ $gift->user->last_name }}</a></td>
                                 </tr>
                                 @endforeach

@@ -33,8 +33,8 @@
                                             <td>{{ $user->first_name }}</td>
                                             <td>{{ $user->last_name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->cardact_at }}</td>
+                                            <td>{{ $user->created_at->format('Y-m-d') }}</td>
+                                            <td>{{ $user->cardact_at->format('Y-m-d') }}</td>
                                             <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
                                             @else 0
                                             @endif
