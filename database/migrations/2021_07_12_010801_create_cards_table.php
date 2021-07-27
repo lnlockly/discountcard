@@ -21,9 +21,9 @@ class CreateCardsTable extends Migration {
 			$table->string('stamp_icon');
 			$table->integer('gift_price');
 			$table->string('condition');
-			$table->string('description');
+			$table->string('card_description');
 			$table->string('card_use');
-			$table->string('contact');
+			$table->string('gift_description');
 			$table->integer('client_id')->unsigned();
 			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 			$table->timestamps();

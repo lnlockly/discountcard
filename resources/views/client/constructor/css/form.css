@@ -328,6 +328,11 @@ body {
 }
 
 .form__but {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
   text-decoration: none;
   color: black;
 }
@@ -387,6 +392,47 @@ body {
   font-size: 14px;
   text-align: center;
 }
+
+.main-title2 {
+  margin: 0;
+  line-height: 0;
+  font-size: 27px;
+  padding-top: 15px;
+  padding-bottom: 60px;
+}
+
+.main-title3 {
+  margin: 0;
+  line-height: 0;
+  font-size: 27px;
+  padding-bottom: 23px;
+}
+
+.background2 {
+  padding-top: 22px;
+  background-color: #F9F9F9FF;
+}
+
+.text2 {
+  padding-top: -16px;
+}
+
+.text {
+  margin: 0;
+  padding-bottom: 18px;
+  color: #8C8C8CFF;
+  line-height: 25px;
+}
+
+.input-text2 {
+  margin-bottom: 15px;
+}
+
+.card-input2 {
+  height: 215px;
+  width: 100%;
+}
+
 
 /* Указываем box sizing */
 

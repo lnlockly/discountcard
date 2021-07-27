@@ -39,7 +39,10 @@ Route::group(['middleware' => 'auth:client', 'prefix' => 'client', 'as' => 'clie
 		Route::post('/managers/store', [ManagerController::class, 'store'])
 			->name('managers.store');
 
-		Route::inertia('/card', 'Client/Card')
+		Route::get('/card', [CardController::class, 'create'])
 			->name('card.create');
+
+		Route::post('/card/store', [CardController::class, 'store'])
+			->name('card.store');
 
 	});

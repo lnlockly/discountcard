@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CardController extends Controller {
 
 	public function create() {
-		return view('client.card-create');
+		return Inertia::render('Client/Card');
 	}
 
 	public function store(Request $request) {
+		//dd($request->all());
 		$request->validate([
 			'name' => 'required|string|max:30',
 			'logo' => 'required|mimes:png',
@@ -19,9 +21,9 @@ class CardController extends Controller {
 			'stamp_icon' => 'required|string',
 			'gift_price' => 'required|integer',
 			'condition' => 'required|string|max:500',
-			'desctiption' => 'required|string|max:500',
+			'card_description' => 'required|string|max:500',
 			'card_use' => 'required|string|max:500',
-			'contact' => 'required|string|max:500',
+			'gift_description' => 'required|string|max:500',
 		]);
 
 		Card::create([
@@ -33,9 +35,9 @@ class CardController extends Controller {
 			'stamp_icon' => $request->stamp_icon,
 			'gift_price' => $request->gift_price,
 			'condition' => $request->condition,
-			'desctiption' => $request->desctiption,
+			'description' => $request->desctiption,
 			'card_use' => $request->card_use,
-			'contact' => $request->contact,
+			'gift_description' => $request->contact,
 		]);
 
 		return route('client.dashboard');
