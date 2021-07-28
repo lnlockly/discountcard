@@ -2,9 +2,9 @@
     <div class="wrap">
 
         <Head>
-            <title>HI bebra</title>
-            <link href="../css/form.css" rel="stylesheet">
-            <script type="application/javascript" defer src="../js/script.js"></script>
+            <title>Card create</title>
+            <link href="../../css/form.css" rel="stylesheet">
+            <script type="application/javascript" defer src="../../js/script.js"></script>
         </Head>
         <form @submit.prevent="form.post('/client/card/store')">
             <div v-show="step == 1">
@@ -60,7 +60,7 @@
                                     <p class="background-hat">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
                                 </div>
                                 <div class="number-stamp">
-                                    <div class="number" v-for="stamp in 30" @click="form.stamps = stamp" v-bind:class="{ active: stamps_active[stamp] }">{{ stamp }}</div>
+                                    <div class="number" v-for="stamp in 30" @click="form.stamps = stamp">{{ stamp }}</div>
                                 </div>
                                 <div class="appearance">
                                     <h3 class="sub-title">Внешний вид штампов</h3>
@@ -183,20 +183,18 @@ export default {
     data() {
         return {
             step: 1,
-            stamps_active: [],
             form: this.$inertia.form({
                 name: null,
-                logo: "aboba",
+                logo: null,
                 color_header: null,
                 color_body: null,
                 stamps: null,
-                stamp_icon: null,
+                stamp_icon: '1111111',
                 gift_price: null,
                 condition: null,
                 card_description: null,
                 card_use: null,
                 gift_description: null,
-
             }),
         }
     },

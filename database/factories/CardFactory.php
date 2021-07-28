@@ -32,7 +32,6 @@ class CardFactory extends Factory {
 			'card_description' => Str::random(10),
 			'gift_description' => Str::random(10),
 			'card_use' => Str::random(10),
-			'contact' => Str::random(10),
 			'client_id' => '1',
 		];
 	}

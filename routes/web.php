@@ -45,4 +45,10 @@ Route::group(['middleware' => 'auth:client', 'prefix' => 'client', 'as' => 'clie
 		Route::post('/card/store', [CardController::class, 'store'])
 			->name('card.store');
 
+		Route::get('/card/edit', [CardController::class, 'edit'])
+			->name('card.edit');
+
+		Route::post('/card/update', [CardController::class, 'update'])
+			->name('card.update');
+
 	});
