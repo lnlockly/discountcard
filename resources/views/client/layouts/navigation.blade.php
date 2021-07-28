@@ -27,7 +27,7 @@
                         {{ __('Dashboard') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ route('client.card.edit') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
                         {{ __('Card') }}
                     </a>

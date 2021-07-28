@@ -10,7 +10,7 @@ use Inertia\Inertia;
 class CardController extends Controller {
 
 	public function create() {
-		return Inertia::render('Client/Card');
+		return Inertia::render('Client/Card/Create');
 	}
 
 	public function store(Request $request) {
@@ -51,7 +51,12 @@ class CardController extends Controller {
 	}
 
 	public function edit() {
-		return Inertia::render('Client/Card');
+		return Inertia::render('Client/Card/Edit');
 	}
 
+	public function update(Request $request) {
+		$client = Auth::user();
+		$card = $client->card;
+		$card->update($request->all());
+	}
 }

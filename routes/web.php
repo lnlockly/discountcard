@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
  */
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => 'auth:client', 'prefix' => 'client', 'as' => 'client.'],
+Route::group(['middleware' => ['auth:client', 'card'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
+
 		Route::get('/dashboard', [ClientController::class, 'index'])
 			->name('dashboard');
 

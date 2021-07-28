@@ -6,106 +6,103 @@
             <link href="../../css/form.css" rel="stylesheet">
             <script type="application/javascript" defer src="../../js/script.js"></script>
         </Head>
-        <form @submit.prevent="form.post('/client/card/store')">
+        <form @submit.prevent="form.post(route('client.card.store'))">
             <div v-show="step == 1">
                 <main class="redact">
                     <div class="container">
-                        <a href="route('client.card.store')"></a>
                         <h2 class="main-title">Настройка дизайна</h2>
                     </div>
                     <div class="background">
                         <div class="container">
-                            <form action="#" class="main__form">
-                                <h3 class="sub-title">Название карты</h3>
-                                <div class="input-text">
-                                    <input class="card-input" type="text" v-model="form.name" placeholder="Например: моя первая карта">
-                                </div>
-                                <h5 class="background-hat">Логотип</h5>
-                                <div class="insert-inner">
-                                    <div class="drop-zone">
-                                        <input type="file" name="myFile" class="drop-zone__input" @input="form.logo = $event.target.files[0]">
-                                        <div class="logo-inner">
-                                            <img src="" alt="">
-                                            <span>Перетяните файл</span>
-                                        </div>
-                                        <label for="drop-zone__input" class="input__file-button">
-                                            <p class="input__file-button-text">Выбрать</p>
-                                        </label>
+                            <h3 class="sub-title">Название карты</h3>
+                            <div class="input-text">
+                                <input class="card-input" type="text" v-model="form.name" placeholder="Например: моя первая карта">
+                            </div>
+                            <h5 class="background-hat">Логотип</h5>
+                            <div class="insert-inner">
+                                <div class="drop-zone">
+                                    <input type="file" name="myFile" class="drop-zone__input" @input="form.logo = $event.target.files[0]">
+                                    <div class="logo-inner">
+                                        <img src="" alt="">
+                                        <span>Перетяните файл</span>
                                     </div>
-                                    <ul class="bulleted-list">
-                                        <li>Файл должен быть иметь формат png</li>
-                                        <li>Рекомендованный размер: 480х150 пикселей.<br> Минимальная высота 150 пикселей.<br> Максимальная высота
-                                            должна быть равна<br> пропорции (высота х 3.2).</li>
-                                    </ul>
+                                    <label for="drop-zone__input" class="input__file-button">
+                                        <p class="input__file-button-text">Выбрать</p>
+                                    </label>
                                 </div>
-                                <h3 class="sub-title">Цвет карты</h3>
-                                <div class="background2">
-                                    <div class="back">
-                                        <p class="background-hat">Фон "шапки"</p>
-                                        <div class="input-colorr">
-                                            <input type="color" class="input-color" value="#1100ff" v-model="form.color_header" />
-                                            <input type="text" class="input-color-text1" v-model="form.color_header">
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <p class="background-hat">Фон страницы</p>
-                                        <div class="input-colorr">
-                                            <input type="color" class="input-color2" value="#ffffff" v-model="form.color_body" />
-                                            <input type="text" class="input-color-text2" v-model="form.color_body">
-                                        </div>
+                                <ul class="bulleted-list">
+                                    <li>Файл должен быть иметь формат png</li>
+                                    <li>Рекомендованный размер: 480х150 пикселей.<br> Минимальная высота 150 пикселей.<br> Максимальная высота
+                                        должна быть равна<br> пропорции (высота х 3.2).</li>
+                                </ul>
+                            </div>
+                            <h3 class="sub-title">Цвет карты</h3>
+                            <div class="background2">
+                                <div class="back">
+                                    <p class="background-hat">Фон "шапки"</p>
+                                    <div class="input-colorr">
+                                        <input type="color" class="input-color" value="#1100ff" v-model="form.color_header" />
+                                        <input type="text" class="input-color-text1" v-model="form.color_header">
                                     </div>
                                 </div>
-                                <h3 class="sub-title">Количество штампов</h3>
-                                <div class="stamp">
-                                    <p class="background-hat">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
+                                <div class="back">
+                                    <p class="background-hat">Фон страницы</p>
+                                    <div class="input-colorr">
+                                        <input type="color" class="input-color2" value="#ffffff" v-model="form.color_body" />
+                                        <input type="text" class="input-color-text2" v-model="form.color_body">
+                                    </div>
                                 </div>
-                                <div class="number-stamp">
-                                    <div class="number" v-for="stamp in 30" @click="form.stamps = stamp">{{ stamp }}</div>
-                                </div>
-                                <div class="appearance">
-                                    <h3 class="sub-title">Внешний вид штампов</h3>
-                                    <p class="background-hat">Изображение активного штампа</p>
-                                    <div class="form__tab-inner">
-                                        <div class="form__tab">
-                                            <div class="form__tab-img">
-                                                <img src="img/icons/3.png" alt="water">
-                                            </div>
-                                            <div class="form__tab-name-inenr">
-                                            </div>
-                                            <div class="form__tab-arrow">
-                                                <img src="" alt="arrow">
-                                            </div>
+                            </div>
+                            <h3 class="sub-title">Количество штампов</h3>
+                            <div class="stamp">
+                                <p class="background-hat">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
+                            </div>
+                            <div class="number-stamp">
+                                <div class="number" v-for="stamp in 30" @click="form.stamps = stamp">{{ stamp }}</div>
+                            </div>
+                            <div class="appearance">
+                                <h3 class="sub-title">Внешний вид штампов</h3>
+                                <p class="background-hat">Изображение активного штампа</p>
+                                <div class="form__tab-inner">
+                                    <div class="form__tab">
+                                        <div class="form__tab-img">
+                                            <img src="img/icons/3.png" alt="water">
                                         </div>
-                                        <div class="form__tab-content">
-                                            <img src="img/icons/1.png" alt="">
-                                            <img src="img/icons/2.png" alt="">
-                                            <img src="img/icons/3.png" alt="">
-                                            <img src="img/icons/4.png" alt="">
-                                            <img src="img/icons/5.png" alt="">
-                                            <img src="img/icons/6.png" alt="">
-                                            <img src="img/icons/7.png" alt="">
-                                            <img src="img/icons/8.png" alt="">
-                                            <img src="img/icons/9.png" alt="">
-                                            <img src="img/icons/10.png" alt="">
-                                            <img src="img/icons/11.png" alt="">
-                                            <img src="img/icons/12.png" alt="">
-                                            <img src="img/icons/13.png" alt="">
-                                            <img src="img/icons/14.png" alt="">
-                                            <img src="img/icons/15.png" alt="">
+                                        <div class="form__tab-name-inenr">
+                                        </div>
+                                        <div class="form__tab-arrow">
+                                            <img src="" alt="arrow">
                                         </div>
                                     </div>
-                                    <div class="appearance-of-stamps">
+                                    <div class="form__tab-content">
+                                        <img src="img/icons/1.png" alt="">
+                                        <img src="img/icons/2.png" alt="">
+                                        <img src="img/icons/3.png" alt="">
+                                        <img src="img/icons/4.png" alt="">
+                                        <img src="img/icons/5.png" alt="">
+                                        <img src="img/icons/6.png" alt="">
+                                        <img src="img/icons/7.png" alt="">
+                                        <img src="img/icons/8.png" alt="">
+                                        <img src="img/icons/9.png" alt="">
+                                        <img src="img/icons/10.png" alt="">
+                                        <img src="img/icons/11.png" alt="">
+                                        <img src="img/icons/12.png" alt="">
+                                        <img src="img/icons/13.png" alt="">
+                                        <img src="img/icons/14.png" alt="">
+                                        <img src="img/icons/15.png" alt="">
                                     </div>
                                 </div>
-                                <div class="form__botton-inner">
-                                    <div @click="prev()" class="form__button">
-                                        <a class="form__but">Назад</a>
-                                    </div>
-                                    <div @click="next()" class="form__button">
-                                        <a class="form__but">Следующий шаг</a>
-                                    </div>
+                                <div class="appearance-of-stamps">
                                 </div>
-                            </form>
+                            </div>
+                            <div class="form__botton-inner">
+                                <div @click="prev()" class="form__button">
+                                    <a class="form__but">Назад</a>
+                                </div>
+                                <div @click="next()" class="form__button">
+                                    <a class="form__but">Следующий шаг</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </main>
