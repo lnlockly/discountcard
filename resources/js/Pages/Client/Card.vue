@@ -7,7 +7,7 @@
             <script type="application/javascript" defer src="../js/script.js"></script>
         </Head>
         <form @submit.prevent="form.post('/client/card/store')">
-            <div v-if="step == 1">
+            <div v-show="step == 1">
                 <main class="redact">
                     <div class="container">
                         <a href="route('client.card.store')"></a>
@@ -43,24 +43,24 @@
                                     <div class="back">
                                         <p class="background-hat">Фон "шапки"</p>
                                         <div class="input-colorr">
-                                            <input type="color" class="input-color" value="#1100ff" />
+                                            <input type="color" class="input-color" value="#1100ff" v-model="form.color_header" />
                                             <input type="text" class="input-color-text1" v-model="form.color_header">
                                         </div>
                                     </div>
                                     <div class="back">
                                         <p class="background-hat">Фон страницы</p>
                                         <div class="input-colorr">
-                                            <input type="color" class="input-color2" value="#ffffff" />
+                                            <input type="color" class="input-color2" value="#ffffff" v-model="form.color_body" />
                                             <input type="text" class="input-color-text2" v-model="form.color_body">
                                         </div>
                                     </div>
                                 </div>
                                 <h3 class="sub-title">Количество штампов</h3>
                                 <div class="stamp">
-                                    <p class="background-hat" @click="stamps_counter(1)">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
+                                    <p class="background-hat">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
                                 </div>
                                 <div class="number-stamp">
-                                    <div class="number" v-for="stamp in 30" @click="form.stamps = stamp">{{ stamp }}</div>
+                                    <div class="number" v-for="stamp in 30" @click="form.stamps = stamp" v-bind:class="{ active: stamps_active[stamp] }">{{ stamp }}</div>
                                 </div>
                                 <div class="appearance">
                                     <h3 class="sub-title">Внешний вид штампов</h3>
@@ -110,7 +110,7 @@
                     </div>
                 </main>
             </div>
-            <div v-else-if="step == 2">
+            <div v-show="step == 2">
                 <div class="container">
                     <h2 class="main-title">Информация</h2>
                     <div v-for="error in errors"> {{ error }}</div>
@@ -140,6 +140,14 @@
                             </p>
                             <div class="input-text">
                                 <input class="card-input" type="text" placeholder="Введите описание награды" v-model="form.gift_description">
+                            </div>
+                        </div>
+                        <div class="background3">
+                            <h3 class="sub-title">Цена за 1 подарок</h3>
+                            <p class="text">Введите стоимость 1 подарка для статистики
+                            </p>
+                            <div class="input-text">
+                                <input class="card-input" type="number" step="0.5" placeholder="150.00" v-model="form.gift_price">
                             </div>
                         </div>
                         <h2 class="main-title3">Условия использования</h2>
@@ -175,6 +183,7 @@ export default {
     data() {
         return {
             step: 1,
+            stamps_active: [],
             form: this.$inertia.form({
                 name: null,
                 logo: "aboba",
@@ -193,12 +202,13 @@ export default {
     },
     methods: {
         next() {
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0)
             this.step = 2
         },
         prev() {
             this.step = 1
-        },
+        }
+
     }
 }
 

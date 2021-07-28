@@ -11,7 +11,7 @@ class CardController extends Controller {
 	}
 
 	public function store(Request $request) {
-		//dd($request->all());
+		dd($request->all());
 		$request->validate([
 			'name' => 'required|string|max:30',
 			'logo' => 'required|mimes:png',
