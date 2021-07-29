@@ -30,6 +30,7 @@
         "@inertiajs/inertia-vue": "^0.7.1",
         "@popperjs/core": "^2.9.2",
         "bootstrap5": "^1.1.9",
+        "matice": "^1.1.4",
         "startbootstrap-sb-admin": "^7.0.2",
         "vue": "^2.6.0"
     }

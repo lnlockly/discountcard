@@ -1,15 +1,15 @@
 <template>
     <div class="wrap">
+
         <Head>
             <title>Card create</title>
             <link href="../../css/form.css" rel="stylesheet">
             <script type="application/javascript" defer src="../../js/script.js"></script>
         </Head>
-        <form @submit.prevent="form.post('/client/card/store')">
+        <form @submit.prevent="form.post(route('client.card.store'))">
             <div v-show="step == 1">
                 <main class="redact">
                     <div class="container">
-                        <a href="route('client.card.store')"></a>
                         <h2 class="main-title">Настройка дизайна</h2>
                     </div>
                     <div class="background">
@@ -67,7 +67,7 @@
                                     <div class="form__tab-inner">
                                         <div class="form__tab">
                                             <div class="form__tab-img">
-                                                <img src="img/icons/3.png" alt="water">
+                                                <img :src="`/storage/image/stamps/${form.stamp_icon}`">
                                             </div>
                                             <div class="form__tab-name-inenr">
                                             </div>
@@ -76,21 +76,7 @@
                                             </div>
                                         </div>
                                         <div class="form__tab-content">
-                                            <img src="img/icons/1.png" alt="">
-                                            <img src="img/icons/2.png" alt="">
-                                            <img src="img/icons/3.png" alt="">
-                                            <img src="img/icons/4.png" alt="">
-                                            <img src="img/icons/5.png" alt="">
-                                            <img src="img/icons/6.png" alt="">
-                                            <img src="img/icons/7.png" alt="">
-                                            <img src="img/icons/8.png" alt="">
-                                            <img src="img/icons/9.png" alt="">
-                                            <img src="img/icons/10.png" alt="">
-                                            <img src="img/icons/11.png" alt="">
-                                            <img src="img/icons/12.png" alt="">
-                                            <img src="img/icons/13.png" alt="">
-                                            <img src="img/icons/14.png" alt="">
-                                            <img src="img/icons/15.png" alt="">
+                                            <img v-for="icon in stamp_icons" :src="`/storage/image/stamps/${icon}`" @click="form.stamp_icon = icon">
                                         </div>
                                     </div>
                                     <div class="appearance-of-stamps">

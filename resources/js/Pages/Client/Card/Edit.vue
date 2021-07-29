@@ -2,14 +2,15 @@
     <div class="wrap">
 
         <Head>
-            <title>Card create</title>
+            <title>Card edit</title>
             <link href="../../css/form.css" rel="stylesheet">
-            <script type="application/javascript" defer src="../../js/script.js"></script>
+            <script type="application/javascript" src="../../js/script.js"></script>
         </Head>
         <div id="layoutSidenav">
             <div id="layoutSidenav_content">
-                <form @submit.prevent="form.post(route('client.card.update'))">
+                <form @submit.prevent="form.put(route('client.card.update'))">
                     <div v-show="step == 1">
+                        {{ $trans('auth.failed') }}
                         <main class="redact">
                             <div class="container">
                                 <h2 class="main-title">Настройка дизайна</h2>
@@ -60,7 +61,7 @@
                                         <p class="background-hat">Выберите сколько всего штампов<br> будет размещено на карте (от 1 до 30)</p>
                                     </div>
                                     <div class="number-stamp">
-                                        <div class="number" v-for="stamp in 30" @click="form.stamps = stamp">{{ stamp }}</div>
+                                        <div class="number" v-for="stamp in 30" @click="form.stamps = stamp" ref="stamp">{{ stamp }}</div>
                                     </div>
                                     <div class="appearance">
                                         <h3 class="sub-title">Внешний вид штампов</h3>
@@ -68,7 +69,7 @@
                                         <div class="form__tab-inner">
                                             <div class="form__tab">
                                                 <div class="form__tab-img">
-                                                    <img src="img/icons/3.png" alt="water">
+                                                    <img :src="`/storage/image/stamps/${form.stamp_icon}`">
                                                 </div>
                                                 <div class="form__tab-name-inenr">
                                                 </div>
@@ -77,21 +78,7 @@
                                                 </div>
                                             </div>
                                             <div class="form__tab-content">
-                                                <img src="img/icons/1.png" alt="">
-                                                <img src="img/icons/2.png" alt="">
-                                                <img src="img/icons/3.png" alt="">
-                                                <img src="img/icons/4.png" alt="">
-                                                <img src="img/icons/5.png" alt="">
-                                                <img src="img/icons/6.png" alt="">
-                                                <img src="img/icons/7.png" alt="">
-                                                <img src="img/icons/8.png" alt="">
-                                                <img src="img/icons/9.png" alt="">
-                                                <img src="img/icons/10.png" alt="">
-                                                <img src="img/icons/11.png" alt="">
-                                                <img src="img/icons/12.png" alt="">
-                                                <img src="img/icons/13.png" alt="">
-                                                <img src="img/icons/14.png" alt="">
-                                                <img src="img/icons/15.png" alt="">
+                                                <img v-for="icon in stamp_icons" :src="`/storage/image/stamps/${icon}`" @click="form.stamp_icon = icon">
                                             </div>
                                         </div>
                                         <div class="appearance-of-stamps">
@@ -160,7 +147,7 @@
                                         <a class="form__but">Назад</a>
                                     </div>
                                     <div class="form__button">
-                                        <button type="submit" :disabled="form.processing" class="form__but">Создать карту</button>
+                                        <button type="submit" :disabled="form.processing" class="form__but">Редактировать карту</button>
                                     </div>
                                 </div>
                             </div>
@@ -179,23 +166,25 @@ export default {
         Head
     },
     props: {
+        card: Object,
+        stamp_icons: Array,
         errors: Object,
     },
     data() {
         return {
             step: 1,
             form: this.$inertia.form({
-                name: null,
-                logo: null,
-                color_header: null,
-                color_body: null,
-                stamps: null,
-                stamp_icon: '1111111',
-                gift_price: null,
-                condition: null,
-                card_description: null,
-                card_use: null,
-                gift_description: null,
+                name: this.card.name,
+                logo: this.card.logo,
+                color_header: this.card.color_header,
+                color_body: this.card.color_body,
+                stamps: this.card.stamps,
+                stamp_icon: this.card.stamp_icon,
+                gift_price: this.card.gift_price,
+                condition: this.card.condition,
+                card_description: this.card.card_description,
+                card_use: this.card.card_use,
+                gift_description: this.card.gift_description,
             }),
         }
     },
@@ -207,6 +196,26 @@ export default {
         prev() {
             this.step = 1
         }
+
+    },
+    mounted() {
+        const number = document.querySelectorAll('.number');
+        number.forEach((elem, index) => {
+            elem.addEventListener('click', (e) => {
+                number.forEach((elem) => {
+                    elem.classList.remove('active')
+                })
+                let calc = Number(e.target.innerHTML)
+                for (let index2 = 0; index2 < calc; index2++) {
+                    number[index2].classList.add('active')
+                }
+            })
+
+        })
+
+        let i = this.card.stamps - 1
+        this.$refs.stamp[i].click()
+        console.log(this.form.stamps)
 
     }
 }

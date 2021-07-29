@@ -40,16 +40,16 @@ Route::group(['middleware' => ['auth:client', 'card'], 'prefix' => 'client', 'as
 		Route::post('/managers/store', [ManagerController::class, 'store'])
 			->name('managers.store');
 
-		Route::get('/card', [CardController::class, 'create'])
-			->name('card.create');
-
 		Route::post('/card/store', [CardController::class, 'store'])
 			->name('card.store');
 
 		Route::get('/card/edit', [CardController::class, 'edit'])
 			->name('card.edit');
 
-		Route::post('/card/update', [CardController::class, 'update'])
+		Route::put('/card/update', [CardController::class, 'update'])
 			->name('card.update');
 
 	});
+		Route::get('/client/card', [CardController::class, 'create'])
+			->middleware('auth:client')
+			->name('client.card.create');

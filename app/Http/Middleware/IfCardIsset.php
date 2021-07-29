@@ -17,7 +17,7 @@ class IfCardIsset
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->card == null && $request->url() != route('client.card.create')) {
+        if (Auth::user()->card == null && $request->url() != route('client.card.create') && $request->url() != route('client.card.store')) {
             return redirect(route('client.card.create'));
         }
         return $next($request);

@@ -15,6 +15,7 @@
 
         <div class="sb-nav-fixed">
 			<div class="bg-gray-100">
+				@translations
 				@include('client.layouts.navigation')
 				@routes
 			    @inertia
@@ -25,6 +26,7 @@
 
 		</style>
     @else
+        @translations
     	@routes
 	    @inertia
     @endif

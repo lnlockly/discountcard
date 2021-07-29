@@ -5,11 +5,15 @@ use App\Models\Card;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class CardController extends Controller {
 
 	public function create() {
+		if (Auth::user()->card != null) {
+			return redirect(route('client.dashboard'));
+		}
 		return Inertia::render('Client/Card/Create');
 	}
 
@@ -47,16 +51,46 @@ class CardController extends Controller {
 			'gift_description' => $request->gift_description,
 			'client_id' => Auth::user()->id,
 		]);
+		return Inertia::location(route('client.dashboard'));
 
 	}
 
 	public function edit() {
-		return Inertia::render('Client/Card/Edit');
+		$client = Auth::user();
+		$card = $client->card;
+		$stamp_icons = Storage::files('public/image/stamps');
+		$icons = [];
+		foreach ($stamp_icons as $icon) {
+			array_push($icons, basename($icon));
+		}
+		return Inertia::render('Client/Card/Edit', [
+			'card' => $card,
+			'stamp_icons' => $icons
+		]);
 	}
 
 	public function update(Request $request) {
+		$request->validate([
+			'name' => 'required|string|max:30',
+			'logo' => '',
+			'color_header' => 'required|string|max:10',
+			'color_body' => 'required|string|max:10',
+			'stamps' => 'required|integer|min:1|max:30',
+			'stamp_icon' => 'required|string',
+			'gift_price' => 'required|numeric',
+			'condition' => 'required|string|max:500',
+			'card_description' => 'required|string|max:500',
+			'card_use' => 'required|string|max:500',
+			'gift_description' => 'required|string|max:500',
+		]);
+		$logo = $request->logo;
+		$client_id = Auth::user()->id;
+		$image_name = $client_id . '.png';
+		$logo->move(Storage::path('public/image/'), $image_name);
+
 		$client = Auth::user();
 		$card = $client->card;
 		$card->update($request->all());
+		return redirect()->back(); 
 	}
 }
