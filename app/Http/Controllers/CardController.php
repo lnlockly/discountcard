@@ -9,12 +9,23 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class CardController extends Controller {
+	private function get_icons() {
+		$stamp_icons = Storage::files('public/image/stamps');
+		$icons = [];
+		foreach ($stamp_icons as $icon) {
+			array_push($icons, basename($icon));
+		}
 
+		return $icons;
+	}
 	public function create() {
 		if (Auth::user()->card != null) {
 			return redirect(route('client.dashboard'));
 		}
-		return Inertia::render('Client/Card/Create');
+		$icons = $this->get_icons();
+		return Inertia::render('Client/Card/Create',[
+			'stamp_icons' => $icons
+		]);
 	}
 
 	public function store(Request $request) {
@@ -58,11 +69,7 @@ class CardController extends Controller {
 	public function edit() {
 		$client = Auth::user();
 		$card = $client->card;
-		$stamp_icons = Storage::files('public/image/stamps');
-		$icons = [];
-		foreach ($stamp_icons as $icon) {
-			array_push($icons, basename($icon));
-		}
+		$icons = $this->get_icons();
 		return Inertia::render('Client/Card/Edit', [
 			'card' => $card,
 			'stamp_icons' => $icons
@@ -72,7 +79,7 @@ class CardController extends Controller {
 	public function update(Request $request) {
 		$request->validate([
 			'name' => 'required|string|max:30',
-			'logo' => '',
+			'logo' => 'required',
 			'color_header' => 'required|string|max:10',
 			'color_body' => 'required|string|max:10',
 			'stamps' => 'required|integer|min:1|max:30',
@@ -83,14 +90,20 @@ class CardController extends Controller {
 			'card_use' => 'required|string|max:500',
 			'gift_description' => 'required|string|max:500',
 		]);
-		$logo = $request->logo;
-		$client_id = Auth::user()->id;
-		$image_name = $client_id . '.png';
-		$logo->move(Storage::path('public/image/'), $image_name);
-
 		$client = Auth::user();
 		$card = $client->card;
-		$card->update($request->all());
-		return redirect()->back(); 
+		if ($request->hasFile('logo')) {
+			$logo = $request->logo;
+			$client_id = Auth::user()->id;
+			$image_name = $client_id . '.png';
+			$logo->move(Storage::path('public/image/'), $image_name);
+			$card->update($request->all());
+		}
+		else {
+			$card->update($request->except('logo'));
+		}
+		
+		return Inertia::location(route('client.dashboard')); 
 	}
+
 }
