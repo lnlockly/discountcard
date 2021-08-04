@@ -19,11 +19,11 @@ class CreateCardsTable extends Migration {
 			$table->string('color_body');
 			$table->integer('stamps');
 			$table->string('stamp_icon');
-			$table->integer('gift_price');
-			$table->string('condition');
-			$table->string('card_description');
-			$table->string('card_use');
-			$table->string('gift_description');
+			$table->float('gift_price');
+			$table->mediumText('condition');
+			$table->mediumText('card_description');
+			$table->mediumText('card_use');
+			$table->mediumText('gift_description');
 			$table->integer('client_id')->unsigned();
 			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 			$table->timestamps();

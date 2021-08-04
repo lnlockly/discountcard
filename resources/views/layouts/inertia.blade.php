@@ -9,8 +9,8 @@
 
 <body>
 	@if (Request::path() == 'client/card/edit')
-	    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+	    <link rel="stylesheet" href="{{ asset('css/client/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/client/admin.css') }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
         <div class="sb-nav-fixed">

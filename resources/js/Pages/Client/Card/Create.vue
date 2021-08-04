@@ -3,7 +3,7 @@
 
         <Head>
             <title>Card create</title>
-            <link href="../../css/form.css" rel="stylesheet">
+            <link href="../../css/client/card.css" rel="stylesheet">
             <script type="application/javascript" defer src="../../js/script.js"></script>
         </Head>
         <form @submit.prevent="form.post(route('client.card.store'))">

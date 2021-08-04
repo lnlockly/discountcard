@@ -3,7 +3,7 @@
 
         <Head>
             <title>Card edit</title>
-            <link href="../../css/form.css" rel="stylesheet">
+            <link href="../../css/client/card.css" rel="stylesheet">
             <script type="application/javascript" src="../../js/script.js"></script>
         </Head>
         <div id="layoutSidenav">
