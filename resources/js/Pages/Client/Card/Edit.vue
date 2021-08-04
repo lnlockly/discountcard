@@ -4,7 +4,7 @@
         <Head>
             <title>Card edit</title>
             <link href="../../css/client/card.css" rel="stylesheet">
-            <script type="application/javascript" src="../../js/script.js"></script>
+            <script type="application/javascript" src="../../js/card.js"></script>
         </Head>
         <div id="layoutSidenav">
             <div id="layoutSidenav_content">
