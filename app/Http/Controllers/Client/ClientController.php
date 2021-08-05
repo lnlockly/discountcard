@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller {
 	public function index() {
-		/*QrCode::generate('Make me into a QrCode!', '../public/qrcodes/qrcode.svg');*/
 		$client = Auth::user();
 		$card = $client->card;
 		if ($card == null) {

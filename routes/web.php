@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-require __DIR__ . '/auth.php';
+require __DIR__ . '/client_auth.php';
+require __DIR__ . '/user_auth.php';
 
 Route::group(['middleware' => ['auth:client', 'card'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
