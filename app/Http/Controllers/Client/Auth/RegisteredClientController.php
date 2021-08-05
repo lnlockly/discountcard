@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
-class RegisteredUserController extends Controller {
+class RegisteredClientController extends Controller {
 	/**
 	 * Display the registration view.
 	 *

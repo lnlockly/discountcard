@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Cookie;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller {
-
+	public function create($card_id) {
+		return Inertia::render('User/Login', [
+			'card_id' = $card_id
+		]);
+	}
 	/**
 	 * Handle an incoming registration request.
 	 *
@@ -21,7 +26,6 @@ class RegisteredUserController extends Controller {
 	 * @throws \Illuminate\Validation\ValidationException
 	 */
 	public function store(Request $request) {
-
 		$request->validate([
 			'first_name' => 'required|string|max:255',
 			'last_name' => 'required|string|max:255',
@@ -29,17 +33,28 @@ class RegisteredUserController extends Controller {
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
 		]);
 
+		$card = Card::find($card_id);
+
+		if ($card == null) {
+			return redirect()
+				->back()
+				->withErrors(["Card error" => "This card not found"]);
+		}
+
 		$user = User::create([
 			'first_name' => $request->first_name,
 			'last_name' => $request->last_name,
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
+			'card_id' => null,
 		]);
 
 		event(new Registered($user));
 
 		Auth::guard('user')
 			->attempt($request->only(['email', 'password']));
+
+		Cookie::forever('user', $request->first_name);	
 
 		return redirect()->route('client.dashboard');
 	}
