@@ -1,25 +1,40 @@
 <template>
     <div class="form page" id="page2">
-        <div class="stemplen__container">
-            <h2 class="form__title">Логин</h2>
-            <form action="#" class="form__reg">
-                <label for="" class="form__inner">
-                    <h4 class="form__input-title">Емаил</h4>
-                    <input type="text" class="form__text-input">
-                </label>
-                <label for="" class="form__inner">
-                    <h4 class="form__input-title">Пароль</h4>
-                    <input type="password" class="form__text-input">
-                </label>
-                <label for="" class="form__ques">
-                    <input type="checkbox" class="form__checkbox">
-                    <span class="form__ques-text">Я согласен на обработку персональных данных</span>
-                </label>
-            </form>
-            <div class="form__button-inner">
-                <button class="footer__logo form__button" data-tab="#page5">Логин</button>
+        <form @submit.prevent="form.post(route('user.login'))">
+            <div class="stemplen__container">
+                <h2 class="form__title"> {{ $trans('main.login') }}Логин</h2>
+                <form action="#" class="form__reg">
+                    <label for="" class="form__inner">
+                        <h4 class="form__input-title">{{ $trans('main.email') }}Емаил</h4>
+                        <input type="text" class="form__text-input" required v-model="form.email">
+                    </label>
+                    <label for="" class="form__inner">
+                        <h4 class="form__input-title">{{ $trans('main.password') }}Пароль</h4>
+                        <input type="password" class="form__text-input" required v-model="form.password">
+                    </label>
+                    <label for="" class="form__ques">
+                        <input type="checkbox" class="form__checkbox" required>
+                        <span class="form__ques-text">{{ $trans('main.personal_data') }}Я согласен на обработку персональных данных</span>
+                    </label>
+                </form>
+                <div class="form__button-inner">
+                    <button type="submit" class="footer__logo form__button" data-tab="#page5">{{ $trans('main.login') }} Логин</button>
+                </div>
             </div>
-        </div>
-        <div style="height: 50px;"></div>
+            <div style="height: 50px;"></div>
+        </form>
     </div>
+    <script>
+    export default {
+        data() {
+            return {
+                form: this.$inertia.form({
+                    email: null,
+                    password: null,
+                }),
+            }
+        },
+    }
+
+    </script>
 </template>

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Client\Auth;
+namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,14 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller {
-	/**
-	 * Display the registration view.
-	 *
-	 * @return \Illuminate\View\View
-	 */
-	public function create() {
-		return view('client.auth.register');
-	}
 
 	/**
 	 * Handle an incoming registration request.
@@ -33,28 +25,20 @@ class RegisteredUserController extends Controller {
 		$request->validate([
 			'first_name' => 'required|string|max:255',
 			'last_name' => 'required|string|max:255',
-			'company' => 'required|string|max:255',
-			'city' => 'required|string|max:255',
-			'address' => 'required|string|max:255',
-			'postcode' => 'required|numeric',
-			'email' => 'required|string|email|max:255|unique:clients',
+			'email' => 'required|string|email|max:255|unique:users',
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
 		]);
 
-		$client = Client::create([
+		$user = User::create([
 			'first_name' => $request->first_name,
 			'last_name' => $request->last_name,
-			'company' => $request->company,
-			'city' => $request->city,
-			'address' => $request->address,
-			'postcode' => $request->postcode,
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
 		]);
 
-		event(new Registered($client));
+		event(new Registered($user));
 
-		Auth::guard('client')
+		Auth::guard('user')
 			->attempt($request->only(['email', 'password']));
 
 		return redirect()->route('client.dashboard');
