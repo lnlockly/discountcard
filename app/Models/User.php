@@ -22,7 +22,7 @@ class User extends Authenticatable {
 		'nof_stamps',
 		'nof_gifts',
 		'webpush',
-		'cardact_at'
+		'cardact_at',
 	];
 
 	/**
@@ -49,5 +49,8 @@ class User extends Authenticatable {
 	}
 	public function gifts() {
 		return $this->hasMany(Gift::class);
+	}
+	public function cards() {
+		return $this->belongsToMany(Card::class);
 	}
 }

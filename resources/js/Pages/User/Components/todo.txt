@@ -1,0 +1,9 @@
+Перевести все components!
+Настроить vuex
+Сделать v-show в layout
+Сделать Profile
+Сделать CardRegion
+Сделать CardAds и CardInfo
+Сделать Stamp
+Подготовить push
+Настроить About

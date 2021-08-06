@@ -4,27 +4,18 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class CardController extends Controller {
-	private function get_icons() {
-		$stamp_icons = Storage::files('public/image/stamps');
-		$icons = [];
-		foreach ($stamp_icons as $icon) {
-			array_push($icons, basename($icon));
-		}
-
-		return $icons;
-	}
 	public function create() {
 		if (Auth::user()->card != null) {
 			return redirect(route('client.dashboard'));
 		}
 		$icons = $this->get_icons();
-		return Inertia::render('Client/Card/Create',[
-			'stamp_icons' => $icons
+		return Inertia::render('Client/Card/Create', [
+			'stamp_icons' => $icons,
 		]);
 	}
 
@@ -72,7 +63,7 @@ class CardController extends Controller {
 		$icons = $this->get_icons();
 		return Inertia::render('Client/Card/Edit', [
 			'card' => $card,
-			'stamp_icons' => $icons
+			'stamp_icons' => $icons,
 		]);
 	}
 
@@ -98,12 +89,19 @@ class CardController extends Controller {
 			$image_name = $client_id . '.png';
 			$logo->move(Storage::path('public/image/'), $image_name);
 			$card->update($request->all());
-		}
-		else {
+		} else {
 			$card->update($request->except('logo'));
 		}
-		
-		return Inertia::location(route('client.dashboard')); 
-	}
 
+		return Inertia::location(route('client.dashboard'));
+	}
+	private function get_icons() {
+		$stamp_icons = Storage::files('public/image/stamps');
+		$icons = [];
+		foreach ($stamp_icons as $icon) {
+			array_push($icons, basename($icon));
+		}
+
+		return $icons;
+	}
 }

@@ -59,4 +59,6 @@ Route::group(['middleware' => 'usercard', 'as' => 'user.'],
 	function () {
 		Route::get('/{card_id}', [CardController::class, 'show'])
 			->name('card.show');
+		Route::get('/', [CardController::class, 'index'])
+			->name('index');
 	});
