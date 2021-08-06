@@ -18,7 +18,7 @@ class UserCard {
 			return redirect(route('user.card.show', [$request->cookie('card_id')]));
 		}
 		if (!$request->hasCookie('user_email')) {
-			return redirect(route('user.register', [$request->route('card_id')]));
+			return redirect(route('user.register', ["card_id" => $request->route('card_id')]));
 		}
 		if (!Auth::check()) {
 			Auth::guard('user')

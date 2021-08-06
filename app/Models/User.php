@@ -18,6 +18,10 @@ class User extends Authenticatable {
 		'name',
 		'email',
 		'password',
+		'nof_stamps',
+		'nof_gifts',
+		'webpush',
+		'cardact_at'
 	];
 
 	/**
