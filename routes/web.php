@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/client_auth.php';
 require __DIR__ . '/user_auth.php';
 
-Route::group(['middleware' => ['auth:client', 'card'], 'prefix' => 'client', 'as' => 'client.'],
+Route::group(['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
 
 		Route::get('/dashboard', [ClientController::class, 'index'])
@@ -51,6 +51,12 @@ Route::group(['middleware' => ['auth:client', 'card'], 'prefix' => 'client', 'as
 			->name('card.update');
 
 	});
-		Route::get('/client/card', [CardController::class, 'create'])
-			->middleware('auth:client')
-			->name('client.card.create');
+Route::get('/client/card', [CardController::class, 'create'])
+	->middleware('auth:client')
+	->name('client.card.create');
+
+Route::group(['middleware' => 'usercard', 'as' => 'user.'],
+	function () {
+		Route::get('/{card_id}', [CardController::class, 'show'])
+			->name('card.show');
+	});
