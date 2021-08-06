@@ -16,7 +16,7 @@
                                 <h3 class="text-center font-weight-light my-4">{{ __('Create Account') }}</h3>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="{{ route('register') }}">
+                                <form method="post" action="{{ route('client.register') }}">
                                     @csrf
                                     <div class="row mb-3">
                                         <div class="col-md-6">
@@ -84,7 +84,7 @@
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="{{ route('login') }}">{{ __('Login') }}</a></div>
+                                <div class="small"><a href="{{ route('client.login') }}">{{ __('Login') }}</a></div>
                             </div>
                         </div>
                     </div>

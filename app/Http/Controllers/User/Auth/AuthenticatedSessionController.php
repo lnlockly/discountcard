@@ -21,7 +21,7 @@ class AuthenticatedSessionController extends Controller {
 		if (Auth::guard('user')
 			->attempt($request->only(['email', 'password']))) {
 			return redirect()
-				->route('client.dashboard');
+				->route('user.index');
 		}
 
 		return redirect()

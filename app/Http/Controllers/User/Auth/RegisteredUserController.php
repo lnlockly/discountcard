@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Card;
 use Cookie;
 use Inertia\Inertia;
 use Illuminate\Auth\Events\Registered;
@@ -15,7 +16,7 @@ use Illuminate\Validation\Rules;
 class RegisteredUserController extends Controller {
 	public function create($card_id) {
 		return Inertia::render('User/Register', [
-			'card_id' = $card_id
+			'card_id' => $card_id
 		]);
 	}
 	/**
@@ -31,7 +32,7 @@ class RegisteredUserController extends Controller {
 			'first_name' => 'required|string|max:255',
 			'last_name' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255|unique:users',
-			'password' => ['required', 'confirmed', Rules\Password::defaults()],
+			'password' => ['required', Rules\Password::defaults()],
 		]);
 
 		$card = Card::find($request->card_id);
@@ -47,6 +48,7 @@ class RegisteredUserController extends Controller {
 			'last_name' => $request->last_name,
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
+			'webpush' => false,
 			'card_id' => null,
 		]);
 
@@ -60,6 +62,6 @@ class RegisteredUserController extends Controller {
 
 		Cookie::make('card_id', $request->card_id, 43200);	
 
-		return redirect()->route('client.dashboard');
+		return redirect()->route('user.index');
 	}
 }
