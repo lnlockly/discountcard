@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller {
 	public function create() {
-
+		return Inertia::render('User/Login');
 	}
 	/**
 	 * Handle an incoming authentication request.

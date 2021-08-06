@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller {
@@ -22,6 +21,7 @@ class ClientController extends Controller {
 
 		return view('client.dashboard', [
 			'client' => $client,
+			'card_id' => $card->id,
 			'users_count' => $users_count,
 			'stamps_sum' => $stamps_sum,
 			'gifts_sum' => $gifts_sum,

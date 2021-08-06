@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Cookie;
+use Inertia\Inertia;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller {
 	public function create($card_id) {
-		return Inertia::render('User/Login', [
+		return Inertia::render('User/Register', [
 			'card_id' = $card_id
 		]);
 	}
@@ -33,7 +34,7 @@ class RegisteredUserController extends Controller {
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
 		]);
 
-		$card = Card::find($card_id);
+		$card = Card::find($request->card_id);
 
 		if ($card == null) {
 			return redirect()
@@ -54,7 +55,10 @@ class RegisteredUserController extends Controller {
 		Auth::guard('user')
 			->attempt($request->only(['email', 'password']));
 
-		Cookie::forever('user', $request->first_name);	
+		Cookie::forever('user_email', $request->email);
+		Cookie::forever('user_password', $request->password);
+
+		Cookie::make('card_id', $request->card_id, 43200);	
 
 		return redirect()->route('client.dashboard');
 	}
