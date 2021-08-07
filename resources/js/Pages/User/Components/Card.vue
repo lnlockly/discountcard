@@ -13,7 +13,7 @@
             <section class="card__info">
                 <div class="stemplen__container">
                     <h5 class="card__info-sub-title">
-                        карта принадлежит
+                        {{ $trans('card_belongs') }}
                     </h5>
                     <h2 class="card__info-title">
                         Вася Пупкин

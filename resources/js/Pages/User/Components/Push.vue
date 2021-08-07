@@ -2,13 +2,11 @@
     <div>
         <div class="question page" id="page5">
             <div class="stemplen__container">
-                <h3 class="form__title">Подписка на рассылки</h3>
-                <p class="question__text">Завершая создание аккаунта необходимо подписаться на получение уведомлений.</p>
-                <p class="question__text">Вы будите получать уведомления связанные только с Вашей картой.</p>
-                <p class="question__text">Уведомления не предполагают спам-рассылки.</p>
+                <h3 class="form__title"> {{ $trans('push_subscribe') }}</h3>
+                <span v-html="$trans('push_text')"></span>
                 <div class="question__button-inner">
-                    <button class="question__button-yes">ДА</button>
-                    <button class="question__button-no">НЕТ</button>
+                    <button class="question__button-yes">{{ $trans('yes') }</button>
+                    <button class="question__button-no">{{ $trans('no') }}</button>
                 </div>
             </div>
         </div>

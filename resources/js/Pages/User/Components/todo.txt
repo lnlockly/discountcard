@@ -1,4 +1,4 @@
-Перевести все components!
+Перевести все components! - yes
 Настроить vuex
 Сделать v-show в layout
 Сделать Profile

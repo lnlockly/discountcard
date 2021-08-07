@@ -6,12 +6,12 @@
                     <img src="/user/web-logo.png" alt="logo">
                 </a>
                 <ul class="header__list">
-                    <li class="link-home" data-tab="#page6"><a href="#" class="header__link">Добро пожаливать</a></li>
-                    <li class="link-home" data-tab="#page7"><a href="#" class="header__link">Как собирать пункты?</a></li>
-                    <li class="link-home" data-tab="#page8"><a href="#" class="header__link">Информация о компании</a></li>
-                    <li class="link-home" data-tab="#page9"><a href="#" class="header__link">Политика конфиденциальности</a></li>
-                    <li class="link-home" data-tab="#page10"><a href="#" class="header__link">Контакт</a></li>
-                    <li><a href="#" class="header__link">Для бизнеса</a></li>
+                    <li class="link-home" data-tab="#page6"><a href="#" class="header__link">{{ $trans('welcome') }}</a></li>
+                    <li class="link-home" data-tab="#page7"><a href="#" class="header__link">{{ $trans('how_to_get_stamps') }}</a></li>
+                    <li class="link-home" data-tab="#page8"><a href="#" class="header__link">{{ $trans('about') }}</a></li>
+                    <li class="link-home" data-tab="#page9"><a href="#" class="header__link">{{ $trans('privacy_policy') }}</a></li>
+                    <li class="link-home" data-tab="#page10"><a href="#" class="header__link">{{ $trans('contact') }}</a></li>
+                    <li><a href="#" class="header__link">{{ $trans('for_business') }}</a></li>
                 </ul>
                 <div class="header__menu-del">
                     <img src="/user/del.png" alt="del">

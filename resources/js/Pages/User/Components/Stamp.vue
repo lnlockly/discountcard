@@ -3,7 +3,7 @@
         <div class="pin page" id="page-pin">
             <div style="height: 50px;"></div>
             <div class="stemplen__container">
-                <h3 class="pin__title">Ввдите секретный код</h3>
+                <h3 class="pin__title"> {{ $trans('stamp_input') }}</h3>
                 <form action="#" class="pin__form">
                     <label for="" class="pin__input">
                         <input type="number" class="pin__pas-inp">
