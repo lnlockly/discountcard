@@ -1,5 +1,4 @@
 Перевести все components! - yes
-Настроить vuex
 Сделать v-show в layout
 Сделать Profile
 Сделать CardRegion

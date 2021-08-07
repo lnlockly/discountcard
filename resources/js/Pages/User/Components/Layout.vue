@@ -37,19 +37,19 @@
         <footer class="footer">
             <div class="stemplen__container">
                 <div class="footer__inner">
-                    <div class="footer__logo" data-tab="#page11">
+                    <div class="footer__logo" @click="change_show('card-region')">
                         <img src="/user/1-icon.png" alt="page">
                     </div>
-                    <div class="footer__logo" data-tab="#page22">
+                    <div class="footer__logo" @click="change_show('card-ads')">
                         <img src="/user/2-icon.png" alt="page">
                     </div>
-                    <button class="footer__button footer__logo" data-tab="#page-pin">
+                    <button class="footer__button footer__logo" @click="change_show('stamp')">
                         штамп
                     </button>
-                    <div class="footer__logo " data-tab="#page3">
+                    <div class="footer__logo" @click="change_show('card-info')">
                         <img src="/user/3-icon.png" alt="page">
                     </div>
-                    <div class="footer__logo" data-tab="#page4">
+                    <div class="footer__logo" @click="change_show('profile')">
                         <img src="/user/4-icon.png" alt="page">
                     </div>
                 </div>
@@ -58,3 +58,12 @@
         <slot />
     </main>
 </template>
+<script>
+    export default {
+        methods: {
+            change_show(page) {
+                this.$emit('change_show', page);
+            }
+        }
+    }
+</script>

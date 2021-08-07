@@ -5,11 +5,11 @@
         <!-- Register -->
         <!-- Login -->
         <stamp v-show="show == 'stamp'"/>
-        <card-info v-show="show == 'card_info'"/>
+        <card-info v-show="show == 'card-info'"/>
         <profile v-show="show == 'profile'"/>
         <!-- push -->
         <about v-show="show == 'about'"/>
-        <card-region v-show="show == 'card_region'"/>
+        <card-region v-show="show == 'card-region'"/>
         <card-ads v-show="show == 'card-ads'"/>
         <card-show v-show="show == 'card-show'"/>
        
