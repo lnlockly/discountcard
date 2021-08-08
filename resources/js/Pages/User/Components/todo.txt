@@ -1,8 +1,3 @@
-Перевести все components! - yes
-Сделать v-show в layout
-Сделать Profile
-Сделать CardRegion
-Сделать CardAds и CardInfo
-Сделать Stamp
-Подготовить push
-Настроить About
+Проверить все
+Сделать штампы
+Сделать web push

@@ -4,11 +4,13 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Cookie;
+use App\Models\Card;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
-class UserCard {
+class UserCard
+{
 	/**
 	 * Handle an incoming request.
 	 *
@@ -16,9 +18,12 @@ class UserCard {
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
-	public function handle(Request $request, Closure $next) {
+	public function handle(Request $request, Closure $next)
+	{
 		if ($request->route('card_id') != null) {
-			Cookie::forever('card_id', $request->card_id);	
+			if (Card::find($request->route('card_id')) != null) {
+				Cookie::forever('card_id', $request->card_id);
+			}
 		}
 		if ($request->hasCookie('card_id')) {
 			return redirect(route('user.index'));

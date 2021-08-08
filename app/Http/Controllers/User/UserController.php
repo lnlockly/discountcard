@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Card;
+use App\Models\Stamp;
 use Cookie;
 
 
@@ -14,19 +15,12 @@ class UserController extends Controller
 {
 	public function index()
 	{
-		if (Cookie::get('card_id') != null) {
-			$card_id = Cookie::get('card_id');
-		} else {
-			return abort(404);
-		}
-		$user = Auth::user();
-		$cards = Card::all();
-		$current_card = $cards->find($card_id);
-		$user_cards = $user->cards;
 
-		return Inertia::render('User/Home', [
-			'users_cards' => $user_cards,
-			'cards' => $cards,
+		$card_id = Cookie::get('card_id');
+		$card = Card::find($card_id);
+
+		return Inertia::render('User/Card', [
+			'card' => $card
 		]);
 	}
 
@@ -52,8 +46,19 @@ class UserController extends Controller
 
 	public function add_stamp(Request $request)
 	{
-		// todo
-		$code = $request->code;
+		$card_id = Cookie::get('card_id');
+		$managers = Card::find($card_id)->managers;
+		$request_code = $request->code;
+		foreach ($managers as $manager) {
+			if ($manager->code == $request_code) {
+				Stamp::create([
+					'user_id' => Auth::user()->id,
+					'manager_id' => $manager->id,
+					'card_id' => $card_id
+				]);
+				break;
+			}
+		};
 	}
 
 	public function card_info()
