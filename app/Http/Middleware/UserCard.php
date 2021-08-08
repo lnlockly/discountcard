@@ -3,7 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Cookie;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 
 class UserCard {
 	/**
@@ -14,13 +17,13 @@ class UserCard {
 	 * @return mixed
 	 */
 	public function handle(Request $request, Closure $next) {
+		if ($request->route('card_id') != null) {
+			Cookie::forever('card_id', $request->card_id);	
+		}
 		if ($request->hasCookie('card_id')) {
-			return redirect(route('user.card.show', [$request->cookie('card_id')]));
+			return redirect(route('user.index'));
 		}
-		if (!$request->hasCookie('user_email')) {
-			return redirect(route('user.register', ["card_id" => $request->route('card_id')]));
-		}
-		if (!Auth::check()) {
+		if ($request->hasCookie('user_email') && !Auth::check()) {
 			Auth::guard('user')
 				->attempt($request->cookie(['user_email', 'user_password']));
 		}

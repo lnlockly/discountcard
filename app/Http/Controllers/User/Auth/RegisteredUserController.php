@@ -60,7 +60,6 @@ class RegisteredUserController extends Controller {
 		Cookie::forever('user_email', $request->email);
 		Cookie::forever('user_password', $request->password);
 
-		Cookie::make('card_id', $request->card_id, 43200);	
 
 		return redirect()->route('user.index');
 	}

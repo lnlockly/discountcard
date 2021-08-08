@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Stamp extends Model {
 	use HasFactory;
 
+	protected $fillable = ['name', 'key', 'client_id'];
+	
 	public function manager() {
 		return $this->belongsTo(Manager::class);
 	}

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
@@ -51,7 +50,8 @@ class CardController extends Controller {
 			'card_description' => $request->card_description,
 			'card_use' => $request->card_use,
 			'gift_description' => $request->gift_description,
-			'client_id' => Auth::user()->id,
+			'region' => Auth::user()->city,
+			'client_id' => $client_id,
 		]);
 		return Inertia::location(route('client.dashboard'));
 
