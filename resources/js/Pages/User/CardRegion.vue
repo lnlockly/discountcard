@@ -6,17 +6,17 @@
                     <div class="main__swip-slider-wrapper swiper-wrapper">
                         <div class="main__swip-slide swiper-slide">
                             <div class="main__swip-slide-container ">
-                                <img src="/user/slider1.jpg" alt="banner">
+                                <img src="/storage/image/user/slider1.jpg" alt="banner">
                             </div>
                         </div>
                         <div class="main__swip-slide swiper-slide">
                             <div class="main__swip-slide-container">
-                                <img src="/user/slider1.jpg" alt="banner">
+                                <img src="/storage/image/user/slider1.jpg" alt="banner">
                             </div>
                         </div>
                         <div class="main__swip-slide swiper-slide">
                             <div class="main__swip-slide-container">
-                                <img src="/user/slider1.jpg" alt="banner">
+                                <img src="/storage/image/user/slider1.jpg" alt="banner">
                             </div>
                         </div>
                     </div>
@@ -26,22 +26,22 @@
                 <div class="stemplen__container">
                     <div class="main__logo-inner">
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                         <div class="main__logo-img">
-                            <img src="/user/firmlogo.png" alt="">
+                            <img src="/storage/image/user/firmlogo.png" alt="">
                         </div>
                     </div>
                 </div>

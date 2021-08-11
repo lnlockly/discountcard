@@ -3,7 +3,7 @@
     <header class="header">
       <nav class="header__menu">
         <a href="#" class="menu-logo">
-          <img src="/user/web-logo.png" alt="logo" />
+          <img src="/storage/image/user/web-logo.png" alt="logo" />
         </a>
         <ul class="header__list">
           <li class="link-home" data-tab="#page6">

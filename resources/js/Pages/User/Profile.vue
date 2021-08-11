@@ -6,33 +6,33 @@
           <h3 class="stemple__set-title">{{ user.first_name }} {{ user.last_name }}</h3>
           <div class="profil__settings-inner">
             <div class="profil__set-date">
-              <span> {{ $trans('register') }}: {{ user.created_at }}</span>
+              <span> {{ $trans('main.register') }}: {{ user.created_at }}</span>
             </div>
             <div class="profil__set-email">
               <div class="profil__email-img">
-                <img src="/user/email.svg" alt="icon" />
+                <img src="/storage/image/user/email.svg" alt="icon" />
               </div>
               <span class="profil__email-text">{{ user.email }}</span>
             </div>
           </div>
         </div>
         <div class="profil__info-block">
-          <button class="profil__button">{{ $trans("resend") }}</button>
+          <button class="profil__button">{{ $trans("main.resend") }}</button>
           <span class="profil__button-text">{{
-            $trans("forgot_password")
+            $trans("main.forgot_password")
           }}</span>
         </div>
         <div class="profil__info-block">
-          <button class="profil__button">{{ $trans("resend") }}</button>
+          <button class="profil__button">{{ $trans("main.resend") }}</button>
           <span class="profil__button-text">{{
-            $trans("forgot_password")
+            $trans("main.forgot_password")
           }}</span>
         </div>
         <div class="profil__title-inner">
           <div class="profil__title-img">
-            <img src="/user/bookmark.svg" alt="" style="fill: #ff006d" />
+            <img src="/storage/image/user/bookmark.svg" alt="" style="fill: #ff006d" />
           </div>
-          <h4 class="stemplen__sub-title"> {{ $trans('my_cards') }}</h4>
+          <h4 class="stemplen__sub-title"> {{ $trans('main.my_cards') }}</h4>
         </div>
         <div class="profil__logo-inner">
           <div class="profil__logo-img" v-for="card in cards">

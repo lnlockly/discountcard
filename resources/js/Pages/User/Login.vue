@@ -3,23 +3,23 @@
         <div class="form page" id="page2">
             <form @submit.prevent="form.post(route('user.login'))">
                 <div class="stemplen__container">
-                    <h2 class="form__title"> {{ $trans('main.login') }}Логин</h2>
+                    <h2 class="form__title"> {{ $trans('main.login') }}</h2>
                     <form action="#" class="form__reg">
                         <label for="" class="form__inner">
-                            <h4 class="form__input-title">{{ $trans('main.email') }}Емаил</h4>
+                            <h4 class="form__input-title">{{ $trans('main.email') }}</h4>
                             <input type="text" class="form__text-input" required v-model="form.email">
                         </label>
                         <label for="" class="form__inner">
-                            <h4 class="form__input-title">{{ $trans('main.password') }}Пароль</h4>
+                            <h4 class="form__input-title">{{ $trans('main.password') }}</h4>
                             <input type="password" class="form__text-input" required v-model="form.password">
                         </label>
                         <label for="" class="form__ques">
                             <input type="checkbox" class="form__checkbox" required>
-                            <span class="form__ques-text">{{ $trans('main.personal_data') }}Я согласен на обработку персональных данных</span>
+                            <span class="form__ques-text">{{ $trans('main.personal_data') }}</span>
                         </label>
                     </form>
                     <div class="form__button-inner">
-                        <button type="submit" class="footer__logo form__button" data-tab="#page5">{{ $trans('main.login') }} Логин</button>
+                        <button type="submit" :disabled="form.processing" class="footer__logo form__button" data-tab="#page5">{{ $trans('main.login') }} Логин</button>
                     </div>
                 </div>
                 <div style="height: 50px;"></div>

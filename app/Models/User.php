@@ -51,6 +51,6 @@ class User extends Authenticatable {
 		return $this->hasMany(Gift::class);
 	}
 	public function cards() {
-		return $this->belongsToMany(Card::class);
+		return $this->belongsTo(Card::class);
 	}
 }

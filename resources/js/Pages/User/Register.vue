@@ -28,7 +28,7 @@
                         </label>
                     </form>
                     <div class="form__button-inner">
-                        <button type="submit" class="footer__logo form__button" data-tab="#page5">{{ $trans('main.sign_up') }}</button>
+                        <button type="submit" :disabled="form.processing" class="footer__logo form__button">{{ $trans('main.sign_up') }}</button>
                     </div>
                 </div>
                 <div style="height: 50px;"></div>
