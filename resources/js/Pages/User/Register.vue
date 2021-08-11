@@ -39,7 +39,6 @@
 <script>
 export default {
     props: {
-        card_id: String,
         errors: Object,
     },
     data() {
@@ -49,7 +48,6 @@ export default {
                 first_name: null,
                 last_name: null,
                 password: null,
-                card_id: this.card_id,
             }),
         }
     },

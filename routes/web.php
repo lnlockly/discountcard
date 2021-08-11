@@ -78,7 +78,8 @@ Route::group(
 			->name('card_info');
 		Route::get('/profile', [UserController::class, 'profile'])
 			->name('profile');
-		Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])
-			->name('cardadd');
+
 	}
 );
+Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])
+->name('cardadd');

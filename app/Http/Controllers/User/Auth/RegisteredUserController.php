@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller {
-	public function create($card_id) {
-		return Inertia::render('User/Register', [
-			'card_id' => $card_id
-		]);
+	public function create() {
+		return Inertia::render('User/Register');
 	}
 	/**
 	 * Handle an incoming registration request.
@@ -35,13 +33,7 @@ class RegisteredUserController extends Controller {
 			'password' => ['required', Rules\Password::defaults()],
 		]);
 
-		$card = Card::find($request->card_id);
-
-		if ($card == null) {
-			return redirect()
-				->back()
-				->withErrors(["Card error" => "This card not found"]);
-		}
+		$card = Card::find($request->cookie('card_id'));
 
 		$user = User::create([
 			'first_name' => $request->first_name,

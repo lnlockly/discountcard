@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['as' => 'user.'],
 	function () {
 
-		Route::get('/register/{card_id}', [RegisteredUserController::class, 'create'])
+		Route::get('/register', [RegisteredUserController::class, 'create'])
 			->middleware('guest')
 			->name('register');
 
