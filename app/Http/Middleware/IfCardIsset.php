@@ -20,6 +20,9 @@ class IfCardIsset
         if (Auth::user()->card == null && $request->url() != route('client.card.create') && $request->url() != route('client.card.store')) {
             return redirect(route('client.card.create'));
         }
+        if ($request->url() == 'client') {
+            return redirect(route('client.login'));
+        }
         return $next($request);
     }
 }

@@ -17,8 +17,14 @@ class UserController extends Controller
 	{
 
 		$card_id = Cookie::get('card_id');
-		$card = Card::find($card_id);
 
+		$card = Card::find($card_id);
+		if (Cookie::get('user_email') == null) {
+			return Inertia::render('User/Card', [
+				'card' => $card,
+				'register' => true,
+			]);
+		}
 		return Inertia::render('User/Card', [
 			'card' => $card
 		]);
@@ -81,5 +87,10 @@ class UserController extends Controller
 			'user' => $user,
 			'cards' => $cards
 		]);
+	}
+
+	public function add_usercard($id) {
+		Cookie::queue('card_id', $id, 200000);
+		return redirect(route('user.index'));
 	}
 }

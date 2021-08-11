@@ -1,30 +1,39 @@
 <template>
   <div>
-    <div class="card page" id="page1">
+    <div class="card page">
       <div class="stemplen__container"></div>
       <section class="card__logo">
         <div class="card__logo-inner">
           <div class="card__logo-img">
-            <img :src="`/storage/image/card/{$card.logo}`" alt="firm-logo" />
+            <img :src="`/storage/image/card/${card.logo}`" alt="firm-logo" />
           </div>
         </div>
       </section>
       <section class="card__info">
         <div class="stemplen__container">
           <h5 class="card__info-sub-title">
-            {{ $trans("card_belongs") }}
+            {{ $trans("main.card_belongs") }}
           </h5>
           <h2 class="card__info-title">
             {{ card.name }}
           </h2>
           <div class="card__info-img-inner">
             <div class="card__info-img" v-for="stamp in card.stamps">
-              <img :src="`/storage/image/stamp/${card.stamp_icon}`" alt="img" />
+              <img :src="`/storage/image/stamps/${card.stamp_icon}`" alt="img" />
             </div>
           </div>
           <p class="card__info-text">
             {{ card.condition }}
           </p>
+          <div class="form__button-inner">
+            <button
+              v-if="register"
+              type="submit"
+              class="footer__logo form__button"
+            >
+              {{ $trans("main.sign_up") }}
+            </button>
+          </div>
           <div style="height: 50px"></div>
         </div>
       </section>
@@ -34,7 +43,9 @@
 <script>
 export default {
   props: {
-    card,
+    card: Object,
+    register: Boolean,
+    error: String
   },
 };
 </script>

@@ -57,7 +57,7 @@
                                     {{ __('QR-Code') }}
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">{!! QrCode::size(200)->generate(url("/{$card_id}")); !!}
+                                    <div class="text-center">{!! QrCode::size(200)->generate(url("/$card_id")); !!}
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                     {{ __('Card link') }}
                                 </div>
                                 <div class="card-body">
-                                    <a href="{{ url('/{$card_id}') }}">{{ url("/{$card_id}") }}</a>
+                                    <a href="{{ url("/?card_id=$card_id") }}">{{ url("/?card_id=$card_id") }}</a>
                                 </div>
                             </div>
                         </div>

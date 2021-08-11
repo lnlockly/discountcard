@@ -15,31 +15,31 @@
        
     </div>
 </template>
-<script>
-import Layout from './Components/Layout'
-import Card from './Components/Card'
-import Profile from './Components/Profile'
-import CardInfo from './Components/CardInfo'
-import CardRegion from './Components/CardRegion'
-import CardAds from '.Components/CardAds'
-import CardShow from '.Components/CardShow'
-import Stamp from './Components/Stamp'
-import About from './Components/About'
-import { Link } from '@inertiajs/inertia-vue'
+// <script>
+// import Layout from './Components/Layout'
+// import Card from './Components/Card'
+// import Profile from './Components/Profile'
+// import CardInfo from './Components/CardInfo'
+// import CardRegion from './Components/CardRegion'
+// import CardAds from '.Components/CardAds'
+// import CardShow from '.Components/CardShow'
+// import Stamp from './Components/Stamp'
+// import About from './Components/About'
+// import { Link } from '@inertiajs/inertia-vue'
 
-export default {
-    components: {
-        Card,
-        Link,
-        Profile,
-        CardInfo,
-        CardRegion,
-        CardAds,
-        CardShow,
-        Stamp,
-        About
-    },
-    layout: Layout
-}
+// export default {
+//     components: {
+//         Card,
+//         Link,
+//         Profile,
+//         CardInfo,
+//         CardRegion,
+//         CardAds,
+//         CardShow,
+//         Stamp,
+//         About
+//     },
+//     layout: Layout
+// }
 
-</script>
+// </script>

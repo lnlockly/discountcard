@@ -18,12 +18,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 require __DIR__ . '/client_auth.php';
 require __DIR__ . '/user_auth.php';
 
-Route::group(['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client', 'as' => 'client.'],
+Route::group(
+	['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
-
+		Route::get('/', function () {
+			return redirect(route('client.login'));
+		});
+		
 		Route::get('/dashboard', [ClientController::class, 'index'])
 			->name('dashboard');
 
@@ -50,16 +55,15 @@ Route::group(['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client
 
 		Route::put('/card/update', [CardController::class, 'update'])
 			->name('card.update');
-
-	});
+	}
+);
 Route::get('/client/card', [CardController::class, 'create'])
 	->middleware('auth:client')
 	->name('client.card.create');
 
-Route::group(['middleware' => 'usercard', 'as' => 'user.'],
+Route::group(
+	['middleware' => 'usercard', 'as' => 'user.'],
 	function () {
-		Route::get('/{card_id}', [CardController::class, 'show'])
-			->name('card.show');
 		Route::get('/', [UserController::class, 'index'])
 			->name('index');
 		Route::get('/card_region', [UserController::class, 'card_region'])
@@ -67,11 +71,14 @@ Route::group(['middleware' => 'usercard', 'as' => 'user.'],
 		Route::get('/card_ads', [UserController::class, 'card_ads'])
 			->name('card_ads');
 		Route::get('/stamp', [UserController::class, 'stamp'])
-			->name('stamp');	
+			->name('stamp');
 		Route::post('/stamp', [UserController::class, 'add_stamp'])
-			->name('add_stamp');	
+			->name('add_stamp');
 		Route::get('/card_info', [UserController::class, 'card_info'])
 			->name('card_info');
 		Route::get('/profile', [UserController::class, 'profile'])
-			->name('profile');			
-	});
+			->name('profile');
+		Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])
+			->name('cardadd');
+	}
+);
