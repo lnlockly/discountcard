@@ -25,6 +25,8 @@ class UserController extends Controller
 				'register' => true,
 			]);
 		}
+		$card = Card::find($card_id);
+
 		return Inertia::render('User/Card', [
 			'card' => $card
 		]);
@@ -57,12 +59,12 @@ class UserController extends Controller
 		$request_code = $request->code;
 		foreach ($managers as $manager) {
 			if ($manager->code == $request_code) {
+				break;
 				Stamp::create([
 					'user_id' => Auth::user()->id,
 					'manager_id' => $manager->id,
 					'card_id' => $card_id
 				]);
-				break;
 			}
 		};
 	}

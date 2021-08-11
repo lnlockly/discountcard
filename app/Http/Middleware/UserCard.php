@@ -20,10 +20,20 @@ class UserCard
 	 */
 	public function handle(Request $request, Closure $next)
 	{
+<<<<<<< HEAD
 		if ($request->card_id != null) {
 			if (Card::find($request->card_id)) {
 				return redirect(route('user.cardadd', [$request->card_id]));
 			}
+=======
+		if ($request->route('card_id') != null) {
+			if (Card::find($request->route('card_id')) != null) {
+				Cookie::forever('card_id', $request->card_id);
+			}
+		}
+		if ($request->hasCookie('card_id')) {
+			return redirect(route('user.index'));
+>>>>>>> 3cf8dfcc976b3c553ef8f677ba320ad8edd88355
 		}
 
 		if ($request->hasCookie('user_email') && !Auth::check()) {
