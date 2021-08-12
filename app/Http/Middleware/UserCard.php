@@ -19,13 +19,13 @@ class UserCard {
 	public function handle(Request $request, Closure $next) {
 		if ($request->card_id != null) {
 			if (Card::find($request->card_id)) {
-				return redirect(route('user.cardadd', [$request->card_id]));
+				return redirect(route('user.card_add', [$request->card_id]));
 			}
 		}
 
 		if ($request->hasCookie('user_email') && !Auth::check()) {
 			Auth::guard('user')
-				->attempt($request->cookie(['user_email', 'user_password']));
+				->attempt([$request->cookie('user_email'), $request->cookie('user_password')]);
 		}
 
 		if (!$request->hasCookie('card_id') && !$request->hasCookie('user_email') && $request->url() != route('user.card_region')) {

@@ -32,6 +32,8 @@
         "bootstrap5": "^1.1.9",
         "matice": "^1.1.4",
         "startbootstrap-sb-admin": "^7.0.2",
-        "vue": "^2.6.0"
+        "swiper": "5.x",
+        "vue": "^2.6.0",
+        "vue-awesome-swiper": "^4.1.1"
     }
 }

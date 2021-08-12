@@ -30,9 +30,9 @@ class UserController extends Controller {
 	}
 
 	public function card_region() {
-		if (Auth::check()) {
+		if (Auth::check() && Auth::user()->region != null) {
 			$region = Auth::user()->region;
-			$cards = Card::where('region', $region)->get();
+			$cards = Card::where('region', $region)->get('id','logo');
 		} else {
 			$cards = Card::all();
 		}
@@ -78,6 +78,9 @@ class UserController extends Controller {
 	}
 
 	public function profile() {
+		if (!Auth::check()) {
+			return redirect(route('user.login'));
+		}
 		$user = Auth::user();
 		$cards = $user->cards;
 

@@ -79,4 +79,4 @@ Route::group(
 	}
 );
 Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])
-->name('cardadd');
+->name('user.card_add');

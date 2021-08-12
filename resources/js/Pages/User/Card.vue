@@ -18,7 +18,7 @@
             {{ card.name }}
           </h2>
           <div class="card__info-img-inner">
-            <div class="card__info-img" v-for="stamp in card.stamps">
+            <div class="card__info-img" v-for="i in parseInt(card.stamps)">
               <img
                 :src="`/storage/image/stamps/${card.stamp_icon}`"
                 alt="img"
@@ -58,5 +58,8 @@ export default {
     error: String,
   },
   layout: Layout,
+  mounted() {
+    console.log(this.card.stamps)
+  }
 };
 </script>

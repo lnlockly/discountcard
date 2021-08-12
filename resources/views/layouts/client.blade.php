@@ -14,11 +14,19 @@
 
 <body>
     @if (Request::path() == 'client/card/edit')
-   		@include('client.layouts.navigation')
+    <div class="sb-nav-fixed">
+        <div class="bg-gray-100">
+            @include('client.layouts.navigation')
+            @translations
+            @routes
+            @inertia
+        </div>
+    </div>
+    @else
+        @translations
+        @routes
+        @inertia
     @endif
-    @translations
-    @routes
-    @inertia
 </body>
 
 </html>
