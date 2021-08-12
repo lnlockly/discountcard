@@ -76,12 +76,18 @@
     </footer>
     <slot />
   </main>
+  
 </template>
 <script>
 import { Link } from "@inertiajs/inertia-vue";
 export default {
   components: {
     Link,
+  },
+  data() {
+    return {
+      about: false
+    }
   },
   methods: {
     change_show(page) {

@@ -64,9 +64,10 @@ class UserController extends Controller
 					'card_id' => $card_id
 				]);
 				break;
+				return redirect(route('user.index'));
 			}
 		};
-		return redirect(route('user.index'));
+		return redirect(route('user.stamp'));
 	}
 
 	public function card_info()

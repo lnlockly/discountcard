@@ -19,20 +19,20 @@
           </label>
         </form>
         <div class="pin__number-inner">
-          <div class="pin__number" @click="form.key += 1">1</div>
-          <div class="pin__number" @click="form.key += 2">2</div>
-          <div class="pin__number" @click="form.key += 3">3</div>
-          <div class="pin__number" @click="form.key += 4">4</div>
-          <div class="pin__number" @click="form.key += 5">5</div>
-          <div class="pin__number" @click="form.key += 6">6</div>
-          <div class="pin__number" @click="form.key += 7">7</div>
-          <div class="pin__number" @click="form.key += 8">8</div>
-          <div class="pin__number" @click="form.key += 9">9</div>
+          <div class="pin__number" @click="form.key.push(1)">1</div>
+          <div class="pin__number" @click="form.key.push(2)">2</div>
+          <div class="pin__number" @click="form.key.push(3)">3</div>
+          <div class="pin__number" @click="form.key.push(4)">4</div>
+          <div class="pin__number" @click="form.key.push(5)">5</div>
+          <div class="pin__number" @click="form.key.push(6)">6</div>
+          <div class="pin__number" @click="form.key.push(7)">7</div>
+          <div class="pin__number" @click="form.key.push(8)">8</div>
+          <div class="pin__number" @click="form.key.push(9)">9</div>
           <div class="pin__number-hide">
             <span class="pin__number-hide"></span>
           </div>
-          <div class="pin__number" @click="form.key += 0">0</div>
-          <div class="pin__del">
+          <div class="pin__number" @click="form.key.push(0)">0</div>
+          <div class="pin__del" @click="form.key.pop()">
             <div class="pin__del-img">
               <img src="/storage/image/user/becks.png" alt="" />
             </div>
@@ -65,6 +65,7 @@ export default {
   },
   methods: {
     submit() {
+      this.form.key = this.form.key.join("");
       this.$inertia.post(route("user.add_stamp"), this.form);
     },
   },

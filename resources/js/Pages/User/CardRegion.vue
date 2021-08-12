@@ -50,3 +50,12 @@
         </div>
     </div>
 </template>
+<script>
+import Layout from './Components/Layout'
+export default {
+  props: {
+    cards: Object,
+  },
+  layout: Layout
+}
+</script>

@@ -23,3 +23,14 @@
         </div>
     </div>
 </template>
+<script>
+import Layout from './Components/Layout'
+export default {
+  props: {
+    cards: Object,
+    user: Object
+  },
+  layout: Layout
+}
+</script>
+
