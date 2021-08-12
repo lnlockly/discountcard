@@ -25,23 +25,8 @@
             <section class="main__logo">
                 <div class="stemplen__container">
                     <div class="main__logo-inner">
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
-                        </div>
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
-                        </div>
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
-                        </div>
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
-                        </div>
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
-                        </div>
-                        <div class="main__logo-img">
-                            <img src="/storage/image/user/firmlogo.png" alt="">
+                        <div class="main__logo-img" v-for="card in cards">
+                            <img :src="`/storage/image/client/card/${card.logo}`" alt="">
                         </div>
                     </div>
                 </div>
@@ -54,7 +39,7 @@
 import Layout from './Components/Layout'
 export default {
   props: {
-    cards: Object,
+    cards: Array,
   },
   layout: Layout
 }

@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Card;
 use App\Models\Stamp;
 use Cookie;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
-
-class UserController extends Controller
-{
-	public function index()
-	{
+class UserController extends Controller {
+	public function index() {
 
 		$card_id = Cookie::get('card_id');
 
@@ -28,32 +25,32 @@ class UserController extends Controller
 		$card = Card::find($card_id);
 
 		return Inertia::render('User/Card', [
-			'card' => $card
+			'card' => $card,
 		]);
 	}
 
-	public function card_region()
-	{
-		$region = Auth::user()->region;
-		$cards = Card::where('region', $region)->get();
+	public function card_region() {
+		if (Auth::check()) {
+			$region = Auth::user()->region;
+			$cards = Card::where('region', $region)->get();
+		} else {
+			$cards = Card::all();
+		}
 
 		return Inertia::render('User/CardRegion', [
-			'cards' => $cards
+			'cards' => $cards,
 		]);
 	}
 
-	public function card_ads()
-	{
+	public function card_ads() {
 		return abort(404);
 	}
 
-	public function stamp()
-	{
+	public function stamp() {
 		return Inertia::render('User/Stamp');
 	}
 
-	public function add_stamp(Request $request)
-	{
+	public function add_stamp(Request $request) {
 		$card_id = Cookie::get('card_id');
 		$managers = Card::find($card_id)->client->managers;
 		foreach ($managers as $manager) {
@@ -61,7 +58,7 @@ class UserController extends Controller
 				Stamp::create([
 					'user_id' => Auth::user()->id,
 					'manager_id' => $manager->id,
-					'card_id' => $card_id
+					'card_id' => $card_id,
 				]);
 				break;
 				return redirect(route('user.index'));
@@ -70,25 +67,23 @@ class UserController extends Controller
 		return redirect(route('user.stamp'));
 	}
 
-	public function card_info()
-	{
+	public function card_info() {
 		$card_id = Cookie::get('card_id');
 		$card = Card::find($card_id);
 
 		return Inertia::render('User/CardInfo', [
 			'card' => $card,
-			'client' => $card->client
+			'client' => $card->client,
 		]);
 	}
 
-	public function profile()
-	{
+	public function profile() {
 		$user = Auth::user();
 		$cards = $user->cards;
 
 		return Inertia::render('User/Profile', [
 			'user' => $user,
-			'cards' => $cards
+			'cards' => $cards,
 		]);
 	}
 

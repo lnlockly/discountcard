@@ -2,15 +2,13 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Card;
 use Closure;
 use Cookie;
-use App\Models\Card;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-
-class UserCard
-{
+class UserCard {
 	/**
 	 * Handle an incoming request.
 	 *
@@ -18,19 +16,22 @@ class UserCard
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
-	public function handle(Request $request, Closure $next)
-	{
+	public function handle(Request $request, Closure $next) {
 		if ($request->card_id != null) {
 			if (Card::find($request->card_id)) {
 				return redirect(route('user.cardadd', [$request->card_id]));
 			}
 		}
-		
+
 		if ($request->hasCookie('user_email') && !Auth::check()) {
-			dd($request->cookie('user_password'));
 			Auth::guard('user')
 				->attempt($request->cookie(['user_email', 'user_password']));
 		}
+
+		if (!$request->hasCookie('card_id') && !$request->hasCookie('user_email') && $request->url() != route('user.card_region')) {
+			return redirect(route('user.card_region'));
+		}
+
 		return $next($request);
 	}
 }
