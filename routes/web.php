@@ -25,7 +25,10 @@ require __DIR__ . '/user_auth.php';
 Route::group(
 	['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
-		
+		Route::get('/', function() {
+			return redirect(route('client.dashboard'));
+		});
+
 		Route::get('/dashboard', [ClientController::class, 'index'])
 			->name('dashboard');
 
