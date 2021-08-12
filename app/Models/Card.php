@@ -30,4 +30,9 @@ class Card extends Model
 	{
 		return $this->hasMany(Gift::class);
 	}
+	
+	public function activation()
+	{
+		return $this->hasMany(Activation::class);
+	}
 }

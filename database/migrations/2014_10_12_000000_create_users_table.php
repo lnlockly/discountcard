@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration {
 			$table->integer('nof_gifts')->nullable();
 			$table->boolean('webpush');
 			$table->string('email')->unique();
-			$table->timestamp('cardact_at')->nullable();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
 			$table->rememberToken();

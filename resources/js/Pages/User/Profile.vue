@@ -6,7 +6,7 @@
           <h3 class="stemple__set-title">{{ user.first_name }} {{ user.last_name }}</h3>
           <div class="profil__settings-inner">
             <div class="profil__set-date">
-              <span> {{ $trans('main.register') }}: {{ user.created_at }}</span>
+              <span> {{ $trans('main.register') }}: {{ created_at }}</span>
             </div>
             <div class="profil__set-email">
               <div class="profil__email-img">
@@ -36,7 +36,7 @@
         </div>
         <div class="profil__logo-inner">
           <div class="profil__logo-img" v-for="card in cards">
-            <img :src="`/storage/image/card/{$card.logo}`" alt="" />
+            <img :src="`/storage/image/card/${card.logo}`" alt="" />
           </div>
         </div>
       </div>
@@ -48,8 +48,9 @@
 import Layout from './Components/Layout'
 export default {
   props: {
-    cards: Object,
-    user: Object
+    cards: Array,
+    user: Object,
+    created_at: String
   },
   layout: Layout
 }

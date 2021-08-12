@@ -14,19 +14,15 @@ Route::group(['as' => 'user.'],
 	function () {
 
 		Route::get('/register', [RegisteredUserController::class, 'create'])
-			->middleware('guest')
 			->name('register');
 
 		Route::post('/register', [RegisteredUserController::class, 'store'])
-			->middleware('guest')
 			->name('adduser');
 
 		Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-			->middleware('guest')
 			->name('login');
 
-		Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-			->middleware('guest');
+		Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
 		Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
 			->middleware('guest')

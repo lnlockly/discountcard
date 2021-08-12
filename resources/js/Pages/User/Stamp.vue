@@ -67,6 +67,7 @@ export default {
     submit() {
       this.form.key = this.form.key.join("");
       this.$inertia.post(route("user.add_stamp"), this.form);
+      this.form.key = [];
     },
   },
   layout: Layout,

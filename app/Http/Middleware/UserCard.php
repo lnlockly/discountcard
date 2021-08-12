@@ -25,7 +25,7 @@ class UserCard {
 
 		if ($request->hasCookie('user_email') && !Auth::check()) {
 			Auth::guard('user')
-				->attempt([$request->cookie('user_email'), $request->cookie('user_password')]);
+				->attempt(['email' => $request->cookie('user_email'), 'password' => $request->cookie('user_password')]);
 		}
 
 		if (!$request->hasCookie('card_id') && !$request->hasCookie('user_email') && $request->url() != route('user.card_region')) {
