@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div class="card page">
       <div class="stemplen__container"></div>
       <section class="card__logo">
@@ -58,8 +59,6 @@ export default {
     error: String,
   },
   layout: Layout,
-  mounted() {
-    console.log(this.card.stamps)
-  }
+
 };
 </script>

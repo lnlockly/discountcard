@@ -1,6 +1,23 @@
 <template>
   <main class="stemplen">
     <header class="header">
+      <div class="stemplen__container">
+        <div class="header__inner">
+          <div class="header-arrow active">
+            <Link :href="route('user.index')">
+              <img src="/storage/image/user/angle-left.svg" alt="ar" />
+            </Link>
+          </div>
+
+          <div class="header__burger">
+            <span></span>
+          </div>
+          <a href="#" class="header__logo">
+            <img src="/storage/image/user/web-logo.png" alt="logo" />
+          </a>
+          <div class="header__flex-elem"></div>
+        </div>
+      </div>
       <nav class="header__menu">
         <a href="#" class="menu-logo">
           <img src="/storage/image/user/web-logo.png" alt="logo" />
@@ -18,33 +35,23 @@
             <a href="#" class="header__link">{{ $trans("main.about") }}</a>
           </li>
           <li class="link-home" data-tab="#page9">
-            <a href="#" class="header__link">{{ $trans("main.privacy_policy") }}</a>
+            <a href="#" class="header__link">{{
+              $trans("main.privacy_policy")
+            }}</a>
           </li>
           <li class="link-home" data-tab="#page10">
             <a href="#" class="header__link">{{ $trans("main.contact") }}</a>
           </li>
           <li>
-            <a href="#" class="header__link">{{ $trans("main.for_business") }}</a>
+            <a href="#" class="header__link">{{
+              $trans("main.for_business")
+            }}</a>
           </li>
         </ul>
         <div class="header__menu-del">
           <img src="/storage/image/user/del.png" alt="del" />
         </div>
       </nav>
-      <div class="stemplen__container">
-        <div class="header__inner">
-          <div class="header-arrow">
-            <img src="/storage/image/user/angle-left.svg" alt="ar" />
-          </div>
-          <div class="header__burger">
-            <span></span>
-          </div>
-          <a href="#" class="header__logo">
-            <img src="/storage/image/user/web-logo.png" alt="logo" />
-          </a>
-          <div class="header__flex-elem"></div>
-        </div>
-      </div>
     </header>
     <div class="main__wrapper"></div>
     <footer class="footer">
@@ -61,7 +68,9 @@
             </div>
           </Link>
           <Link :href="route('user.stamp')">
-            <button class="footer__button footer__logo">{{ $trans('main.stamp') }}</button></Link
+            <button class="footer__button footer__logo">
+              {{ $trans("main.stamp") }}
+            </button></Link
           >
           <Link :href="route('user.card_info')">
             <div class="footer__logo">
@@ -76,7 +85,6 @@
     </footer>
     <slot />
   </main>
-  
 </template>
 <script>
 import { Link } from "@inertiajs/inertia-vue";
@@ -86,13 +94,29 @@ export default {
   },
   data() {
     return {
-      about: false
-    }
+      about: false,
+      prev: 1,
+    };
   },
   methods: {
     change_show(page) {
       this.$emit("change_show", page);
     },
+  },
+  mounted() {
+    const burger = document.querySelector(".header__burger");
+    const burgerMenu = document.querySelector(".header__menu");
+    const burgerDel = document.querySelector(".header__menu-del");
+    burger.addEventListener("click", (e) => {
+      burgerMenu.classList.add("active");
+      burgerDel.classList.add("active");
+      burger.classList.add("active");
+    });
+    burgerDel.addEventListener("click", (e) => {
+      burgerMenu.classList.remove("active");
+      burgerDel.classList.remove("active");
+      burger.classList.remove("active");
+    });
   },
 };
 </script>

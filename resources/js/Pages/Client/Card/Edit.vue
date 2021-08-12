@@ -127,6 +127,7 @@
                         </div>
                         <div class="form__tab-content">
                           <img
+                            style="max-width: 30%"
                             v-for="icon in stamp_icons"
                             :src="`/storage/image/stamps/${icon}`"
                             @click="form.stamp_icon = icon"
@@ -279,7 +280,6 @@ export default {
     next() {
       window.scrollTo(0, 0);
       this.step = 2;
-      console.log(this.form.logo);
     },
     prev() {
       this.step = 1;
@@ -301,7 +301,6 @@ export default {
 
     let i = this.card.stamps - 1;
     this.$refs.stamp[i].click();
-    console.log(this.form.stamps);
   },
 };
 </script>
