@@ -1,10 +1,9 @@
 <template>
   <div>
-
-    <div class="card page">
+    <div class="card page" :style="{'background-color': card.color_body}">
       <div class="stemplen__container"></div>
       <section class="card__logo">
-        <div class="card__logo-inner">
+        <div class="card__logo-inner" :style="{'background-color': card.color_header}">
           <div class="card__logo-img">
             <img :src="`/storage/image/card/${card.logo}`" alt="firm-logo" />
           </div>

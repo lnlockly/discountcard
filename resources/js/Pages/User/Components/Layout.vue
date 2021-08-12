@@ -23,33 +23,33 @@
           <img src="/storage/image/user/web-logo.png" alt="logo" />
         </Link>
         <ul class="header__list">
-          <li class="link-home" data-tab="#page6" @click="del_menu()">
+          <li class="link-home" @click="del_menu()">
             <Link
               :href="route('user.about', ['welcome'])"
               class="header__link"
               >{{ $trans("main.welcome") }}</Link
             >
           </li>
-          <li class="link-home" data-tab="#page7" @click="del_menu()">
+          <li class="link-home" @click="del_menu()">
             <Link
               :href="route('user.about', ['how_to_get_stamps'])"
               class="header__link"
               >{{ $trans("main.how_to_get_stamps") }}</Link
             >
           </li>
-          <li class="link-home" data-tab="#page8" @click="del_menu()">
+          <li class="link-home" @click="del_menu()">
             <Link :href="route('user.about', ['about'])" class="header__link">{{
               $trans("main.about")
             }}</Link>
           </li>
-          <li class="link-home" data-tab="#page9" @click="del_menu()">
+          <li class="link-home" @click="del_menu()">
             <Link
               :href="route('user.about', ['privacy_policy'])"
               class="header__link"
               >{{ $trans("main.privacy_policy") }}</Link
             >
           </li>
-          <li class="link-home" data-tab="#page10" @click="del_menu()">
+          <li class="link-home" @click="del_menu()">
             <Link
               :href="route('user.about', ['contact'])"
               class="header__link"
