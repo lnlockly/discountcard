@@ -10,9 +10,6 @@ class ClientController extends Controller {
 	public function index() {
 		$client = Auth::user();
 		$card = $client->card;
-		if ($card == null) {
-			return view('client.dashboard');
-		}
 		$users = $card->users;
 		$users_count = $users->count();
 		$stamps_sum = $card->stamps()->count();

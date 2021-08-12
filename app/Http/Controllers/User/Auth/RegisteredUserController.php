@@ -49,8 +49,9 @@ class RegisteredUserController extends Controller {
 		Auth::guard('user')
 			->attempt($request->only(['email', 'password']));
 
-		Cookie::forever('user_email', $request->email);
-		Cookie::forever('user_password', $request->password);
+		Cookie::queue(Cookie::forever('user_email', $request->email));
+		Cookie::queue(Cookie::forever('user_password', $request->password));
+
 
 
 		return redirect()->route('user.index');

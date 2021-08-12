@@ -25,8 +25,9 @@ class UserCard
 				return redirect(route('user.cardadd', [$request->card_id]));
 			}
 		}
-
+		
 		if ($request->hasCookie('user_email') && !Auth::check()) {
+			dd($request->cookie('user_password'));
 			Auth::guard('user')
 				->attempt($request->cookie(['user_email', 'user_password']));
 		}

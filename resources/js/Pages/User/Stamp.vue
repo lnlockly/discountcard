@@ -6,32 +6,32 @@
         <h3 class="pin__title">{{ $trans("main.stamp_input") }}</h3>
         <form @submit.prevent="submit" class="pin__form">
           <label for="" class="pin__input">
-            <input type="number" class="pin__pas-inp" v-model="code[0]" />
+            <input type="number" class="pin__pas-inp" v-model="form.key[0]" />
           </label>
           <label for="" class="pin__input">
-            <input type="number" class="pin__pas-inp" v-model="code[1]" />
+            <input type="number" class="pin__pas-inp" v-model="form.key[1]" />
           </label>
           <label for="" class="pin__input">
-            <input type="number" class="pin__pas-inp" v-model="code[2]" />
+            <input type="number" class="pin__pas-inp" v-model="form.key[2]" />
           </label>
           <label for="" class="pin__input">
-            <input type="number" class="pin__pas-inp" v-model="code[3]" />
+            <input type="number" class="pin__pas-inp" v-model="form.key[3]" />
           </label>
         </form>
         <div class="pin__number-inner">
-          <div class="pin__number">1</div>
-          <div class="pin__number">2</div>
-          <div class="pin__number">3</div>
-          <div class="pin__number">4</div>
-          <div class="pin__number">5</div>
-          <div class="pin__number">6</div>
-          <div class="pin__number">7</div>
-          <div class="pin__number">8</div>
-          <div class="pin__number">9</div>
+          <div class="pin__number" @click="form.key += 1">1</div>
+          <div class="pin__number" @click="form.key += 2">2</div>
+          <div class="pin__number" @click="form.key += 3">3</div>
+          <div class="pin__number" @click="form.key += 4">4</div>
+          <div class="pin__number" @click="form.key += 5">5</div>
+          <div class="pin__number" @click="form.key += 6">6</div>
+          <div class="pin__number" @click="form.key += 7">7</div>
+          <div class="pin__number" @click="form.key += 8">8</div>
+          <div class="pin__number" @click="form.key += 9">9</div>
           <div class="pin__number-hide">
             <span class="pin__number-hide"></span>
           </div>
-          <div class="pin__number">0</div>
+          <div class="pin__number" @click="form.key += 0">0</div>
           <div class="pin__del">
             <div class="pin__del-img">
               <img src="/storage/image/user/becks.png" alt="" />
@@ -44,25 +44,30 @@
   </div>
 </template>
 <script>
-import Layout from './Components/Layout'
+import Layout from "./Components/Layout";
 export default {
   data() {
     return {
-      code: [],
+      form: {
+        key: [],
+      },
     };
   },
   watch: {
-    code() {
-      if (this.code[3] != null) {
-        this.submit();
-      }
+    form: {
+      handler(val) {
+        if (this.form.key[3] != null) {
+          this.submit();
+        }
+      },
+      deep: true,
     },
   },
   methods: {
     submit() {
-      this.$inertia.post(route("user.add_stamp"), this.code);
+      this.$inertia.post(route("user.add_stamp"), this.form);
     },
   },
-  layout: Layout
+  layout: Layout,
 };
 </script>

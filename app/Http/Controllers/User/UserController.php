@@ -55,18 +55,18 @@ class UserController extends Controller
 	public function add_stamp(Request $request)
 	{
 		$card_id = Cookie::get('card_id');
-		$managers = Card::find($card_id)->managers;
-		$request_code = $request->code;
+		$managers = Card::find($card_id)->client->managers;
 		foreach ($managers as $manager) {
-			if ($manager->code == $request_code) {
-				break;
+			if ($manager->key == $request->key) {
 				Stamp::create([
 					'user_id' => Auth::user()->id,
 					'manager_id' => $manager->id,
 					'card_id' => $card_id
 				]);
+				break;
 			}
 		};
+		return redirect(route('user.index'));
 	}
 
 	public function card_info()
