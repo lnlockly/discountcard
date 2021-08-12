@@ -110,6 +110,11 @@ class UserController extends Controller
 		]);
 	}
 
+	public function about($about)
+	{
+		return Inertia::render('User/About');
+	}
+
 	public function add_usercard($id)
 	{
 		Cookie::queue('card_id', $id, 200000);

@@ -12,40 +12,56 @@
           <div class="header__burger">
             <span></span>
           </div>
-          <a href="#" class="header__logo">
+          <Link href="#" class="header__logo">
             <img src="/storage/image/user/web-logo.png" alt="logo" />
-          </a>
+          </Link>
           <div class="header__flex-elem"></div>
         </div>
       </div>
       <nav class="header__menu">
-        <a href="#" class="menu-logo">
+        <Link href="#" class="menu-logo">
           <img src="/storage/image/user/web-logo.png" alt="logo" />
-        </a>
+        </Link>
         <ul class="header__list">
-          <li class="link-home" data-tab="#page6">
-            <a href="#" class="header__link">{{ $trans("main.welcome") }}</a>
+          <li class="link-home" data-tab="#page6" @click="del_menu()">
+            <Link
+              :href="route('user.about', ['welcome'])"
+              class="header__link"
+              >{{ $trans("main.welcome") }}</Link
+            >
           </li>
-          <li class="link-home" data-tab="#page7">
-            <a href="#" class="header__link">{{
-              $trans("main.how_to_get_stamps")
-            }}</a>
+          <li class="link-home" data-tab="#page7" @click="del_menu()">
+            <Link
+              :href="route('user.about', ['how_to_get_stamps'])"
+              class="header__link"
+              >{{ $trans("main.how_to_get_stamps") }}</Link
+            >
           </li>
-          <li class="link-home" data-tab="#page8">
-            <a href="#" class="header__link">{{ $trans("main.about") }}</a>
+          <li class="link-home" data-tab="#page8" @click="del_menu()">
+            <Link :href="route('user.about', ['about'])" class="header__link">{{
+              $trans("main.about")
+            }}</Link>
           </li>
-          <li class="link-home" data-tab="#page9">
-            <a href="#" class="header__link">{{
-              $trans("main.privacy_policy")
-            }}</a>
+          <li class="link-home" data-tab="#page9" @click="del_menu()">
+            <Link
+              :href="route('user.about', ['privacy_policy'])"
+              class="header__link"
+              >{{ $trans("main.privacy_policy") }}</Link
+            >
           </li>
-          <li class="link-home" data-tab="#page10">
-            <a href="#" class="header__link">{{ $trans("main.contact") }}</a>
+          <li class="link-home" data-tab="#page10" @click="del_menu()">
+            <Link
+              :href="route('user.about', ['contact'])"
+              class="header__link"
+              >{{ $trans("main.contact") }}</Link
+            >
           </li>
           <li>
-            <a href="#" class="header__link">{{
-              $trans("main.for_business")
-            }}</a>
+            <Link
+              :href="route('user.about', ['for_business'])"
+              class="header__link"
+              >{{ $trans("main.for_business") }}</Link
+            >
           </li>
         </ul>
         <div class="header__menu-del">
@@ -101,6 +117,14 @@ export default {
   methods: {
     change_show(page) {
       this.$emit("change_show", page);
+    },
+    del_menu() {
+      const burger = document.querySelector(".header__burger");
+      const burgerMenu = document.querySelector(".header__menu");
+      const burgerDel = document.querySelector(".header__menu-del");
+      burgerMenu.classList.remove("active");
+      burgerDel.classList.remove("active");
+      burger.classList.remove("active");
     },
   },
   mounted() {
