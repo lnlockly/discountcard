@@ -16,11 +16,6 @@ class Card extends Model
 		return $this->belongsTo(Client::class);
 	}
 
-	public function users()
-	{
-		return $this->hasMany(User::class);
-	}
-
 	public function stamps()
 	{
 		return $this->hasMany(Stamp::class);
@@ -31,8 +26,8 @@ class Card extends Model
 		return $this->hasMany(Gift::class);
 	}
 	
-	public function activation()
+	public function users()
 	{
-		return $this->hasMany(Activation::class);
+		return $this->belongsToMany(User::class)->withTimestamps();
 	}
 }

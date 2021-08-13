@@ -15,8 +15,7 @@ class CreateUsersTable extends Migration {
 			$table->id();
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->integer('nof_stamps')->nullable();
-			$table->integer('nof_gifts')->nullable();
+			$table->string('region')->nullable();
 			$table->boolean('webpush');
 			$table->string('email')->unique();
 			$table->timestamp('email_verified_at')->nullable();

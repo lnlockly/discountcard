@@ -61,7 +61,8 @@ class UserController extends Controller
 	{
 		$user = Auth::user();
 		$card_id = Cookie::get('card_id');
-		$managers = Card::find($card_id)->client->managers;
+		$client = Card::find($card_id)->client;
+		$managers = $client->managers;
 		foreach ($managers as $manager) {
 			if ($manager->key == $request->key) {
 				Stamp::create([
@@ -74,6 +75,7 @@ class UserController extends Controller
 						'user_id' => $user->id,
 						'card_id' => $card_id,
 					]);
+					$user->update(['region' => $client->region]);
 				}
 				return redirect(route('user.index'));
 				break;
