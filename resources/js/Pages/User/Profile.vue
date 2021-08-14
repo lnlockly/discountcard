@@ -41,11 +41,11 @@
           <h4 class="stemplen__sub-title">{{ $trans("main.my_cards") }}</h4>
         </div>
         <div class="profil__logo-inner">
-          <Link v-for="card in cards" :href="route('user.card_add', [card.id])" :key="card.id" >
-            <div class="profil__logo-img">
+          <div class="profil__logo-img" v-for="card in cards" :key="card.id">
+            <Link :href="route('user.card_add', [card.id])">
               <img :src="`/storage/image/card/${card.logo}`" alt="" />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
       <div style="height: 50px"></div>
@@ -54,7 +54,11 @@
 </template>
 <script>
 import Layout from "./Components/Layout";
+import { Link } from "@inertiajs/inertia-vue";
 export default {
+  components: {
+    Link,
+  },
   props: {
     cards: Array,
     user: Object,
