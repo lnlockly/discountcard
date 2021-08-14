@@ -22,9 +22,7 @@ class CreateCardsTable extends Migration {
 			$table->string('region');
 			$table->float('gift_price');
 			$table->mediumText('condition');
-			$table->mediumText('card_description');
 			$table->mediumText('card_use');
-			$table->mediumText('gift_description');
 			$table->integer('client_id')->unsigned();
 			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 			$table->timestamps();

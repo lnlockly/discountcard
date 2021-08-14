@@ -147,7 +147,7 @@
         </div>
         <div class="background">
           <div class="container">
-            <div class="background3">
+            <!-- <div class="background3">
               <h3 class="sub-title">{{ $trans("card.description") }}</h3>
               <p class="text" v-html="$trans('card.description_text')"></p>
               <div class="input-text">
@@ -158,7 +158,7 @@
                   v-model="form.card_description"
                 />
               </div>
-            </div>
+            </div> -->
             <div class="background3">
               <h3 class="sub-title">{{ $trans("card.card_use") }}</h3>
               <p class="text" v-html="$trans('card.card_use_text')"></p>
@@ -171,7 +171,7 @@
                 />
               </div>
             </div>
-            <div class="background3">
+            <!-- <div class="background3">
               <h2 class="main-title2">{{ $trans("card.details") }}</h2>
               <h3 class="sub-title">{{ $trans("card.gift_description") }}</h3>
               <p class="text" v-html="$trans('card.gift_description_text')"></p>
@@ -185,7 +185,7 @@
                   v-model="form.gift_description"
                 />
               </div>
-            </div>
+            </div> -->
             <div class="background3">
               <h3 class="sub-title">{{ $trans("card.gift_price") }}</h3>
               <p class="text" v-html="$trans('card.gift_price_text')"></p>
@@ -252,9 +252,7 @@ export default {
         stamp_icon: "3.png",
         gift_price: null,
         condition: null,
-        card_description: null,
         card_use: null,
-        gift_description: null,
       }),
     };
   },

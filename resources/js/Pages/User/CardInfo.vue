@@ -31,14 +31,6 @@
             </div>
             <a href="tel:0123234567" class="info__setting-text">0123-234567</a>
           </div>
-          <div class="info__setting-inner">
-            <div class="info__setting-img">
-              <img src="/storage/image/user/calendar.svg" alt="icon" />
-            </div>
-            <p class="info__setting-text">
-              Пн-Пт:10:00 - 18:00<br />Суб.:10:00 - 13:00<br />Вск.:выходной
-            </p>
-          </div>
         </div>
         <div class="info__stock">
           <div class="info__title-inner">

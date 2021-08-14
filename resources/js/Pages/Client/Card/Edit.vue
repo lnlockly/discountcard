@@ -157,18 +157,6 @@
             <div class="background">
               <div class="container">
                 <div class="background3">
-                  <h3 class="sub-title">{{ $trans("card.description") }}</h3>
-                  <p class="text" v-html="$trans('card.description_text')"></p>
-                  <div class="input-text">
-                    <input
-                      class="card-input"
-                      type="text"
-                      :placeholder="`${$trans('card.description_placeholder')}`"
-                      v-model="form.card_description"
-                    />
-                  </div>
-                </div>
-                <div class="background3">
                   <h3 class="sub-title">{{ $trans("card.card_use") }}</h3>
                   <p class="text" v-html="$trans('card.card_use_text')"></p>
                   <div class="input-text">
@@ -177,26 +165,6 @@
                       type="text"
                       :placeholder="`${$trans('card.card_use_placeholder')}`"
                       v-model="form.card_use"
-                    />
-                  </div>
-                </div>
-                <div class="background3">
-                  <h2 class="main-title2">{{ $trans("card.details") }}</h2>
-                  <h3 class="sub-title">
-                    {{ $trans("card.gift_description") }}
-                  </h3>
-                  <p
-                    class="text"
-                    v-html="$trans('card.gift_description_text')"
-                  ></p>
-                  <div class="input-text">
-                    <input
-                      class="card-input"
-                      type="text"
-                      :placeholder="`${$trans(
-                        'card.gift_description_placeholder'
-                      )}`"
-                      v-model="form.gift_description"
                     />
                   </div>
                 </div>
@@ -270,9 +238,7 @@ export default {
         stamp_icon: this.card.stamp_icon,
         gift_price: this.card.gift_price,
         condition: this.card.condition,
-        card_description: this.card.card_description,
         card_use: this.card.card_use,
-        gift_description: this.card.gift_description,
       }),
     };
   },
