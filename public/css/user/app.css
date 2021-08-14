@@ -243,7 +243,6 @@ body {
 .header .header-arrow {
   width: 17px;
   cursor: pointer;
-  display: none;
 }
 
 .header .header-arrow.active {

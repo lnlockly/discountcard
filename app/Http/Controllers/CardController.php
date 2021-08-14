@@ -36,7 +36,7 @@ class CardController extends Controller {
 		$logo = $request->logo;
 		$client_id = Auth::user()->id;
 		$image_name = $client_id . '.png';
-		$logo->move(Storage::path('public/image/'), $image_name);
+		$logo->move(Storage::path('public/image/card'), $image_name);
 
 		Card::create([
 			'name' => $request->name,
@@ -84,11 +84,13 @@ class CardController extends Controller {
 		$client = Auth::user();
 		$card = $client->card;
 		if ($request->hasFile('logo')) {
+			
 			$logo = $request->logo;
 			$client_id = Auth::user()->id;
 			$image_name = $client_id . '.png';
-			$logo->move(Storage::path('public/image/'), $image_name);
-			$card->update($request->all());
+			$logo->move(Storage::path('public/image/card'), $image_name);
+			$card->update($request->except('logo'));
+			$card->update(['logo' => $image_name]);
 		} else {
 			$card->update($request->except('logo'));
 		}

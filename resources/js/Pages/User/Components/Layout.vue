@@ -3,7 +3,7 @@
     <header class="header">
       <div class="stemplen__container">
         <div class="header__inner">
-          <div class="header-arrow active">
+          <div class="header-arrow" v-show="prev" @click="prev = false">
             <Link :href="route('user.index')">
               <img src="/storage/image/user/angle-left.svg" alt="ar" />
             </Link>
@@ -73,26 +73,26 @@
     <footer class="footer">
       <div class="stemplen__container">
         <div class="footer__inner">
-          <Link :href="route('user.card_region')">
+          <Link :href="route('user.card_region')" @click="show_prev">
             <div class="footer__logo">
               <img src="/storage/image/user/1-icon.png" alt="page" />
             </div>
           </Link>
-          <Link :href="route('user.card_ads')">
+          <Link :href="route('user.card_ads')" @click="show_prev">
             <div class="footer__logo">
               <img src="/storage/image/user/2-icon.png" alt="page" />
             </div>
           </Link>
-          <Link :href="route('user.stamp')">
+          <Link :href="route('user.stamp')" @click="show_prev">
             <button class="footer__button footer__logo">
               {{ $trans("main.stamp") }}
             </button></Link
           >
-          <Link :href="route('user.card_info')">
+          <Link :href="route('user.card_info')" @click="show_prev">
             <div class="footer__logo">
               <img src="/storage/image/user/3-icon.png" alt="page" /></div
           ></Link>
-          <Link :href="route('user.profile')">
+          <Link :href="route('user.profile')" @click="show_prev">
             <div class="footer__logo">
               <img src="/storage/image/user/4-icon.png" alt="page" /></div
           ></Link>
@@ -111,13 +111,10 @@ export default {
   data() {
     return {
       about: false,
-      prev: 1,
+      prev: true,
     };
   },
   methods: {
-    change_show(page) {
-      this.$emit("change_show", page);
-    },
     del_menu() {
       const burger = document.querySelector(".header__burger");
       const burgerMenu = document.querySelector(".header__menu");
@@ -126,8 +123,14 @@ export default {
       burgerDel.classList.remove("active");
       burger.classList.remove("active");
     },
+    show_prev() {
+      this.prev = true;
+    },
   },
   mounted() {
+    if (route().current("user.index")) {
+      this.prev = false;
+    }
     const burger = document.querySelector(".header__burger");
     const burgerMenu = document.querySelector(".header__menu");
     const burgerDel = document.querySelector(".header__menu-del");

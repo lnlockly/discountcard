@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div class="card page" :style="{'background-color': card.color_body}">
+    <div class="card page" :style="{ 'background-color': card.color_body }">
       <div class="stemplen__container"></div>
       <section class="card__logo">
-        <div class="card__logo-inner" :style="{'background-color': card.color_header}">
+        <div
+          class="card__logo-inner"
+          :style="{ 'background-color': card.color_header }"
+        >
           <div class="card__logo-img">
             <img :src="`/storage/image/card/${card.logo}`" alt="firm-logo" />
           </div>
@@ -18,17 +21,18 @@
             {{ card.name }}
           </h2>
           <div class="card__info-img-inner">
-            <div class="card__info-img" v-for="i in parseInt(card.stamps)">
+            <div class="card__info-img" v-for="(i, index) in parseInt(card.stamps)">
               <img
                 :src="`/storage/image/stamps/${card.stamp_icon}`"
                 alt="img"
+                :style="{ opacity: opacity[index] }"
               />
             </div>
           </div>
           <p class="card__info-text">
-            {{ card.condition }}
+            {{ card.card_use }}
           </p>
-          <div class="form__button-inner">
+          <div class="form__button-inner" style="padding-bottom: 20px">
             <Link :href="route('user.register')">
               <button
                 v-if="register"
@@ -56,8 +60,23 @@ export default {
     card: Object,
     register: Boolean,
     error: String,
+    stamps: Number,
+  },
+  data() {
+    return {
+      opacity: [],
+    };
+  },
+  mounted() {
+    for (let i = 0; i < this.card.stamps; i++) {
+      console.log(this.opacity);
+      this.opacity.push(0.5);
+    }
+    for (let i = 0; i < this.stamps; i++) {
+      console.log(this.opacity);
+      this.opacity[i] = 1;
+    }
   },
   layout: Layout,
-
 };
 </script>

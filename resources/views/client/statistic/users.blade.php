@@ -35,7 +35,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                             <td>{{ $user->pivot->created_at->format('Y-m-d') }}</td>
-                                            <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->count() }}
+                                            <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($stamps != null) {{ $stamps }}
                                             @else 0
                                             @endif
                                              </a></td>

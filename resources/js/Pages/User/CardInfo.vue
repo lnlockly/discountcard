@@ -50,7 +50,7 @@
             </div>
             <h3 class="stemple__set-title">{{ card.name }}</h3>
           </div>
-          <p class="info__stock-text">{{ card.condition }}</p>
+          <p class="info__stock-text">{{ card.card_use }}</p>
         </div>
         <div class="info__use">
           <div class="info__title-inner">
@@ -64,7 +64,7 @@
           </div>
           <ul class="info__use-list">
             {{
-              card.card_use
+              card.gift_description
             }}
           </ul>
         </div>

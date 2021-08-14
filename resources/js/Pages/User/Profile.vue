@@ -3,10 +3,12 @@
     <div class="profil page" id="page4">
       <div class="stemplen__container">
         <div class="profil__info-block">
-          <h3 class="stemple__set-title">{{ user.first_name }} {{ user.last_name }}</h3>
+          <h3 class="stemple__set-title">
+            {{ user.first_name }} {{ user.last_name }}
+          </h3>
           <div class="profil__settings-inner">
             <div class="profil__set-date">
-              <span> {{ $trans('main.register') }}: {{ created_at }}</span>
+              <span> {{ $trans("main.register") }}: {{ created_at }}</span>
             </div>
             <div class="profil__set-email">
               <div class="profil__email-img">
@@ -30,14 +32,20 @@
         </div>
         <div class="profil__title-inner">
           <div class="profil__title-img">
-            <img src="/storage/image/user/bookmark.svg" alt="" style="fill: #ff006d" />
+            <img
+              src="/storage/image/user/bookmark.svg"
+              alt=""
+              style="fill: #ff006d"
+            />
           </div>
-          <h4 class="stemplen__sub-title"> {{ $trans('main.my_cards') }}</h4>
+          <h4 class="stemplen__sub-title">{{ $trans("main.my_cards") }}</h4>
         </div>
         <div class="profil__logo-inner">
-          <div class="profil__logo-img" v-for="card in cards">
-            <img :src="`/storage/image/card/${card.logo}`" alt="" />
-          </div>
+          <Link v-for="card in cards" :href="route('user.card_add', [card.id])" :key="card.id" >
+            <div class="profil__logo-img">
+              <img :src="`/storage/image/card/${card.logo}`" alt="" />
+            </div>
+          </Link>
         </div>
       </div>
       <div style="height: 50px"></div>
@@ -45,13 +53,13 @@
   </div>
 </template>
 <script>
-import Layout from './Components/Layout'
+import Layout from "./Components/Layout";
 export default {
   props: {
     cards: Array,
     user: Object,
-    created_at: String
+    created_at: String,
   },
-  layout: Layout
-}
+  layout: Layout,
+};
 </script>

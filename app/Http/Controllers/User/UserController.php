@@ -27,9 +27,14 @@ class UserController extends Controller
 			]);
 		}
 		$card = Card::find($card_id);
+		$user_stamps = Stamp::where([
+			['user_id', Auth::user()->id],
+			['card_id', $card_id]
+		])->count();
 
 		return Inertia::render('User/Card', [
 			'card' => $card,
+			'stamps' => $user_stamps
 		]);
 	}
 
@@ -37,9 +42,9 @@ class UserController extends Controller
 	{
 		if (Auth::check() && Auth::user()->region != null) {
 			$region = Auth::user()->region;
-			$cards = Card::where('region', $region)->get('id', 'logo');
+			$cards = Card::latest()->where('region', $region)->get(['id', 'logo']);
 		} else {
-			$cards = Card::all();
+			$cards = Card::latest()->get(['id', 'logo']);
 		}
 
 		return Inertia::render('User/CardRegion', [
@@ -54,29 +59,43 @@ class UserController extends Controller
 
 	public function stamp()
 	{
+		if (!Auth::check()) {
+			return redirect(route('user.login'));
+		}
+		
 		return Inertia::render('User/Stamp');
 	}
 
 	public function add_stamp(Request $request)
-	{
+	{	
+		if (!Auth::check()) {
+			return redirect(route('user.login'));
+		}
+
 		$user = Auth::user();
 		$card_id = Cookie::get('card_id');
-		$client = Card::find($card_id)->client;
+		$card = Card::find($card_id);
+		$client = $card->client;
 		$managers = $client->managers;
+		$user_stamps = Stamp::where([
+			['card_id', $card_id],
+			['user_id', $user->id],
+		])->count();
 		foreach ($managers as $manager) {
 			if ($manager->key == $request->key) {
-				Stamp::create([
-					'user_id' => $user->id,
-					'manager_id' => $manager->id,
-					'card_id' => $card_id,
-				]);
-				if ($user->stamps->count() == 1) {
+				if ($user_stamps == 0) {
 					CardUser::create([
 						'user_id' => $user->id,
 						'card_id' => $card_id,
 					]);
 					$user->update(['region' => $client->region]);
 				}
+				Stamp::create([
+					'user_id' => $user->id,
+					'manager_id' => $manager->id,
+					'card_id' => $card_id,
+				]);
+
 				return redirect(route('user.index'));
 				break;
 			}
