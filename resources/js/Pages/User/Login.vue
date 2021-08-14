@@ -23,12 +23,6 @@
                 v-model="form.password"
               />
             </label>
-            <label for="" class="form__ques">
-              <input type="checkbox" class="form__checkbox" required />
-              <span class="form__ques-text">{{
-                $trans("main.personal_data")
-              }}</span>
-            </label>
           </form>
           <div class="form__button-inner">
             <button
@@ -43,10 +37,7 @@
           <div style="height: 25px"></div>
           <div class="form__button-inner">
             <Link :href="route('user.register')">
-              <button
-                type="submit"
-                class="footer__logo form__button"
-              >
+              <button type="submit" class="footer__logo form__button">
                 {{ $trans("main.sign_up") }}
               </button></Link
             >
