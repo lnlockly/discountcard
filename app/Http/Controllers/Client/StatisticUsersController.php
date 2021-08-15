@@ -17,7 +17,7 @@ class StatisticUsersController extends Controller
 		$users = $client->card->users;
 		return view('client.statistic.users', [
 			'users' => $users,
-			'stamps' => $stamps
+			'card_id' => $card_id
 		]);
 	}
 

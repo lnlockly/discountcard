@@ -35,11 +35,13 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                             <td>{{ $user->pivot->created_at->format('Y-m-d') }}</td>
-                                            <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($stamps != null) {{ $stamps }}
+                                            <td><a class="btn btn-primary btn-sm" href="{{ route('client.statistic.users.show', [$user->id] ) }}">@if ($user->stamps != null) {{ $user->stamps->where('card_id', $card_id)->count() }}
                                             @else 0
                                             @endif
                                              </a></td>
-                                            <td>{{ $user->nof_gifts }}</td>
+                                            <td>@if ($user->gifts != null) {{ $user->gifts->where('card_id', $card_id)->count() }}
+                                            @else 0
+                                            @endif</td>
                                             <td>{{ $user->webpush }}</td>
                                         </tr>
                                         @endforeach

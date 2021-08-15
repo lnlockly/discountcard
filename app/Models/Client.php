@@ -20,6 +20,7 @@ class Client extends Authenticatable {
 		'company',
 		'city',
 		'address',
+		'website',
 		'postcode',
 		'email',
 		'password',

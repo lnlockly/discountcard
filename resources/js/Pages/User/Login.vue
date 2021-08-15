@@ -50,7 +50,9 @@
 </template>
 <script>
 import { Link } from "@inertiajs/inertia-vue";
+import Layout from "./Components/Layout";
 export default {
+  layout: Layout,
   components: {
     Link,
   },

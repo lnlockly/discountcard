@@ -25,7 +25,7 @@ class Card extends Model
 	{
 		return $this->hasMany(Gift::class);
 	}
-	
+
 	public function users()
 	{
 		return $this->belongsToMany(User::class)->withTimestamps();

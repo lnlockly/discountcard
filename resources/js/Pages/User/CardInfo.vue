@@ -13,17 +13,17 @@
             </div>
             <p class="info__setting-text">{{ client.address }}</p>
           </div>
-          <div class="info__setting-inner">
+          <div class="info__setting-inner" v-if="client.site != null">
             <div class="info__setting-img">
               <img src="/storage/image/user/web.svg" alt="icon" />
             </div>
-            <a href="#" class="info__setting-text">интернет-сайт.ру</a>
+            <a :href="client.site" class="info__setting-text">{{ client.site }}</a>
           </div>
           <div class="info__setting-inner">
             <div class="info__setting-img">
               <img src="/storage/image/user/email.svg" alt="icon" />
             </div>
-            <a href="#" class="info__setting-text">{{ client.email }}</a>
+            <a :href="`mailto:${client.email}`" target="_blank" class="info__setting-text">{{ client.email }}</a>
           </div>
           <div class="info__setting-inner">
             <div class="info__setting-img">
