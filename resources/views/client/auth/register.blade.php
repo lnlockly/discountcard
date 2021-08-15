@@ -60,9 +60,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputEmail" type="email" name="email" placeholder />
-                                        <label for="inputEmail">{{ __('Email') }}</label>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <input class="form-control" id="inputEmail" type="email" name="email" placeholder />
+                                                <label for="inputEmail">{{ __('Email') }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input class="form-control" id="inputPostcode" type="text" name="website" placeholder />
+                                                <label for="inputPostcode">{{ __('Site') }}</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-md-6">

@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration {
 			$table->string('company');
 			$table->string('city');
 			$table->string('address');
-			$table->string('website');
+			$table->string('website')->nullable();
 			$table->integer('postcode');
 			$table->string('email')->unique();
 			$table->timestamp('email_verified_at')->nullable();
