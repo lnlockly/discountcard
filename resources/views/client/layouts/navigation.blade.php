@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('client.logout') }}">
                     @csrf
                     <li><button onclick="event.preventDefault();
-                                                this.closest('form').submit();" class="dropdown-item">{{ __('Logout') }}</button></li>
+                                                this.closest('form').submit();" class="dropdown-item">{{ __('main.Logout') }}</button></li>
                 </form>
             </ul>
         </li>
@@ -24,42 +24,42 @@
                 <div class="nav">
                     <a class="nav-link mt-3" href="{{ route('client.dashboard') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        {{ __('Dashboard') }}
+                        {{ __('main.Dashboard') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="{{ route('client.card.edit') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
-                        {{ __('Card') }}
+                        {{ __('main.Card') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="{{ route('client.statistic.users') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                        {{ __('Users') }}
+                        {{ __('main.Users') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="{{ route('client.statistic.card') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        {{ __('Statistic') }}
+                        {{ __('main.Statistic') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="{{ route('client.managers') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                        {{ __('Managers') }}
+                        {{ __('main.Managers') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
-                        {{ __('Web push') }}
+                        {{ __('main.Web push') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
-                        {{ __('Help') }}
+                        {{ __('main.Help') }}
                     </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">{{ __('Logged in as') }}:</div>
+                <div class="small">{{ __('main.Logged in as') }}:</div>
                 {{ Auth::user()-> first_name }} {{ Auth::user()-> last_name }}
             </div>
         </nav>

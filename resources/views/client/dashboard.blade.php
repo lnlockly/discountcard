@@ -3,9 +3,9 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">{{ __('Dashboard') }}</h1>
+                    <h1 class="mt-4">{{ __('main.Dashboard') }}</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">{{ __('Dashboard') }}</li>
+                        <li class="breadcrumb-item active">{{ __('main.Dashboard') }}</li>
                     </ol>
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
@@ -14,7 +14,7 @@
                                     <h5 class="card-title">{{ $users_count ?? 0 }}</h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <div class="small text-white">{{ __('Number of users') }}</div>
+                                    <div class="small text-white">{{ __('main.Number of users') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                                     <h5 class="card-title">{{ $stamps_sum ?? 0 }}</h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <div class="small text-white">{{ __('Number of stamps') }}</div>
+                                    <div class="small text-white">{{ __('main.Number_of_stamps') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                     <h5 class="card-title">{{ $gifts_sum ?? 0}}</h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <div class="small text-white">{{ __('Number of gifts') }}</div>
+                                    <div class="small text-white">{{ __('main.Number_of_gifts') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                     <h5 class="card-title">{{ $gifts_amount ?? 0 }} </h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <div class="small text-white">{{ __('Gifts price') }}</div>
+                                    <div class="small text-white">{{ __('main.Gifts_price') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-qrcode"></i>
-                                    {{ __('QR-Code') }}
+                                    {{ __('main.QR-Code') }}
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">{!! QrCode::size(200)->generate(url("/$card_id")); !!}
@@ -66,7 +66,7 @@
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-link"></i>
-                                    {{ __('Card link') }}
+                                    {{ __('main.Card_link') }}
                                 </div>
                                 <div class="card-body">
                                     <a href="{{ url("/?card_id=$card_id") }}">{{ url("/?card_id=$card_id") }}</a>

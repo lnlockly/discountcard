@@ -2,23 +2,23 @@
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <div class="container-fluid px-4">
-                <h1 class="mt-4">{{ __('Gifts') }}</h1>
+                <h1 class="mt-4">{{ __('main.Gifts') }}</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('Dashboard') }}</a></li>
-                    <li class="breadcrumb-item active">{{ __('Gifts') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('main.Dashboard') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('main.Gifts') }}</li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        {{ __('Gifts history') }}
+                        {{ __('main.Gifts history') }}
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple" data-page-length='1'>
                             <thead>
                                 <tr>
-                                    <th>{{ __('Number') }}</th>
-                                    <th>{{ __('Received at') }}</th>
-                                    <th>{{ __('User') }}</th>
+                                    <th>{{ __('main.Number') }}</th>
+                                    <th>{{ __('main.Received_at') }}</th>
+                                    <th>{{ __('main.User') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
