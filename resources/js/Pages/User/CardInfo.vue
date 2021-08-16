@@ -13,11 +13,11 @@
             </div>
             <p class="info__setting-text">{{ client.address }}</p>
           </div>
-          <div class="info__setting-inner" v-if="client.site != null">
+          <div class="info__setting-inner" v-if="client.website != null">
             <div class="info__setting-img">
               <img src="/storage/image/user/web.svg" alt="icon" />
             </div>
-            <a :href="client.site" class="info__setting-text">{{ client.site }}</a>
+            <a :href="client.site" class="info__setting-text">{{ client.website }}</a>
           </div>
           <div class="info__setting-inner">
             <div class="info__setting-img">
@@ -25,11 +25,11 @@
             </div>
             <a :href="`mailto:${client.email}`" target="_blank" class="info__setting-text">{{ client.email }}</a>
           </div>
-          <div class="info__setting-inner">
+          <div class="info__setting-inner" v-if="client.phone != null">
             <div class="info__setting-img">
               <img src="/storage/image/user/phone.png" alt="icon" />
             </div>
-            <a href="tel:0123234567" class="info__setting-text">0123-234567</a>
+            <a :href="`tel:${client.phone}`" class="info__setting-text">{{ client.phone }}</a>
           </div>
         </div>
         <div class="info__stock">
@@ -56,7 +56,7 @@
           </div>
           <ul class="info__use-list">
             {{
-              card.gift_description
+              card.condition
             }}
           </ul>
         </div>

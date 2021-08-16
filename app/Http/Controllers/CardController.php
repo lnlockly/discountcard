@@ -77,9 +77,7 @@ class CardController extends Controller {
 			'stamp_icon' => 'required|string',
 			'gift_price' => 'required|numeric',
 			'condition' => 'required|string|max:500',
-			'card_description' => 'required|string|max:500',
 			'card_use' => 'required|string|max:500',
-			'gift_description' => 'required|string|max:500',
 		]);
 		$client = Auth::user();
 		$card = $client->card;

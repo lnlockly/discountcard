@@ -13,6 +13,7 @@ return [
 	'Last_name' => 'Name',
 	'Company_name' => 'Firmenname',
 	'City' => 'Stadt',
+	'Postcode' => '',
 	'Address' => 'Adresse',
 	'Logout' => 'Ausloggen',
 	'Dashboard' => 'Dashboard',
@@ -20,9 +21,9 @@ return [
 	'Users' => 'Benutzer',
 	'Statistic' => 'Statistik',
 	'Managers' => 'Manager',
-	'Web push' => 'Web-Push-Nachrichten',
+	'Web_push' => 'Web-Push-Nachrichten',
 	'Help' => 'Hilfe',
-	'Logged in as' => 'Eingeloggt als',
+	'Logged_in_as' => 'Eingeloggt als',
 	'Gifts' => 'Geschenke',
 	'Gifts_history' => 'Geschenke Statistik',
 	'Number' => 'Nummer',
@@ -31,8 +32,8 @@ return [
 	'Manager' => 'Manager',
 	'Stamps_history' => 'Stempel Statistik',
 	'Stamps' => 'Stempel',
-	'Card activation date' => 'Aktivierungsdatum der Karte',
-	'Registration date' => 'Registrierungsdatum',
+	'Card_activation_date' => 'Aktivierungsdatum der Karte',
+	'Registration_date' => 'Registrierungsdatum',
 	'Number_of_users' => 'Anzahl der Nutzer',
 	'Number_of_stamps' => 'Anzahl den Stempel',
 	'Number_of_gifts' => 'Anzahl die Geschenke',
@@ -68,5 +69,6 @@ return [
 	'card_belongs' => 'Карта принадлежит',
 	'stamp' => 'штамп',
 	'Site' => 'Сайт',
+	'Phone' => 'Телефон'
 
 ];

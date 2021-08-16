@@ -25,13 +25,16 @@ require __DIR__ . '/user_auth.php';
 Route::group(
 	['middleware' => ['auth:client', 'clientcard'], 'prefix' => 'client', 'as' => 'client.'],
 	function () {
-		Route::get('/', function() {
+		Route::get('/', function () {
 			return redirect(route('client.dashboard'));
 		});
 
 		Route::get('/dashboard', [ClientController::class, 'index'])
 			->name('dashboard');
 
+		Route::get('/settings', [ClientController::class, 'edit'])
+			->name('settings');
+			
 		Route::get('/users', [StatisticUsersController::class, 'index'])
 			->name('statistic.users');
 
@@ -80,8 +83,7 @@ Route::group(
 			->name('profile');
 		Route::get('/{about}', [UserController::class, 'about'])
 			->name('about');
-
 	}
 );
 Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])
-->name('user.card_add');
+	->name('user.card_add');
