@@ -13,7 +13,7 @@ return [
 	'Last_name' => 'Name',
 	'Company_name' => 'Firmenname',
 	'City' => 'Stadt',
-	'Postcode' => '',
+	'Postcode' => 'Почтовый индекс',
 	'Address' => 'Adresse',
 	'Logout' => 'Ausloggen',
 	'Dashboard' => 'Dashboard',
@@ -69,6 +69,7 @@ return [
 	'card_belongs' => 'Карта принадлежит',
 	'stamp' => 'штамп',
 	'Site' => 'Сайт',
-	'Phone' => 'Телефон'
+	'Phone' => 'Телефон',
+	'Settings' => 'Настройки'
 
 ];

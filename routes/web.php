@@ -33,7 +33,10 @@ Route::group(
 			->name('dashboard');
 
 		Route::get('/settings', [ClientController::class, 'edit'])
-			->name('settings');
+			->name('edit');
+
+		Route::post('/update', [ClientController::class, 'update'])
+			->name('update');
 			
 		Route::get('/users', [StatisticUsersController::class, 'index'])
 			->name('statistic.users');

@@ -11,8 +11,7 @@
                     <div class="card-header">
                         {{ __('main.Settings') }}
                     </div>
-                    class="card-body">
-                    <form method="post" action="{{ route('client.register') }}">
+                    <form method="post" action="{{ route('client.update') }}">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-md-6">

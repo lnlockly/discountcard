@@ -6,11 +6,17 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <form method="POST" action="{{ route('client.logout') }}">
-                    @csrf
-                    <li><button onclick="event.preventDefault();
-                                                this.closest('form').submit();" class="dropdown-item">{{ __('main.Logout') }}</button></li>
-                </form>
+
+                <li><a href="{{ route('client.edit') }}" class="dropdown-item">{{ __('main.Settings') }}</a></li>
+                <li>
+                    <form method="POST" action="{{ route('client.logout') }}">
+                        @csrf
+                        <button onclick="event.preventDefault();
+                                    this.closest('form').submit();" class="dropdown-item">{{ __('main.Logout') }}
+                        </button>
+                    </form>
+                </li>
+
             </ul>
         </li>
     </ul>
@@ -66,18 +72,17 @@
     </div>
 </div>
 <script type="text/javascript">
-window.addEventListener('DOMContentLoaded', event => {
+    window.addEventListener('DOMContentLoaded', event => {
 
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
+        // Toggle the side navigation
+        const sidebarToggle = document.body.querySelector('#sidebarToggle');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', event => {
+                event.preventDefault();
+                document.body.classList.toggle('sb-sidenav-toggled');
+                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+            });
+        }
 
-});
-
+    });
 </script>

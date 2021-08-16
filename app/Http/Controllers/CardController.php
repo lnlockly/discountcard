@@ -28,9 +28,7 @@ class CardController extends Controller {
 			'stamp_icon' => 'required|string',
 			'gift_price' => 'required|numeric',
 			'condition' => 'required|string|max:500',
-			'card_description' => 'required|string|max:500',
 			'card_use' => 'required|string|max:500',
-			'gift_description' => 'required|string|max:500',
 		]);
 
 		$logo = $request->logo;
@@ -47,9 +45,7 @@ class CardController extends Controller {
 			'stamp_icon' => $request->stamp_icon,
 			'gift_price' => $request->gift_price,
 			'condition' => $request->condition,
-			'card_description' => $request->card_description,
 			'card_use' => $request->card_use,
-			'gift_description' => $request->gift_description,
 			'region' => Auth::user()->city,
 			'client_id' => $client_id,
 		]);

@@ -11,7 +11,7 @@
             <div class="info__setting-img">
               <img src="/storage/image/user/street.svg" alt="icon" />
             </div>
-            <p class="info__setting-text">{{ client.address }}</p>
+            <p class="info__setting-text">{{ client.address }}, {{ client.postcode }} {{ client.city }}</p>
           </div>
           <div class="info__setting-inner" v-if="client.website != null">
             <div class="info__setting-img">
