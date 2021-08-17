@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="mt-4 mb-0">
-                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">{{ __('main.Create_Account') }}</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">{{ __('main.Edit_Account') }}</button></div>
                         </div>
                     </form>
                 </div>

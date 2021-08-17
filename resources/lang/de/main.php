@@ -8,6 +8,7 @@ return [
 	'Remember_Password' => 'Passwort merken',
 	'Forgot_Password' => 'Passwort wiederholen',
 	'Sign_Up' => 'Anmeldung',
+	'Edit_Account' => 'Редактировать',
 	'Create_Account' => 'Benutzerkonto erstellen',
 	'First_name' => 'Vorname',
 	'Last_name' => 'Name',
