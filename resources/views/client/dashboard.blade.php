@@ -14,7 +14,7 @@
                                     <h5 class="card-title">{{ $users_count ?? 0 }}</h5>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <div class="small text-white">{{ __('main.Number of users') }}</div>
+                                    <div class="small text-white">{{ __('main.Number_of_users') }}</div>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{ route('client.dashboard') }}">Discountcard manage</a>
+    <a class="navbar-brand ps-3" href="{{ route('client.dashboard') }}">{{ __('main.site_name') }}</a>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
         <li class="nav-item dropdown">
@@ -55,7 +55,7 @@
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
-                        {{ __('main.Web push') }}
+                        {{ __('main.Web_push') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link" href="index.html">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">{{ __('main.Logged in as') }}:</div>
+                <div class="small">{{ __('main.Logged_in_as') }}:</div>
                 {{ Auth::user()-> first_name }} {{ Auth::user()-> last_name }}
             </div>
         </nav>

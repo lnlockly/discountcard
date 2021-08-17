@@ -7,6 +7,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
 
 class ClientController extends Controller {
 	public function index() {
@@ -36,22 +37,32 @@ class ClientController extends Controller {
 	public function update(Request $request)
 	{	
 		$request->validate([
-			'first_name' => 'string|max:255',
-			'last_name' => 'string|max:255',
-			'company' => 'string|max:255',
-			'city' => 'string|max:255',
-			'website' => 'url',
-			'phone' => 'string|max:20',
-			'address' => 'string|max:255',
-			'postcode' => 'numeric',
-			'email' => 'string|email|max:255|unique:clients',
-			'password' => ['confirmed', Rules\Password::defaults()],
+			'first_name' => 'required|string|max:255',
+			'last_name' => 'required|string|max:255',
+			'company' => 'required|string|max:255',
+			'city' => 'required|string|max:255',
+			'address' => 'required|string|max:255',
+			'postcode' => 'required|numeric',
+			'email' => 'string|email|max:255'
 		]);
 		$client = Auth::user();
-		$client->update($request->except('password'));
+		$client->update($request->except(['password', 'email', 'phone', 'website']));
+		if ($request->website != null) {
+			$request->validate(['website' => 'url']);
+			$client->update(['website' =>$request->website]);
+		}
+		if ($request->phone != null) {
+			$request->validate(['phone' => 'string|max:20']);
+			$client->update(['phone' => $request->phone]);
+		}
+		if ($request->email != $client->email) {
+			$request->validate(['email' => 'unique:clients']);
+			$client->update($request->email);
+		}
 		if ($request->password != null) {
+			$request->validate(['password' => ['confirmed', Rules\Password::defaults()]]);
 			$client->update(['password' => Hash::make($request->password)]);
-			return redirect('client.logout');
+			return redirect(route('client.logout'));
 		}
 		return redirect(route('client.dashboard'));
 	}

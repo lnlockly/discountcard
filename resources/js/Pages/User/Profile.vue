@@ -25,9 +25,9 @@
           }}</span>
         </div>
         <div class="profil__info-block">
-          <button class="profil__button">{{ $trans("main.resend") }}</button>
+          <button class="profil__button">{{ $trans("main.delete_profile") }}</button>
           <span class="profil__button-text">{{
-            $trans("main.forgot_password")
+            $trans("main.delete_profile_text")
           }}</span>
         </div>
         <div class="profil__title-inner">

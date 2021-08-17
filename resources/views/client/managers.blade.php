@@ -15,8 +15,8 @@
                     <form method="post" action="{{ route('client.managers.store') }}">
                         @csrf
                         <div class="input-group mb-3 mt-2">
-                            <input type="text" class="form-control" placeholder="{{ __('main.Manager name') }}" aria-describedby="add-manager" name="name">
-                            <button class="btn btn-outline-secondary" id="add-manager" type="submit"> {{ __('main.Add manager') }}</button>
+                            <input type="text" class="form-control" placeholder="{{ __('main.Manager_name') }}" aria-describedby="add-manager" name="name">
+                            <button class="btn btn-outline-secondary" id="add-manager" type="submit"> {{ __('main.Add_manager') }}</button>
                         </div>
                     </form>
                     <div class="card-body">
@@ -46,23 +46,26 @@
         </div>
     </div>
     <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', event => {
-        // Simple-DataTables
-        // https://github.com/fiduswriter/Simple-DataTables/wiki
+        window.addEventListener('DOMContentLoaded', event => {
+            // Simple-DataTables
+            // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-        const datatablesSimple = document.getElementById('datatablesSimple');
-        if (datatablesSimple) {
-            new simpleDatatables.DataTable(datatablesSimple, {
-                paging: false,
-            });
-        }
-    });
+            const datatablesSimple = document.getElementById('datatablesSimple');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple, {
+                    paging: false,
 
+                });
+            }
+        });
     </script>
     <style>
-    .dataTable-search {
-        display: none;
-    }
+        .dataTables-empty {
+            display: none;
+        }
 
+        .dataTable-search {
+            display: none;
+        }
     </style>
 </x-app-layout>

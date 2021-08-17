@@ -7,6 +7,13 @@
                     <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('main.Dashboard') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('main.Settings') }}</li>
                 </ol>
+                @if ($errors->any())
+                <ul class="mt-3 text-center">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
                 <div class="card mb-4">
                     <div class="card-header">
                         {{ __('main.Settings') }}
@@ -16,13 +23,13 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" id="inputFirstName" type="text" name="first_name" placeholder />
+                                    <input class="form-control" id="inputFirstName" type="text" name="first_name" placeholder value="{{ Auth::user()->first_name }}" />
                                     <label for="inputFirstName">{{ __('main.First_name') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input class="form-control" id="inputLastName" type="text" name="last_name" placeholder />
+                                    <input class="form-control" id="inputLastName" type="text" name="last_name" placeholder value="{{ Auth::user()->last_name }}"/>
                                     <label for="inputLastName"> {{ __('main.Last_name') }}</label>
                                 </div>
                             </div>
@@ -30,13 +37,13 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" id="inputCompanyName" type="text" name="company" placeholder />
+                                    <input class="form-control" id="inputCompanyName" type="text" name="company" placeholder value="{{ Auth::user()->company }}"/>
                                     <label for="inputCompanyName">{{ __('main.Company_name') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input class="form-control" id="inputCity" type="text" name="city" placeholder />
+                                    <input class="form-control" id="inputCity" type="text" name="city" placeholder value="{{ Auth::user()->city }}"/>
                                     <label for="inputCity">{{ __('main.City') }}</label>
                                 </div>
                             </div>
@@ -44,28 +51,32 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" id="inputAddress" type="text" name="address" placeholder />
+                                    <input class="form-control" id="inputAddress" type="text" name="address" placeholder value="{{ Auth::user()->address }}"/>
                                     <label for="inputAddress">{{ __('main.Address') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input class="form-control" id="inputPostcode" type="text" name="postcode" placeholder />
+                                    <input class="form-control" id="inputPostcode" type="text" name="postcode" placeholder value="{{ Auth::user()->postcode }}"/>
                                     <label for="inputPostcode">{{ __('main.Postcode') }}</label>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputEmail" type="email" name="email" placeholder value="{{ Auth::user()->email }}"/>
+                            <label for="inputEmail">{{ __('Email') }}</label>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" id="inputEmail" type="email" name="email" placeholder />
-                                    <label for="inputEmail">{{ __('main.Email') }}</label>
+                                    <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder value="{{ Auth::user()->phone }}"/>
+                                    <label for="inputPhone">{{ __('main.Phone') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input class="form-control" id="inputPostcode" type="text" name="website" placeholder />
-                                    <label for="inputPostcode">{{ __('main.Site') }}</label>
+                                    <input class="form-control" id="inputSite" type="url" name="website" placeholder value="{{ Auth::user()->website }}"/>
+                                    <label for="inputSite">{{ __('main.Site') }}</label>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        {{ __('main.Gifts history') }}
+                        {{ __('main.Gifts_history') }}
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple" data-page-length='1'>
@@ -37,22 +37,25 @@
         </div>
     </div>
     <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', event => {
-        // Simple-DataTables
-        // https://github.com/fiduswriter/Simple-DataTables/wiki
+        window.addEventListener('DOMContentLoaded', event => {
+            // Simple-DataTables
+            // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-        const datatablesSimple = document.getElementById('datatablesSimple');
-        if (datatablesSimple) {
-            new simpleDatatables.DataTable(datatablesSimple, {
-                paging: false
-            });
-        }
-    });
-
+            const datatablesSimple = document.getElementById('datatablesSimple');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple, {
+                    paging: false
+                });
+            }
+        });
     </script>
     <style>
-    .dataTable-search {
-        display: none;
-    }
+        .dataTables-empty {
+            display: none;
+        }
+
+        .dataTable-search {
+            display: none;
+        }
     </style>
 </x-app-layout>
