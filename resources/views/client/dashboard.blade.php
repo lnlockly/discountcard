@@ -57,7 +57,7 @@
                                     {{ __('main.QR-Code') }}
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">{!! QrCode::size(200)->generate(url("/$card_id")); !!}
+                                    <div class="text-center">{!! QrCode::size(200)->generate(url("/?card_id=$card_id")); !!}
                                     </div>
                                 </div>
                             </div>

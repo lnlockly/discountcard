@@ -30,7 +30,7 @@ return [
 	'condition' => 'Nutzungsbedingungen',
 	'condition_text' => 'Beschreiben Sie hier die Bedingungen für den Erhalt eines Stempels.',
 	'card_create' => 'Karte erstellen',
-	'card_edit' => 'Karte bearbeiten',
+	'card_edit' => 'Karte speichern',
 	'' => '',
 
 ];

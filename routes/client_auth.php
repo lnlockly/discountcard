@@ -57,7 +57,7 @@ Route::group(['prefix' => 'client', 'as' => 'client.'],
 		Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
 			->middleware('auth:client');
 
-		Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+		Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
 			->middleware('auth:client')
 			->name('logout');
 	});

@@ -9,12 +9,7 @@
 
                 <li><a href="{{ route('client.edit') }}" class="dropdown-item">{{ __('main.Settings') }}</a></li>
                 <li>
-                    <form method="POST" action="{{ route('client.logout') }}">
-                        @csrf
-                        <button onclick="event.preventDefault();
-                                    this.closest('form').submit();" class="dropdown-item">{{ __('main.Logout') }}
-                        </button>
-                    </form>
+                    <a href="{{ route('client.logout') }}" class="dropdown-item">{{ __('main.Logout') }}</a>
                 </li>
 
             </ul>

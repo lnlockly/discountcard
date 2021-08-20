@@ -35,26 +35,36 @@ class RegisteredClientController extends Controller {
 			'last_name' => 'required|string|max:255',
 			'company' => 'required|string|max:255',
 			'city' => 'required|string|max:255',
-			'website' => 'url',
-			'phone' => 'string|max:20',
 			'address' => 'required|string|max:255',
 			'postcode' => 'required|numeric',
 			'email' => 'required|string|email|max:255|unique:clients',
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
 		]);
 
-		$client = Client::create([
+		$client = new Client;
+
+		$client->fill([
 			'first_name' => $request->first_name,
 			'last_name' => $request->last_name,
 			'company' => $request->company,
 			'city' => $request->city,
-			'website' => $request->website,
-			'phone' => $request->phone,
 			'address' => $request->address,
 			'postcode' => $request->postcode,
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
 		]);
+
+		if ($request->website != null) {
+			$request->validate(['website' => 'url']);
+			$client->fill(['website' => $request->website]);
+		}
+
+		if ($request->phone != null) {
+			$request->validate(['phone' => 'string|max:20']);
+			$client->fill(['phone' => $request->phone]);
+		}
+
+		$client->save();
 
 		event(new Registered($client));
 

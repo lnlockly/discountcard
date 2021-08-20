@@ -17,7 +17,7 @@
             <div class="info__setting-img">
               <img src="/storage/image/user/web.svg" alt="icon" />
             </div>
-            <a :href="client.site" class="info__setting-text">{{ client.website }}</a>
+            <a :href="client.website" target="_blank" class="info__setting-text">{{ client.website }}</a>
           </div>
           <div class="info__setting-inner">
             <div class="info__setting-img">

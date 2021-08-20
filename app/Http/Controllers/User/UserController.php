@@ -133,7 +133,9 @@ class UserController extends Controller
 
 	public function about($about)
 	{
-		return Inertia::render('User/About');
+		return Inertia::render('User/About', [
+			'show' => $about
+		]);
 	}
 
 	public function add_usercard($id)

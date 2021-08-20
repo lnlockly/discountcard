@@ -3,12 +3,6 @@
     <header class="header">
       <div class="stemplen__container">
         <div class="header__inner">
-          <div class="header-arrow" v-show="prev" @click="prev = false">
-            <Link :href="route('user.index')">
-              <img src="/storage/image/user/angle-left.svg" alt="ar" />
-            </Link>
-          </div>
-
           <div class="header__burger">
             <span></span>
           </div>
@@ -57,11 +51,9 @@
             >
           </li>
           <li>
-            <Link
-              :href="route('user.about', ['for_business'])"
-              class="header__link"
-              >{{ $trans("main.for_business") }}</Link
-            >
+            <a href="https://stempel.stempeln.jetzt/" target="_blank" class="header__link">{{
+              $trans("main.for_business")
+            }}</a>
           </li>
         </ul>
         <div class="header__menu-del">
@@ -123,14 +115,8 @@ export default {
       burgerDel.classList.remove("active");
       burger.classList.remove("active");
     },
-    show_prev() {
-      this.prev = true;
-    },
   },
   mounted() {
-    if (route().current("user.index")) {
-      this.prev = false;
-    }
     const burger = document.querySelector(".header__burger");
     const burgerMenu = document.querySelector(".header__menu");
     const burgerDel = document.querySelector(".header__menu-del");
