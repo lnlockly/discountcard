@@ -17,30 +17,22 @@
                                     <h3 class="text-center font-weight-light my-4">{{ __('main.Login') }}</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="{{ route('client.login') }}">
+                                    <form method="post" action="{{ route('admin.login') }}">
                                         @csrf
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" name="email" placeholder="name@example.com" />
-                                            <label for="inputEmail">{{ __('main.Email') }}</label>
+                                            <input class="form-control" id="inputName" type="text" name="name" placeholder="name" />
+                                            <label for="inputname">{{ __('main.Login') }}</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputPassword" type="password" name="password" placeholder="{{ __(
-                                                'main.Password') }}" />
+                                                'Password') }}" />
                                             <label for="inputPassword">{{ __(
                                                 'main.Password') }}</label>
                                         </div>
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" name="remember" value="" />
-                                            <label class="form-check-label" for="inputRememberPassword">{{ __('main.Remember_Password') }}</label>
-                                        </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="{{ route('client.password.request') }}">{{ __('main.Forgot_Password') }}?</a>
                                             <button class="btn btn-primary" type="submit">{{ __('main.Login') }}</button>
                                         </div>
                                     </form>
-                                </div>
-                                <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="{{ route('client.register') }}">{{ __('main.Sign_Up') }}</a></div>
                                 </div>
                             </div>
                         </div>
