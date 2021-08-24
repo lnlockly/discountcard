@@ -65,26 +65,26 @@
     <footer class="footer">
       <div class="stemplen__container">
         <div class="footer__inner">
-          <Link :href="route('user.card_region')" @click="show_prev">
+          <Link :href="route('user.card_region')">
             <div class="footer__logo">
               <img src="/storage/image/user/1-icon.png" alt="page" />
             </div>
           </Link>
-          <Link :href="route('user.card_ads')" @click="show_prev">
+          <Link :href="route('user.card_ads')">
             <div class="footer__logo">
               <img src="/storage/image/user/2-icon.png" alt="page" />
             </div>
           </Link>
-          <Link :href="route('user.stamp')" @click="show_prev">
+          <Link :href="route('user.stamp')">
             <button class="footer__button footer__logo">
               {{ $trans("main.stamp") }}
             </button></Link
           >
-          <Link :href="route('user.card_info')" @click="show_prev">
+          <Link :href="route('user.card_info')">
             <div class="footer__logo">
               <img src="/storage/image/user/3-icon.png" alt="page" /></div
           ></Link>
-          <Link :href="route('user.profile')" @click="show_prev">
+          <Link :href="route('user.profile')">
             <div class="footer__logo">
               <img src="/storage/image/user/4-icon.png" alt="page" /></div
           ></Link>

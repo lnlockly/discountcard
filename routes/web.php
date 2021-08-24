@@ -37,7 +37,7 @@ Route::group(
 
 		Route::post('/update', [ClientController::class, 'update'])
 			->name('update');
-			
+
 		Route::get('/users', [StatisticUsersController::class, 'index'])
 			->name('statistic.users');
 
@@ -86,6 +86,8 @@ Route::group(
 			->name('profile');
 		Route::get('/{about}', [UserController::class, 'about'])
 			->name('about');
+		Route::get('/push', [UserController::class, 'push'])
+			->name('push');
 	}
 );
 Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])

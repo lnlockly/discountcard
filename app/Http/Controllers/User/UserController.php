@@ -3,19 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\CardUser;
 use App\Models\Card;
+use App\Models\CardUser;
 use App\Models\Stamp;
 use Cookie;
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
-class UserController extends Controller
-{
-	public function index()
-	{
+class UserController extends Controller {
+	public function index() {
 
 		$card_id = Cookie::get('card_id');
 
@@ -29,17 +27,16 @@ class UserController extends Controller
 		$card = Card::find($card_id);
 		$user_stamps = Stamp::where([
 			['user_id', Auth::user()->id],
-			['card_id', $card_id]
+			['card_id', $card_id],
 		])->count();
 
 		return Inertia::render('User/Card', [
 			'card' => $card,
-			'stamps' => $user_stamps
+			'stamps' => $user_stamps,
 		]);
 	}
 
-	public function card_region()
-	{
+	public function card_region() {
 		if (Auth::check() && Auth::user()->region != null) {
 			$region = Auth::user()->region;
 			$cards = Card::latest()->where('region', $region)->get(['id', 'logo']);
@@ -52,22 +49,19 @@ class UserController extends Controller
 		]);
 	}
 
-	public function card_ads()
-	{
+	public function card_ads() {
 		return abort(404);
 	}
 
-	public function stamp()
-	{
+	public function stamp() {
 		if (!Auth::check()) {
 			return redirect(route('user.login'));
 		}
-		
+
 		return Inertia::render('User/Stamp');
 	}
 
-	public function add_stamp(Request $request)
-	{	
+	public function add_stamp(Request $request) {
 		if (!Auth::check()) {
 			return redirect(route('user.login'));
 		}
@@ -103,8 +97,7 @@ class UserController extends Controller
 		return redirect(route('user.stamp'));
 	}
 
-	public function card_info()
-	{
+	public function card_info() {
 		$card_id = Cookie::get('card_id');
 		$card = Card::find($card_id);
 
@@ -114,8 +107,7 @@ class UserController extends Controller
 		]);
 	}
 
-	public function profile()
-	{
+	public function profile() {
 		if (!Auth::check()) {
 			return redirect(route('user.login'));
 		}
@@ -127,19 +119,21 @@ class UserController extends Controller
 		return Inertia::render('User/Profile', [
 			'user' => $user,
 			'cards' => $cards,
-			'created_at' => $created_at
+			'created_at' => $created_at,
 		]);
 	}
 
-	public function about($about)
-	{
+	public function about($about) {
 		return Inertia::render('User/About', [
-			'show' => $about
+			'show' => $about,
 		]);
 	}
 
-	public function add_usercard($id)
-	{
+	public function push() {
+		return Inertia::render('User/Push');
+	}
+
+	public function add_usercard($id) {
 		Cookie::queue('card_id', $id, 200000);
 		return redirect(route('user.index'));
 	}

@@ -231,6 +231,7 @@
 </template>
 <script>
 import { Head } from "@inertiajs/inertia-vue";
+import { trans } from "matice"
 
 export default {
   components: {
@@ -251,7 +252,7 @@ export default {
         stamps: null,
         stamp_icon: "3.png",
         gift_price: null,
-        condition: null,
+        condition: trans("card.condition_value"),
         card_use: null,
       }),
     };

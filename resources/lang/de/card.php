@@ -29,6 +29,7 @@ return [
 	'gift_price_text' => 'Geben Sie den Wert von Ihr Geschenk für die Statistik ein.',
 	'condition' => 'Nutzungsbedingungen',
 	'condition_text' => 'Beschreiben Sie hier die Bedingungen für den Erhalt eines Stempels.',
+	'condition_value' => '123',
 	'card_create' => 'Karte erstellen',
 	'card_edit' => 'Karte speichern',
 	'' => '',

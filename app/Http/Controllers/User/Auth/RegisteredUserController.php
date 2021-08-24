@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\Card;
+use App\Models\User;
 use Cookie;
-use Inertia\Inertia;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Inertia\Inertia;
 
 class RegisteredUserController extends Controller {
 	public function create() {
@@ -52,8 +52,6 @@ class RegisteredUserController extends Controller {
 		Cookie::queue(Cookie::forever('user_email', $request->email));
 		Cookie::queue(Cookie::forever('user_password', $request->password));
 
-
-
-		return redirect()->route('user.index');
+		return redirect()->route('user.push');
 	}
 }
