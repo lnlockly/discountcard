@@ -72,11 +72,12 @@ return [
 	'card_belongs' => 'Stempelkarte gehört:',
 	'stamp' => 'STEMPEL',
 	'Site' => 'Webseite, Facebook oder Instagram',
+	'Website' => 'Webseite',
 	'Settings' => 'Einstellungen',
 	'Card_link' => 'Kartenlink',
 	'Phone' => 'Telefon',
 	'delete_profile' => 'Konto löschen',
 	'delete_profile_text' => 'Konto löschen',
-	'site_name' => 'Stempelkarte Verwaltung'
+	'site_name' => 'Stempelkarte Verwaltung',
 
 ];

@@ -69,11 +69,9 @@ export default {
   },
   mounted() {
     for (let i = 0; i < this.card.stamps; i++) {
-      console.log(this.opacity);
-      this.opacity.push(0.5);
+      this.opacity.push(0.3);
     }
     for (let i = 0; i < this.stamps; i++) {
-      console.log(this.opacity);
       this.opacity[i] = 1;
     }
   },

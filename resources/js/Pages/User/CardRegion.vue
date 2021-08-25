@@ -9,16 +9,6 @@
                 <img src="/storage/image/user/slider1.jpg" alt="banner" />
               </div>
             </div>
-            <div class="main__swip-slide swiper-slide">
-              <div class="main__swip-slide-container">
-                <img src="/storage/image/user/slider1.jpg" alt="banner" />
-              </div>
-            </div>
-            <div class="main__swip-slide swiper-slide">
-              <div class="main__swip-slide-container">
-                <img src="/storage/image/user/slider1.jpg" alt="banner" />
-              </div>
-            </div>
           </div>
         </div>
       </section>

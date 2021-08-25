@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class LoginController extends Controller {
+class AuthenticatedSessionController extends Controller {
 
 	/**
 	 * Display the login view.
@@ -22,10 +23,10 @@ class LoginController extends Controller {
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function store(Request $request) {
-		if (Auth::guard('admin')
-			->attempt($request->only(['email', 'password']))) {
+		if (auth()->guard('admin')
+			->attempt($request->only(['name', 'password']))) {
 			return redirect()
-				->route('admin.dashboard');
+				->route('admin.statistic');
 		}
 
 		return redirect()
