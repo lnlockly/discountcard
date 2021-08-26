@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'statistic' => 'Статистика',
-	'admin_panel' => 'Админ панель',
+	'statistic' => 'Statistik',
+	'admin_panel' => 'Admin Bereich',
 ];

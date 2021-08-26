@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
 		Admin::create([
-			'name' => 'stemplenadmin',
-			'password' => Hash::make('Barnaul&2021$NINK');
+			'name' => 'stempelnadmin',
+			'password' => Hash::make('Barnaul&2021$NINK'),
 		]);
 	}
 }

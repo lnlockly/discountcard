@@ -12,4 +12,16 @@ class AdminController extends Controller {
 			'clients' => $clients,
 		]);
 	}
+
+	public function destroy($id) {
+		$client = Client::find($id);
+
+		$path_logo = $client->card->logo;
+
+		Storage::delete('image/card/' . $path_logo);
+
+		$client->delete();
+
+		return redirect()->back();
+	}
 }

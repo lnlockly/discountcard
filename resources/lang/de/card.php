@@ -29,7 +29,21 @@ return [
 	'gift_price_text' => 'Geben Sie den Wert von Ihr Geschenk für die Statistik ein.',
 	'condition' => 'Nutzungsbedingungen',
 	'condition_text' => 'Beschreiben Sie hier die Bedingungen für den Erhalt eines Stempels.',
-	'condition_value' => '123',
+	'condition_value' =>
+	'
+	Die Stempelkarte von ........................ ist eine digitale Stempelkarte, mit der wir unsere treuesten Kunden belohnen. Für jeden Kauf ........................... wird Ihrer Stempelkarte ein virtueller Stempel gutgeschrieben. Sobald Sie 10 Stempel gesammelt haben, wird Ihnen ein gratis ....................... für Ihren nächsten Besuch gutgeschrieben.
+	<br />
+	Zur Aktivierung Ihrer persönlichen Stempelkarte ist ein Benutzerkonto notwendig. Sofern Sie noch nicht eingeloggt sind, loggen Sie sich ein.
+	<br />
+	Für ein Stempel zeigen Sie in ......................... Ihre Stempelkarte und der Mitarbeiter tippt seine Code ein. Und so wird es automatisch ein Stempel auf Ihr Konto gebucht.
+	<br />
+	Einen Stempel erhalten Sie für jedes bezahlte frisch zubereitete ...........................
+	<br />
+	Gratis- oder Probieraktionen sind hiervon ausgenommen. Die Stempel sind nicht übertragbar. Eine Nachbuchung von Stempeln ist ausgeschlossen.
+	<br />
+	Die Stempelkarte ist ausschließlich nur in ....................... gültig und auch nur hier können Sie Stempel sammeln und einlösen. ....................... behält sich das Recht vor, unter Einhaltung einer angemessenen Ankündigungsfrist die Bedingungen für die Stempelkarte zu ändern.
+	<br />
+	',
 	'card_create' => 'Karte erstellen',
 	'card_edit' => 'Karte speichern',
 	'' => '',

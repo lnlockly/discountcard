@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->rememberToken();
 			$table->integer('card_id')->unsigned()->nullable();
-			$table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
+			$table->foreign('card_id')->references('id')->on('cards')->onDelete('set null');
 
 			$table->timestamps();
 		});

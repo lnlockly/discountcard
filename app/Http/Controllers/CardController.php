@@ -27,14 +27,14 @@ class CardController extends Controller {
 			'stamps' => 'required|integer|min:1|max:30',
 			'stamp_icon' => 'required|string',
 			'gift_price' => 'required|numeric',
-			'condition' => 'required|string|max:500',
-			'card_use' => 'required|string|max:500',
+			'condition' => 'required|string',
+			'card_use' => 'required|string',
 		]);
 
 		$logo = $request->logo;
 		$client_id = Auth::user()->id;
 		$image_name = $client_id . '.png';
-		$logo->move(Storage::path('public/image/card'), $image_name);
+		$logo->move(Storage::path('image/card'), $image_name);
 
 		Card::create([
 			'name' => $request->name,
@@ -72,17 +72,17 @@ class CardController extends Controller {
 			'stamps' => 'required|integer|min:1|max:30',
 			'stamp_icon' => 'required|string',
 			'gift_price' => 'required|numeric',
-			'condition' => 'required|string|max:500',
-			'card_use' => 'required|string|max:500',
+			'condition' => 'required|string',
+			'card_use' => 'required|string',
 		]);
 		$client = Auth::user();
 		$card = $client->card;
 		if ($request->hasFile('logo')) {
-			
+
 			$logo = $request->logo;
 			$client_id = Auth::user()->id;
 			$image_name = $client_id . '.png';
-			$logo->move(Storage::path('public/image/card'), $image_name);
+			$logo->move(Storage::path('image/card'), $image_name);
 			$card->update($request->except('logo'));
 			$card->update(['logo' => $image_name]);
 		} else {
@@ -92,7 +92,7 @@ class CardController extends Controller {
 		return Inertia::location(route('client.dashboard'));
 	}
 	private function get_icons() {
-		$stamp_icons = Storage::files('public/image/stamps');
+		$stamp_icons = Storage::files('image/stamps');
 		$icons = [];
 		foreach ($stamp_icons as $icon) {
 			array_push($icons, basename($icon));

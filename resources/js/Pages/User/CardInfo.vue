@@ -40,9 +40,9 @@
                 alt=""
               />
             </div>
-            <h3 class="stemple__set-title">{{ card.name }}</h3>
+            <h3 class="stemple__set-title">{{ $trans('main.gift') }}</h3>
           </div>
-          <p class="info__stock-text">{{ card.card_use }}</p>
+          <p class="info__stock-text" v-html="card.card_use"></p>
         </div>
         <div class="info__use">
           <div class="info__title-inner">
@@ -52,13 +52,10 @@
                 alt=""
               />
             </div>
-            <h3 class="stemple__set-title">{{ card.name }}</h3>
+            <h3 class="stemple__set-title">{{ $trans('main.condition') }}</h3>
           </div>
-          <ul class="info__use-list">
-            {{
-              card.condition
-            }}
-          </ul>
+          <p class="info__stock-text" v-html="card.condition">
+          </p>
         </div>
         <div style="height: 50px"></div>
       </div>

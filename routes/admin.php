@@ -19,4 +19,7 @@ Route::group(
 
 		Route::get('/statistic', [AdminController::class, 'index'])
 			->name('statistic');
+
+		Route::delete('/destroy/{id}', [AdminController::class, 'destroy'])
+			->name('delete_firm');
 	});

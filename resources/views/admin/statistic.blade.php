@@ -26,6 +26,7 @@
                                     <th>{{ __('main.Postcode') }}</th>
                                     <th>{{ __('main.Email') }}</th>
                                     <th>{{ __('main.Registration_date') }}</th>
+                                    <th>{{ __('main.Delete_Account') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,6 +42,16 @@
                                     <td>{{ $client->postcode }}</td>
                                     <td>{{ $client->email }}</td>
                                     <td>{{ $client->created_at->format('Y-m-d') }}</td>
+                                    <td>
+                                        <form method="POST" class="destroy" action="{{ route('admin.delete_firm', [$client->id]) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="d-grid">
+                                                <button onclick="event.preventDefault();
+                                                this.closest('.destroy').submit();" class="btn btn-primary btn-block">{{ __('main.Delete_Account') }}</button>
+                                            </div>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -51,16 +62,16 @@
         </div>
     </div>
     <script type="text/javascript">
-        window.addEventListener('DOMContentLoaded', event => {
-            // Simple-DataTables
-            // https://github.com/fiduswriter/Simple-DataTables/wiki
+    window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-            const datatablesSimple = document.getElementById('datatablesSimple');
-            if (datatablesSimple) {
-                new simpleDatatables.DataTable(datatablesSimple, {
-                    paging: false
-                });
-            }
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple, {
+            paging: false
         });
+    }
+    });
     </script>
 </x-admin-layout>

@@ -56,6 +56,9 @@ export default {
   components: {
     Link,
   },
+  props: {
+    errors: Array
+  },
   data() {
     return {
       form: this.$inertia.form({

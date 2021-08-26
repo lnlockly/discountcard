@@ -46,6 +46,9 @@ Route::group(
 
 		Route::put('/card/update', [CardController::class, 'update'])
 			->name('card.update');
+
+		Route::delete('/destroy', [ClientController::class, 'destroy'])
+			->name('destroy');
 	}
 );
 Route::get('/client/card', [CardController::class, 'create'])

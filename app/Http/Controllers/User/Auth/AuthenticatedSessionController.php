@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
-use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class AuthenticatedSessionController extends Controller {
 	public function create() {
@@ -20,6 +20,7 @@ class AuthenticatedSessionController extends Controller {
 	public function store(Request $request) {
 		if (Auth::guard('user')
 			->attempt($request->only(['email', 'password']))) {
+
 			return redirect()
 				->route('user.index');
 		}
