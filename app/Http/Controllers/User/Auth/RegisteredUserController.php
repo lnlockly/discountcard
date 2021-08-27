@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller {
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
 			'webpush' => false,
-			'card_id' => null,
+			'card_id' => $card->id,
 		]);
 
 		event(new Registered($user));
@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller {
 		Cookie::queue(Cookie::forever('user_email', $request->email));
 		Cookie::queue(Cookie::forever('user_password', $request->password));
 
-		return redirect()->route('user.push');
+		return redirect()->route('user.index');
 	}
 }

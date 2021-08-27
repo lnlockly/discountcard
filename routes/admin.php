@@ -29,6 +29,6 @@ Route::group(
 		Route::post('/store_question', [AdminController::class, 'store_question'])
 			->name('store_question');
 
-		Route::post('/store_model', [AdminController::class], 'store_model')
+		Route::post('/store_model', [AdminController::class, 'store_model'])
 			->name('store_model');
 	});

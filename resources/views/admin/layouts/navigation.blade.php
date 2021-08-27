@@ -17,23 +17,28 @@
                         {{ __('admin.statistic') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
+                    <a class="nav-link" href="{{ route('admin.help') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
+                        {{ __('main.Help') }}
+                    </a>
                 </div>
             </div>
         </nav>
     </div>
 </div>
 <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', event => {
 
-        // Toggle the side navigation
-        const sidebarToggle = document.body.querySelector('#sidebarToggle');
-        if (sidebarToggle) {
-            sidebarToggle.addEventListener('click', event => {
-                event.preventDefault();
-                document.body.classList.toggle('sb-sidenav-toggled');
-                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-            });
-        }
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
 
-    });
+});
+
 </script>

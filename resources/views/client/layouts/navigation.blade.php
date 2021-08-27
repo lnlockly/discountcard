@@ -53,7 +53,7 @@
                         {{ __('main.Web_push') }}
                     </a>
                     <div class="sb-sidenav-menu-heading"></div>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{ route('client.help') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
                         {{ __('main.Help') }}
                     </a>

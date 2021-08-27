@@ -4,7 +4,6 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">{{ __('admin.statistic') }}</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}">{{ __('admin.statistic') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('admin.statistic') }}</li>
                 </ol>
                 <div class="card mb-4">

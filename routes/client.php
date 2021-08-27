@@ -35,6 +35,9 @@ Route::group(
 		Route::get('/managers', [ManagerController::class, 'index'])
 			->name('managers');
 
+		Route::get('/help', [ClientController::class, 'help'])
+			->name('help');
+
 		Route::post('/managers/store', [ManagerController::class, 'store'])
 			->name('managers.store');
 
