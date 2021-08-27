@@ -25,7 +25,7 @@
                                     <th>{{ __('main.Postcode') }}</th>
                                     <th>{{ __('main.Email') }}</th>
                                     <th>{{ __('main.Registration_date') }}</th>
-                                    <th>{{ __('main.Delete_Account') }}</th>
+                                    <th>{{ __('main.Delete') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,7 +47,7 @@
                                             @method('DELETE')
                                             <div class="d-grid">
                                                 <button onclick="event.preventDefault();
-                                                this.closest('.destroy').submit();" class="btn btn-primary btn-block">{{ __('main.Delete_Account') }}</button>
+                                                this.closest('.destroy').submit();" class="btn btn-primary btn-block">{{ __('main.Delete') }}</button>
                                             </div>
                                         </form>
                                     </td>

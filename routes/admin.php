@@ -20,15 +20,28 @@ Route::group(
 		Route::get('/statistic', [AdminController::class, 'index'])
 			->name('statistic');
 
-		Route::delete('/destroy/{id}', [AdminController::class, 'destroy_firm'])
+		Route::delete('/destroy_firm/{id}', [AdminController::class, 'destroy_firm'])
 			->name('destroy_firm');
 
 		Route::get('/help', [AdminController::class, 'help'])
 			->name('help');
 
+		Route::get('/create_question', [AdminController::class, 'create_question'])
+			->name('question.create');
+
 		Route::post('/store_question', [AdminController::class, 'store_question'])
-			->name('store_question');
+			->name('question.store');
+
+		Route::delete('/destroy_question/{id}', [AdminController::class, 'destroy_question'])
+			->name('question.destroy');
+
+		Route::get('/create_model', [AdminController::class, 'create_model'])
+			->name('model.create');
 
 		Route::post('/store_model', [AdminController::class, 'store_model'])
-			->name('store_model');
+			->name('store.model');
+
+		Route::delete('/destroy_model/{id}', [AdminController::class, 'destroy_model'])
+			->name('model.destroy');
+
 	});

@@ -10,7 +10,6 @@ return [
 	'Sign_Up' => 'Anmeldung',
 	'Edit_Account' => 'Bearbeiten',
 	'Create_Account' => 'Neues Konto erstellen',
-	'Delete_Account' => 'Удалить аккаунт',
 	'First_name' => 'Vorname',
 	'Last_name' => 'Name',
 	'Company_name' => 'Firmenname',
@@ -82,5 +81,10 @@ return [
 	'site_name' => 'Stempelkarte Verwaltung',
 	'gift' => 'Produktbereich',
 	'condition' => 'Teilnahmebedingungen',
+	'Delete_Account' => 'Удалить аккаунт',
+	'Delete' => 'Удалить',
+	'FAQ' => 'Часто задаваемые вопросы',
+	'question' => 'Вопрос',
+	'answer' => 'Ответ',
 
 ];
