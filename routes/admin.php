@@ -20,6 +20,15 @@ Route::group(
 		Route::get('/statistic', [AdminController::class, 'index'])
 			->name('statistic');
 
-		Route::delete('/destroy/{id}', [AdminController::class, 'destroy'])
-			->name('delete_firm');
+		Route::delete('/destroy/{id}', [AdminController::class, 'destroy_firm'])
+			->name('destroy_firm');
+
+		Route::get('/help', [AdminController::class, 'help'])
+			->name('help');
+
+		Route::post('/store_question', [AdminController::class, 'store_question'])
+			->name('store_question');
+
+		Route::post('/store_model', [AdminController::class], 'store_model')
+			->name('store_model');
 	});

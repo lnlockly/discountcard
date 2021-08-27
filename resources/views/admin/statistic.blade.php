@@ -37,13 +37,13 @@
                                     <td>{{ $client->company }}</td>
                                     <td>{{ $client->city }}</td>
                                     <td>{{ $client->address }}</td>
-                                    <td>{{ $client->site }}</td>
+                                    <td>{{ $client->website }}</td>
                                     <td>{{ $client->phone }}</td>
                                     <td>{{ $client->postcode }}</td>
                                     <td>{{ $client->email }}</td>
                                     <td>{{ $client->created_at->format('Y-m-d') }}</td>
                                     <td>
-                                        <form method="POST" class="destroy" action="{{ route('admin.delete_firm', [$client->id]) }}">
+                                        <form method="POST" class="destroy" action="{{ route('admin.destroy_firm', [$client->id]) }}">
                                             @csrf
                                             @method('DELETE')
                                             <div class="d-grid">
