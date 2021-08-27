@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
 			$table->rememberToken();
-			$table->integer('card_id')->unsigned()->nullable();
-			$table->foreign('card_id')->references('id')->on('cards')->onDelete('set null');
+			$table->foreignId('card_id')->constrained()->onDelete('set null');
 
 			$table->timestamps();
 		});

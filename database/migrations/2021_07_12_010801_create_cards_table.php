@@ -23,8 +23,7 @@ class CreateCardsTable extends Migration {
 			$table->float('gift_price');
 			$table->mediumText('condition');
 			$table->mediumText('card_use');
-			$table->integer('client_id')->unsigned();
-			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+			$table->foreignId('client_id')->constrained()->onDelete('cascade');
 			$table->timestamps();
 
 		});

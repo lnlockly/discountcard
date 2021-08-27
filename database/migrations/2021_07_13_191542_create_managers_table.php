@@ -15,8 +15,7 @@ class CreateManagersTable extends Migration {
 			$table->id();
 			$table->string('name');
 			$table->string('key');
-			$table->integer('client_id')->unsigned()->nullable();;
-			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+			$table->foreignId('client_id')->constrained()->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
