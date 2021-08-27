@@ -13,8 +13,8 @@ class CreateActivationsTable extends Migration {
 	public function up() {
 		Schema::create('activations', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('user_id')->constrained()->onDelete('set null');
-			$table->foreignId('card_id')->constrained()->onDelete('set null');
+			$table->foreignId('user_id')->constrained();
+			$table->foreignId('card_id')->constrained();
 			$table->timestamps();
 		});
 	}

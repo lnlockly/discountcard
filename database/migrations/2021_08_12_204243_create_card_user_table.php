@@ -13,8 +13,8 @@ class CreateCardUserTable extends Migration {
 	public function up() {
 		Schema::create('card_user', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('user_id')->constrained()->onDelete('set null');
-			$table->foreignId('card_id')->constrained()->onDelete('set null');
+			$table->foreignId('user_id')->constrained();
+			$table->foreignId('card_id')->constrained();
 			$table->timestamps();
 		});
 	}
