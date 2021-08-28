@@ -99,15 +99,35 @@
                         </div>
                     </form>
                     <div class="mt-4 mb-0">
-                        <form method="POST" class="destroy" action="{{ route('client.destroy') }}">
-                            @csrf
-                            @method('DELETE')
-                            <div class="d-grid">
-                                <button onclick="event.preventDefault();
-                                                this.closest('.destroy').submit();" class="btn btn-primary btn-block">{{ __('main.Delete_Account') }}</button>
-                            </div>
-                        </form>
+                        <div class="d-grid"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                {{ __('main.Delete_Account') }}
+                            </button></div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('main.sure') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('main.close')}}</button>
+                    <form method="POST" class="destroy" action="{{ route('client.destroy') }}">
+                        @csrf
+                        @method('DELETE')
+                        <div class="d-grid">
+                            <button onclick="event.preventDefault();
+                            this.closest('.destroy').submit()" id="delete-user" class="btn btn-primary btn-block" type="submit">{{ __('main.Delete') }}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
