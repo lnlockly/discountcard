@@ -16,6 +16,7 @@ class CreateStampsTable extends Migration {
 			$table->foreignId('user_id')->constrained()->onDelete('cascade');
 			$table->foreignId('client_id')->constrained();
 			$table->foreignId('card_id')->constrained()->onDelete('cascade');
+			$table->foreignId('manager_id')->constrained();
 			$table->timestamps();
 		});
 	}
