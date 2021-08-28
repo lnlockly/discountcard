@@ -17,7 +17,6 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 
-
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
