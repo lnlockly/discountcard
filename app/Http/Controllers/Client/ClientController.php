@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Question;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -76,5 +78,15 @@ class ClientController extends Controller {
 		$client->delete();
 
 		return redirect(route('client.logout'));
+	}
+
+	public function help() {
+		$questions = Question::all();
+		$templates = Template::all();
+
+		return view('client.help', [
+			'questions' => $questions,
+			'templates' => $templates,
+		]);
 	}
 }

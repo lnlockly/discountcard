@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TemplateController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ManagerController;
@@ -38,6 +39,9 @@ Route::group(
 		Route::get('/help', [ClientController::class, 'help'])
 			->name('help');
 
+		Route::get('/template/download/{id}', [TemplateController::class, 'download'])
+			->name('template.download');
+
 		Route::post('/managers/store', [ManagerController::class, 'store'])
 			->name('managers.store');
 
@@ -52,6 +56,7 @@ Route::group(
 
 		Route::delete('/destroy', [ClientController::class, 'destroy'])
 			->name('destroy');
+
 	}
 );
 Route::get('/client/card', [CardController::class, 'create'])

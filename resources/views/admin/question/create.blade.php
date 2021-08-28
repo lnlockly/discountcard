@@ -16,7 +16,7 @@
                         <form method="POST" action="{{ route('admin.question.store') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="inputEmail">{{ __('main.question') }}</label>
+                                <label for="inputName">{{ __('main.question') }}</label>
                                 <input class="form-control" id="inputName" type="text" name="name" />
                             </div>
                             <div class="form-group">
@@ -33,29 +33,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', event => {
-        // Simple-DataTables
-        // https://github.com/fiduswriter/Simple-DataTables/wiki
-
-        const datatablesSimple = document.getElementById('datatablesSimple');
-        if (datatablesSimple) {
-            new simpleDatatables.DataTable(datatablesSimple, {
-                paging: false,
-
-            });
-        }
-    });
-
-    </script>
-    <style>
-    .dataTables-empty {
-        display: none;
-    }
-
-    .dataTable-search {
-        display: none;
-    }
-
-    </style>
 </x-admin-layout>

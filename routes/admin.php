@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\TemplateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])
@@ -26,22 +28,22 @@ Route::group(
 		Route::get('/help', [AdminController::class, 'help'])
 			->name('help');
 
-		Route::get('/create_question', [AdminController::class, 'create_question'])
+		Route::get('/question/create', [QuestionController::class, 'create'])
 			->name('question.create');
 
-		Route::post('/store_question', [AdminController::class, 'store_question'])
+		Route::post('/question/store', [QuestionController::class, 'store'])
 			->name('question.store');
 
-		Route::delete('/destroy_question/{id}', [AdminController::class, 'destroy_question'])
+		Route::delete('/question/destroy/{id}', [QuestionController::class, 'destroy'])
 			->name('question.destroy');
 
-		Route::get('/create_model', [AdminController::class, 'create_model'])
-			->name('model.create');
+		Route::get('/template/create', [TemplateController::class, 'create'])
+			->name('template.create');
 
-		Route::post('/store_model', [AdminController::class, 'store_model'])
-			->name('store.model');
+		Route::post('/template/store', [TemplateController::class, 'store'])
+			->name('template.store');
 
-		Route::delete('/destroy_model/{id}', [AdminController::class, 'destroy_model'])
-			->name('model.destroy');
+		Route::delete('/template/destroy/{id}', [TemplateController::class, 'destroy'])
+			->name('template.destroy');
 
 	});
