@@ -7,7 +7,7 @@ Route::group(
 	function () {
 		Route::get('/', [UserController::class, 'index'])
 			->name('index');
-		Route::get('/card_region', [UserController::class, 'card_region'])
+		Route::get('/cards', [UserController::class, 'card_region'])
 			->name('card_region');
 		Route::get('/card_ads', [UserController::class, 'card_ads'])
 			->name('card_ads');

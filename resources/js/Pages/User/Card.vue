@@ -43,7 +43,6 @@
               </button></Link
             >
           </div>
-          <div style="height: 50px"></div>
         </div>
       </section>
     </div>

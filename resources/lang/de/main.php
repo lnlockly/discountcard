@@ -81,15 +81,15 @@ return [
 	'site_name' => 'Stempelkarte Verwaltung',
 	'gift' => 'Produktbereich',
 	'condition' => 'Teilnahmebedingungen',
-	'Delete_Account' => 'Удалить аккаунт',
-	'Delete' => 'Удалить',
-	'FAQ' => 'Часто задаваемые вопросы',
-	'question' => 'Вопрос',
-	'answer' => 'Ответ',
-	'download' => 'скачать',
-	'file' => 'Файл',
-	'preview' => 'Превью',
-	'close' => 'Закрыть',
-	'sure' => 'Вы уверены что хотите удалить аккаунт?'
+	'Delete_Account' => 'Konto löschen',
+    'Delete' => 'Löschen',
+    'FAQ' => 'FAQ',
+    'question' => 'Frage',
+    'answer' => 'Antwort',
+    'download' => 'Herunterladen',
+    'file' => 'Datei',
+    'preview' => 'Vorschau',
+    'close' => 'Schließen',
+    'sure' => 'Möchten Sie Ihr Konto wirklich löschen?'
 
 ];
