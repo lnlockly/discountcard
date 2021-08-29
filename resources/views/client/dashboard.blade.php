@@ -57,7 +57,7 @@
                                     {{ __('main.QR-Code') }}
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate(url('/?card_id=$card_id'))) !!} ">
+                                    <div class="text-center"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate(url('/?card_id='. $card_id))) !!} ">
                                     </div>
                                 </div>
                             </div>
