@@ -24,7 +24,7 @@ return [
 	'card_use_text' => 'Beispiele:<br>
 	                    Nach 10 Stempel erhalten Sie 50% Rabatt auf waschen, schneiden, Farbe und Produkt;<br>
 											Mit unserer digitale Stempelkarte, bekommen Sie jeden 11. Kebap Gratis!',
-	'card_use_placeholder' => 'Например: купите кофе стоимостью от 150 рублей',
+	'card_use_placeholder' => 'Schreiben Sie hier Ihren Text über Ihre Prämie',
 	'gift_price' => 'Geschenkpreis',
 	'gift_price_text' => 'Geben Sie den Wert von Ihr Geschenk für die Statistik ein.',
 	'condition' => 'Nutzungsbedingungen',

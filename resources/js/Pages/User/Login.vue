@@ -24,7 +24,7 @@
               />
             </label>
           </form>
-          <div class="form__button-inner">
+          <div class="form__button-inner" style="margin-top:30px">
             <button
               type="submit"
               :disabled="form.processing"

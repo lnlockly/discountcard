@@ -20,7 +20,7 @@ class CardController extends Controller {
 
 	public function store(Request $request) {
 		$request->validate([
-			'name' => 'required|string|max:30',
+			'name' => 'required|string|max:100',
 			'logo' => 'required',
 			'color_header' => 'required|string|max:10',
 			'color_body' => 'required|string|max:10',

@@ -40,6 +40,7 @@ dd {
 /* Выставляем основные настройки по-умолчанию для body */
 
 body {
+  overflow-x: hidden;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -85,15 +86,17 @@ body {
   height: 100vh;
   background-color: #fff;
 }
-.page:after {
-  display: block;
-  height: 200px;
-  content: '';
-}
+
 .page.active {
   opacity: 1;
   z-index: 994;
   overflow: visible;
+}
+
+.page.active:after {
+  display: block;
+  height: 200px;
+  content: '';
 }
 
 .stemplen__sub-title {
@@ -155,10 +158,6 @@ body {
   background-color: #443920;
   top: 50%;
   margin-top: -2px;
-}
-
-.header__burger.active {
-  display: none;
 }
 
 .header__logo {
@@ -299,7 +298,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: #fff;
 }
 

@@ -112,9 +112,9 @@
                         />
                       </div>
                       <div class="form__tab-name-inenr"></div>
-                      <div class="form__tab-arrow">
-                        <img src="" alt="arrow" />
-                      </div>
+                        <div class="form__tab-arrow" style="width:50px">
+                          <i class="fas fa-arrow-down"></i>
+                        </div>
                     </div>
                     <div class="form__tab-content">
                       <img
@@ -166,7 +166,7 @@
                 <input
                   class="card-input"
                   type="number"
-                  step="0.5"
+                  step="0.001"
                   placeholder="150.00"
                   v-model="form.gift_price"
                 />
@@ -175,12 +175,7 @@
             <h2 class="main-title3">{{ $trans("card.condition") }}</h2>
             <p class="text" v-html="$trans('card.condition_text')"></p>
             <div class="input-text2">
-              <textarea
-                class="card-input2"
-                type="text"
-                :placeholder="`${$trans('card.condition')}`"
-                v-model="form.condition"
-              ></textarea>
+              <trumbowyg v-model="form.condition" class="form-control"></trumbowyg>
             </div>
             <div class="form__botton-inner">
               <div @click="prev()" class="form__button">
@@ -204,11 +199,15 @@
 </template>
 <script>
 import { Head } from "@inertiajs/inertia-vue";
-import { trans } from "matice"
+import { trans } from "matice";
+
+import Trumbowyg from 'vue-trumbowyg';
+import 'trumbowyg/dist/ui/trumbowyg.css';
 
 export default {
   components: {
     Head,
+    Trumbowyg
   },
   props: {
     stamp_icons: Array,
