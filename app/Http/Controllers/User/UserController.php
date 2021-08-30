@@ -129,10 +129,6 @@ class UserController extends Controller {
 		]);
 	}
 
-	public function push() {
-		return Inertia::render('User/Push');
-	}
-
 	public function add_usercard($id) {
 		Cookie::queue('card_id', $id, 200000);
 		return redirect(route('user.index'));

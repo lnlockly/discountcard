@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Client\PushController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(
@@ -19,10 +20,13 @@ Route::group(
 			->name('card_info');
 		Route::get('/profile', [UserController::class, 'profile'])
 			->name('profile');
+		Route::get('/push', [PushController::class, 'index'])
+			->name('push');
+		Route::post('/push/store', [PushController::class, 'store'])
+			->name('push.store');
 		Route::get('/{about}', [UserController::class, 'about'])
 			->name('about');
-		Route::get('/push', [UserController::class, 'push'])
-			->name('push');
+
 	}
 );
 Route::get('/add_usercard/{id}', [UserController::class, 'add_usercard'])

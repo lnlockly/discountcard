@@ -5,10 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>stemplen</title>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b0321a5a-3fb1-47b7-b434-11c09f921978" data-blockingmode="auto" type="text/javascript"></script>
-    <script src="{{ asset('/js/app.js') }}" defer></script>
-    <script src="{{ asset('/js/card.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="{{ asset('css/user/app.css') }}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png') }}">
@@ -28,6 +24,22 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
+       <!-- Scripts -->
+    <script src="{{ asset('js/enable-push.js') }}" defer></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b0321a5a-3fb1-47b7-b434-11c09f921978" data-blockingmode="auto" type="text/javascript"></script>
+    <script src="{{ asset('/js/app.js') }}" defer></script>
+    <script src="{{ asset('/js/card.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script>
+        window.Laravel = {!! json_encode([
+            'user' => Auth::user(),
+            'vapidPublicKey' => config('webpush.vapid.public_key'),
+            'pusher' => [
+                'key' => config('broadcasting.connections.pusher.key'),
+                'cluster' => config('broadcasting.connections.pusher.options.cluster'),
+            ],
+        ]) !!};
+    </script>
 </head>
 
 <body>
