@@ -87,6 +87,7 @@ class UserController extends Controller {
 				Stamp::create([
 					'user_id' => $user->id,
 					'manager_id' => $manager->id,
+					'client_id' => $client->id,
 					'card_id' => $card_id,
 				]);
 

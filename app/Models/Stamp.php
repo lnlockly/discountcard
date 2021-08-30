@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stamp extends Model {
 	use HasFactory;
 
-	protected $fillable = ['user_id', 'manager_id', 'card_id'];
+	protected $fillable = ['user_id', 'manager_id', 'card_id', 'client_id'];
 	
 	public function manager() {
 		return $this->belongsTo(Manager::class);
