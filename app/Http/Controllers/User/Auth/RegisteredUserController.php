@@ -41,7 +41,6 @@ class RegisteredUserController extends Controller {
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
 			'webpush' => false,
-			'card_id' => $card->id,
 		]);
 
 		event(new Registered($user));
